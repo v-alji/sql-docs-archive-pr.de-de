@@ -1,0 +1,60 @@
+---
+title: Transformation für Prozentwert-Stichproben | Microsoft-Dokumentation
+ms.custom: ''
+ms.date: 03/06/2017
+ms.prod: sql-server-2014
+ms.reviewer: ''
+ms.technology: integration-services
+ms.topic: conceptual
+f1_keywords:
+- sql12.dts.designer.percentagesamplingtrans.f1
+helpviewer_keywords:
+- testing mining models
+- sampling seeds [Integration Services]
+- data mining [Analysis Services], sample data sets
+- Percentage Sampling transformation
+- sample data sets [Integration Services]
+- datasets [Integration Services], sample
+- training mining models
+ms.assetid: 59767e52-f732-4b3f-8602-be50d0a64ef2
+author: chugugrace
+ms.author: chugu
+ms.openlocfilehash: e5fe41ecf4a2ca0f9d20eec2c8e10af8ed4cd47b
+ms.sourcegitcommit: ad4d92dce894592a259721a1571b1d8736abacdb
+ms.translationtype: MT
+ms.contentlocale: de-DE
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87727102"
+---
+# <a name="percentage-sampling-transformation"></a><span data-ttu-id="67f69-102">Transformation für Prozentwert-Stichproben</span><span class="sxs-lookup"><span data-stu-id="67f69-102">Percentage Sampling Transformation</span></span>
+  <span data-ttu-id="67f69-103">Die Transformation für Prozentwert-Stichproben erstellt ein Stichprobendataset, indem ein Prozentwert der Transformationseingabezeilen ausgewählt wird.</span><span class="sxs-lookup"><span data-stu-id="67f69-103">The Percentage Sampling transformation creates a sample data set by selecting a percentage of the transformation input rows.</span></span> <span data-ttu-id="67f69-104">Das Stichprobendataset ist eine zufällige Auswahl von Zeilen aus der Transformationseingabe, damit die Stichprobe für die Eingabe repräsentativ ist.</span><span class="sxs-lookup"><span data-stu-id="67f69-104">The sample data set is a random selection of rows from the transformation input, to make the resultant sample representative of the input.</span></span>  
+  
+> [!NOTE]  
+>  <span data-ttu-id="67f69-105">Neben dem angegeben Prozentwert verwendet die Transformation für Prozentwert-Stichproben einen Algorithmus, um zu ermitteln, ob eine Zeile in die Stichprobenausgabe eingeschlossen werden soll.</span><span class="sxs-lookup"><span data-stu-id="67f69-105">In addition to the specified percentage, the Percentage Sampling transformation uses an algorithm to determine whether a row should be included in the sample output.</span></span> <span data-ttu-id="67f69-106">Dies bedeutet, dass die Anzahl von Zeilen in der Stichprobenausgabe möglicherweise nicht genau den angegebenen Prozentwert widerspiegelt.</span><span class="sxs-lookup"><span data-stu-id="67f69-106">This means that the number of rows in the sample output may not exactly reflect the specified percentage.</span></span> <span data-ttu-id="67f69-107">Wenn Sie z. B. 10 % für ein Eingabedataset mit 25.000 Zeilen angeben, kann es sein, dass keine Stichprobe mit 2.500 Zeilen generiert wird. Die Stichprobe hat möglicherweise ein paar mehr oder weniger Zeilen.</span><span class="sxs-lookup"><span data-stu-id="67f69-107">For example, specifying 10 percent for an input data set that has 25,000 rows may not generate a sample with 2,500 rows; the sample may have a few more or a few less rows.</span></span>  
+  
+ <span data-ttu-id="67f69-108">Die Transformation für Prozentwert-Stichproben ist besonders für das Data Mining hilfreich.</span><span class="sxs-lookup"><span data-stu-id="67f69-108">The Percentage Sampling transformation is especially useful for data mining.</span></span> <span data-ttu-id="67f69-109">Mit dieser Transformation können Sie ein Dataset nach dem Zufallsprinzip in zwei Datasets aufteilen: eines zum Trainieren des Data Mining-Modells und ein anderes zum Testen des Modells.</span><span class="sxs-lookup"><span data-stu-id="67f69-109">By using this transformation, you can randomly divide a data set into two data sets: one for training the data mining model, and one for testing the model.</span></span>  
+  
+ <span data-ttu-id="67f69-110">Die Transformation für Prozentwert-Stichproben ist außerdem zum Erstellen von Stichprobendatasets für die Paketentwicklung hilfreich.</span><span class="sxs-lookup"><span data-stu-id="67f69-110">The Percentage Sampling transformation is also useful for creating sample data sets for package development.</span></span> <span data-ttu-id="67f69-111">Wenn Sie die Transformation für Prozentwert-Stichproben auf einen Datenfluss anwenden, können Sie die Größe des Datasets gleichmäßig reduzieren und zugleich die Datenmerkmale beibehalten.</span><span class="sxs-lookup"><span data-stu-id="67f69-111">By applying the Percentage Sampling transformation to a data flow, you can uniformly reduce the size of the data set while preserving its data characteristics.</span></span> <span data-ttu-id="67f69-112">Das Testpaket kann dann schneller ausgeführt werden, weil ein kleines, aber repräsentatives Dataset verwendet wird.</span><span class="sxs-lookup"><span data-stu-id="67f69-112">The test package can then run more quickly because it uses a small, but representative, data set.</span></span>  
+  
+## <a name="configuration-the-percentage-sampling-transformation"></a><span data-ttu-id="67f69-113">Konfiguration der Transformation für Prozentwert-Stichproben</span><span class="sxs-lookup"><span data-stu-id="67f69-113">Configuration the Percentage Sampling Transformation</span></span>  
+ <span data-ttu-id="67f69-114">Sie können einen Stichproben-Ausgangswert angeben, um das Verhalten des Zufallszahlen-Generators zu ändern, mit dem die Transformation Zeilen auswählt.</span><span class="sxs-lookup"><span data-stu-id="67f69-114">You can specify a sampling seed to modify the behavior of the random number generator that the transformation uses to select rows.</span></span> <span data-ttu-id="67f69-115">Wenn der gleiche Stichproben-Ausgangswert verwendet wird, erstellt die Transformation immer die gleiche Stichprobenausgabe.</span><span class="sxs-lookup"><span data-stu-id="67f69-115">If the same sampling seed is used, the transformation always creates the same sample output.</span></span> <span data-ttu-id="67f69-116">Wenn kein Ausgangswert angegeben ist, erstellt die Transformation die Zufallszahl mithilfe der Taktanzahl des Betriebssystems.</span><span class="sxs-lookup"><span data-stu-id="67f69-116">If no seed is specified, the transformation uses the tick count of the operating system to create the random number.</span></span> <span data-ttu-id="67f69-117">Deshalb sollten Sie einen Standardausgangswert wählen, wenn Sie die Transformationsergebnisse beim Entwickeln und Testen eines Pakets überprüfen möchten. Anschließend verwenden Sie dann einen zufälligen Ausgangswert, wenn das Paket auf den Produktionsserver verschoben wird.</span><span class="sxs-lookup"><span data-stu-id="67f69-117">Therefore, you might choose to use a standard seed when you want to verify the transformation results during the development and testing of a package, and then change to use a random seed when the package is moved into production.</span></span>  
+  
+ <span data-ttu-id="67f69-118">Diese Transformation ist mit der Transformation für Zeilenstichproben vergleichbar, die ein Stichprobendataset erstellt, indem eine angegebene Anzahl von Eingabezeilen ausgewählt wird.</span><span class="sxs-lookup"><span data-stu-id="67f69-118">This transformation is similar to the Row Sampling transformation, which creates a sample data set by selecting a specified number of the input rows.</span></span> <span data-ttu-id="67f69-119">Weitere Informationen finden Sie unter [Row Sampling Transformation](row-sampling-transformation.md).</span><span class="sxs-lookup"><span data-stu-id="67f69-119">For more information, see [Row Sampling Transformation](row-sampling-transformation.md).</span></span>  
+  
+ <span data-ttu-id="67f69-120">Die Transformation für Prozentwert-Stichproben schließt die benutzerdefinierte Eigenschaft `SamplingValue` ein.</span><span class="sxs-lookup"><span data-stu-id="67f69-120">The Percentage Sampling transformation includes the `SamplingValue` custom property.</span></span> <span data-ttu-id="67f69-121">Diese Eigenschaft kann beim Laden des Pakets mithilfe eines Eigenschaftsausdrucks aktualisiert werden.</span><span class="sxs-lookup"><span data-stu-id="67f69-121">This property can be updated by a property expression when the package is loaded.</span></span> <span data-ttu-id="67f69-122">Weitere Informationen finden Sie unter [Integration Services-Ausdrücke &#40;SSIS&#41;](../../expressions/integration-services-ssis-expressions.md), [Verwenden von Eigenschaftsausdrücken in Paketen](../../expressions/use-property-expressions-in-packages.md) und [Benutzerdefinierte Eigenschaften von Transformationen](transformation-custom-properties.md).</span><span class="sxs-lookup"><span data-stu-id="67f69-122">For more information, see [Integration Services &#40;SSIS&#41; Expressions](../../expressions/integration-services-ssis-expressions.md), [Use Property Expressions in Packages](../../expressions/use-property-expressions-in-packages.md), and [Transformation Custom Properties](transformation-custom-properties.md).</span></span>  
+  
+ <span data-ttu-id="67f69-123">Diese Transformation weist eine Eingabe und zwei Ausgaben auf.</span><span class="sxs-lookup"><span data-stu-id="67f69-123">The transformation has one input and two outputs.</span></span> <span data-ttu-id="67f69-124">Eine Fehlerausgabe wird nicht unterstützt.</span><span class="sxs-lookup"><span data-stu-id="67f69-124">It does not support an error output.</span></span>  
+  
+ <span data-ttu-id="67f69-125">Sie können Eigenschaften mit dem [!INCLUDE[ssIS](../../../includes/ssis-md.md)] -Designer oder programmgesteuert festlegen.</span><span class="sxs-lookup"><span data-stu-id="67f69-125">You can set properties through [!INCLUDE[ssIS](../../../includes/ssis-md.md)] Designer or programmatically.</span></span>  
+  
+ <span data-ttu-id="67f69-126">Weitere Informationen zu den Eigenschaften, die Sie im Dialogfeld **Transformations-Editor für Prozentwertstichprobe** festlegen können, finden Sie unter [Percentage Sampling Transformation Editor](../../percentage-sampling-transformation-editor.md).</span><span class="sxs-lookup"><span data-stu-id="67f69-126">For more information about the properties that you can set in the **Percentage Sampling Transformation Editor** dialog box, see [Percentage Sampling Transformation Editor](../../percentage-sampling-transformation-editor.md).</span></span>  
+  
+ <span data-ttu-id="67f69-127">Das Dialogfeld **Erweiterter Editor** enthält die Eigenschaften, die programmgesteuert festgelegt werden können.</span><span class="sxs-lookup"><span data-stu-id="67f69-127">The **Advanced Editor** dialog box reflects the properties that can be set programmatically.</span></span> <span data-ttu-id="67f69-128">Klicken Sie auf eines der folgenden Themen, um weitere Informationen zu den Eigenschaften zu erhalten, die Sie im Dialogfeld **Erweiterter Editor** oder programmgesteuert festlegen können:</span><span class="sxs-lookup"><span data-stu-id="67f69-128">For more information about the properties that you can set in the **Advanced Editor** dialog box or programmatically, click one of the following topics:</span></span>  
+  
+-   [<span data-ttu-id="67f69-129">Common Properties</span><span class="sxs-lookup"><span data-stu-id="67f69-129">Common Properties</span></span>](../../common-properties.md)  
+  
+-   [<span data-ttu-id="67f69-130">Benutzerdefinierte Eigenschaften von Transformationen</span><span class="sxs-lookup"><span data-stu-id="67f69-130">Transformation Custom Properties</span></span>](transformation-custom-properties.md)  
+  
+ <span data-ttu-id="67f69-131">Weitere Informationen zum Festlegen der Eigenschaften finden Sie unter [Festlegen der Eigenschaften einer Datenflusskomponente](../set-the-properties-of-a-data-flow-component.md).</span><span class="sxs-lookup"><span data-stu-id="67f69-131">For more information about how to set properties, see [Set the Properties of a Data Flow Component](../set-the-properties-of-a-data-flow-component.md).</span></span>  
+  
+  
