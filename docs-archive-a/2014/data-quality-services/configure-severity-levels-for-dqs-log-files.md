@@ -1,0 +1,93 @@
+---
+title: Konfigurieren von Schweregraden für DQS-Protokolldateien | Microsoft-Dokumentation
+ms.custom: ''
+ms.date: 06/13/2017
+ms.prod: sql-server-2014
+ms.reviewer: ''
+ms.technology: data-quality-services
+ms.topic: conceptual
+f1_keywords:
+- sql12.dqs.admin.config.log.f1
+helpviewer_keywords:
+- severity levels
+- log files,severity levels
+- dqs log files,severity levels
+- logging,severity levels
+- configure severity levels
+ms.assetid: 66ffcdec-4bf7-4dd5-a221-fd9baefeeef4
+author: lrtoyou1223
+ms.author: lle
+ms.openlocfilehash: 46fb9de1fbe1e3e59b20bb2ac7afeebe19ba2da5
+ms.sourcegitcommit: ad4d92dce894592a259721a1571b1d8736abacdb
+ms.translationtype: MT
+ms.contentlocale: de-DE
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87696090"
+---
+# <a name="configure-severity-levels-for-dqs-log-files"></a><span data-ttu-id="f7484-102">Konfigurieren von Schweregraden für DQS-Protokolldateien</span><span class="sxs-lookup"><span data-stu-id="f7484-102">Configure Severity Levels for DQS Log Files</span></span>
+  <span data-ttu-id="f7484-103">In diesem Thema wird beschrieben, wie Schweregrade für verschiedene Aktivitäten und Module in [!INCLUDE[ssDQSnoversion](../includes/ssdqsnoversion-md.md)] (DQS) mit [!INCLUDE[ssDQSClient](../includes/ssdqsclient-md.md)]konfiguriert werden.</span><span class="sxs-lookup"><span data-stu-id="f7484-103">This topic describes how to configure severity levels for various activities and modules in [!INCLUDE[ssDQSnoversion](../includes/ssdqsnoversion-md.md)] (DQS) by using [!INCLUDE[ssDQSClient](../includes/ssdqsclient-md.md)].</span></span> <span data-ttu-id="f7484-104">Schweregrade definieren die Intensität von Ereignissen, die in DQS auftreten.</span><span class="sxs-lookup"><span data-stu-id="f7484-104">Severity levels define the intensity of events that occur in DQS.</span></span> <span data-ttu-id="f7484-105">DQS-Ereignisse verfügen über die folgenden Schweregrade, angefangen mit dem höchsten Schweregrad:</span><span class="sxs-lookup"><span data-stu-id="f7484-105">DQS events have the following severity levels, in the decreasing order of severity:</span></span>  
+  
+-   <span data-ttu-id="f7484-106">**Schwerwiegend**: Kritische Laufzeitfehler, die schwerwiegende/unerwartete Ergebnisse verursachen können.</span><span class="sxs-lookup"><span data-stu-id="f7484-106">**Fatal**: Critical runtime errors that might cause severe/unexpected results.</span></span>  
+  
+-   <span data-ttu-id="f7484-107">**Fehler**: Andere Laufzeitfehler.</span><span class="sxs-lookup"><span data-stu-id="f7484-107">**Error**: Other runtime errors.</span></span>  
+  
+-   <span data-ttu-id="f7484-108">**Warnen**: Warnung vor Ereignissen, die zu einem Fehler führen können.</span><span class="sxs-lookup"><span data-stu-id="f7484-108">**Warn**: Warning about events that might result in an error.</span></span>  
+  
+-   <span data-ttu-id="f7484-109">**Info**: Informationen zu allgemeinen Ereignissen, die weder ein Fehler noch eine Warnung sind.</span><span class="sxs-lookup"><span data-stu-id="f7484-109">**Info**: Information about general events that is not an error or a warning.</span></span> <span data-ttu-id="f7484-110">Beispiel: Ein DQS-Prozess wurde gestartet.</span><span class="sxs-lookup"><span data-stu-id="f7484-110">For example, a DQS process has started.</span></span>  
+  
+-   <span data-ttu-id="f7484-111">**Debuggen**: Detaillierte (ausführliche) Informationen zum Ereignis.</span><span class="sxs-lookup"><span data-stu-id="f7484-111">**Debug**: Detailed (verbose) information about the event.</span></span>  
+  
+ <span data-ttu-id="f7484-112">Indem Sie Schweregrade für verschiedene DQS-Aktivitäten und -Module konfigurieren, filtern Sie die Informationen, die protokolliert und in die DQS-Protokolldatei für die entsprechende DQS-Aktivität oder das entsprechende DQS-Modul geschrieben werden sollen.</span><span class="sxs-lookup"><span data-stu-id="f7484-112">By configuring severity levels for various DQS activities and modules, you are filtering the information that you want to be logged, and written to the DQS log file for the respective DQS activity or module.</span></span> <span data-ttu-id="f7484-113">Wenn Sie z. B. den Schweregrad einer DQS-Aktivität auf **Warnen**festlegen, werden nur Warnungen und Meldungen mit einem höheren Schweregrad ("Fehler" und "Schwerwiegend") der DQS-Aktivität zugeordnet und protokolliert.</span><span class="sxs-lookup"><span data-stu-id="f7484-113">For example, if you set the severity level of a DQS activity to **Warn**, only warning and higher severity messages (Error and Fatal) associated with the DQS activity will be logged.</span></span>  
+  
+##  <a name="before-you-begin"></a><a name="BeforeYouBegin"></a> <span data-ttu-id="f7484-114">Vorbereitungen</span><span class="sxs-lookup"><span data-stu-id="f7484-114">Before You Begin</span></span>  
+  
+###  <a name="security"></a><a name="Security"></a> <span data-ttu-id="f7484-115">Sicherheit</span><span class="sxs-lookup"><span data-stu-id="f7484-115">Security</span></span>  
+  
+####  <a name="permissions"></a><a name="Permissions"></a> <span data-ttu-id="f7484-116">Berechtigungen</span><span class="sxs-lookup"><span data-stu-id="f7484-116">Permissions</span></span>  
+ <span data-ttu-id="f7484-117">Sie müssen über die dqs_administrator-Rolle in der DQS_MAIN-Datenbank verfügen, um die Einstellungen für Protokollschweregrade zu konfigurieren.</span><span class="sxs-lookup"><span data-stu-id="f7484-117">You must have the dqs_administrator role on the DQS_MAIN database to configure log severity settings.</span></span>  
+  
+##  <a name="configure-severity-levels-at-activity-level"></a><a name="ConfigureActivity"></a><span data-ttu-id="f7484-118">Konfigurieren von Schweregraden auf Aktivitäts Ebene</span><span class="sxs-lookup"><span data-stu-id="f7484-118">Configure Severity Levels at Activity Level</span></span>  
+ <span data-ttu-id="f7484-119">Sie können die Einstellungen für Protokollschweregrade für die folgenden Aktivitäten in DQS konfigurieren: Domänenverwaltung, Wissensermittlung, Abgleichsrichtlinien, Datenbereinigung, Datenabgleich und Verweisdatendienste.</span><span class="sxs-lookup"><span data-stu-id="f7484-119">You can configure log severity settings for the following activities in DQS: domain management, knowledge discovery, matching policy, data cleansing, data matching, and reference data services.</span></span> <span data-ttu-id="f7484-120">Gehen Sie hierzu wie folgt vor:</span><span class="sxs-lookup"><span data-stu-id="f7484-120">To do so:</span></span>  
+  
+1.  [!INCLUDE[ssDQSInitialStep](../includes/ssdqsinitialstep-md.md)]<span data-ttu-id="f7484-121">[Führen Sie die Data Quality-Client Anwendung](../../2014/data-quality-services/run-the-data-quality-client-application.md)aus.</span><span class="sxs-lookup"><span data-stu-id="f7484-121">[Run the Data Quality Client Application](../../2014/data-quality-services/run-the-data-quality-client-application.md).</span></span>  
+  
+2.  <span data-ttu-id="f7484-122">Klicken Sie im [!INCLUDE[ssDQSClient](../includes/ssdqsclient-md.md)] -Startbildschirm auf **Konfiguration**.</span><span class="sxs-lookup"><span data-stu-id="f7484-122">In the [!INCLUDE[ssDQSClient](../includes/ssdqsclient-md.md)] home screen, click **Configuration**.</span></span>  
+  
+3.  <span data-ttu-id="f7484-123">Klicken Sie anschließend auf die Registerkarte **Protokoll Einstellungen** . Die folgenden DQS-Aktivitäten werden aufgelistet, für die Sie einen Schweregrad auswählen können: **Domänen Verwaltung**, **Wissens**Ermittlung, Bereinigungs **Projekt (ex. RDS)**, abgleichsrichtlinie und abgleichsprojekt und **RDS**. **Matching Policy and Matching Project**</span><span class="sxs-lookup"><span data-stu-id="f7484-123">Next, click the **Log Settings** tab. The following DQS activities are listed for which you can select a severity level: **Domain Management**, **Knowledge Discovery**, **Cleansing Project (Ex. RDS)**, **Matching Policy and Matching Project**, and **RDS**.</span></span>  
+  
+4.  <span data-ttu-id="f7484-124">Wählen Sie für eine DQS-Aktivität den Schweregrad für die Protokollierung aus.</span><span class="sxs-lookup"><span data-stu-id="f7484-124">For a DQS activity, select the severity level that you want to be logged.</span></span> <span data-ttu-id="f7484-125">Die folgenden Optionen stehen zur Auswahl: **Schwerwiegend**, **Fehler**, **Warnen**, **Info**und **Debuggen**.</span><span class="sxs-lookup"><span data-stu-id="f7484-125">You can select one among the following: **Fatal**, **Error**, **Warn**, **Info**, and **Debug**.</span></span> <span data-ttu-id="f7484-126">Wenn z. B. nur schwerwiegende Meldungen in die DQS-Protokolldateien für die Wissensermittlungsaktivität geschrieben werden sollen, wählen Sie für die Aktivität **Wissensermittlung** in der Dropdownliste die Option **Schwerwiegend** aus.</span><span class="sxs-lookup"><span data-stu-id="f7484-126">For example, if you want only fatal messages to be written to the DQS log files for the knowledge discovery activity, select **Fatal** in the drop-down list against the **Knowledge Discovery** activity.</span></span>  
+  
+    > [!NOTE]  
+    >  <span data-ttu-id="f7484-127">Standardmäßig ist **Fehler** für jede Aktivität ausgewählt.</span><span class="sxs-lookup"><span data-stu-id="f7484-127">By default, **Error** is selected for each of the activities.</span></span> <span data-ttu-id="f7484-128">Diese Einstellung bedeutet, dass für jede Aktivität standardmäßig Fehler und schwerwiegende Meldungen in die DQS-Protokolldateien geschrieben werden.</span><span class="sxs-lookup"><span data-stu-id="f7484-128">This implies that error and fatal messages will be written to the DQS log files for each activity, by default.</span></span>  
+  
+5.  <span data-ttu-id="f7484-129">Klicken Sie auf **Schließen**.</span><span class="sxs-lookup"><span data-stu-id="f7484-129">Click **Close**.</span></span>  
+  
+##  <a name="configure-severity-levels-at-module-level-advanced"></a><a name="ConfigureModule"></a><span data-ttu-id="f7484-130">Konfigurieren von Schweregraden auf Modulebene (erweitert)</span><span class="sxs-lookup"><span data-stu-id="f7484-130">Configure Severity Levels at Module Level (Advanced)</span></span>  
+ <span data-ttu-id="f7484-131">Im Abschnitt **Erweitert** auf der Registerkarte **Protokolleinstellungen** können Sie die Einstellungen für Protokollschweregrade auf Modulebene konfigurieren.</span><span class="sxs-lookup"><span data-stu-id="f7484-131">The **Advanced** section in the **Log Settings** tab enables you to configure log severity settings at a module level.</span></span> <span data-ttu-id="f7484-132">Module sind DQS-Systemassemblys, die verschiedene Funktionen innerhalb einer Funktion in DQS implementieren.</span><span class="sxs-lookup"><span data-stu-id="f7484-132">Modules are DQS system assemblies that implement various functionalities within a feature in DQS.</span></span> <span data-ttu-id="f7484-133">Die Domänenverwaltungsaktivität enthält z. B. verschiedene Funktionen, wie z. B. das Definieren von Domänenregeln, Regelbedingungen, domänenübergreifenden Regeln für Verbunddomänen usw.</span><span class="sxs-lookup"><span data-stu-id="f7484-133">For example, the domain management activity contains various functionalities such as defining domain rules, defining rule conditions, defining cross-domain rules for composite domains, and so on.</span></span>  
+  
+ <span data-ttu-id="f7484-134">In einigen Fällen ist die Granularitätsebene auf Aktivitätsebene nicht ausreichend.</span><span class="sxs-lookup"><span data-stu-id="f7484-134">At times, the granularity level at the activity level is not sufficient.</span></span> <span data-ttu-id="f7484-135">Angenommen, Sie möchten ein Problem untersuchen, das in einem bestimmten Modul innerhalb einer Aktivität auftritt.</span><span class="sxs-lookup"><span data-stu-id="f7484-135">You might want to investigate an issue that is occurring in a particular module within an activity.</span></span> <span data-ttu-id="f7484-136">In dem Fall ist eine Option hilfreich, mit der Protokollschweregrade auf Modulebene konfiguriert werden können, um das Problem zu isolieren und genauer nachzuverfolgen.</span><span class="sxs-lookup"><span data-stu-id="f7484-136">It helps to have an option to configure log severities at the module level to isolate and track the issue more precisely.</span></span>  
+  
+ <span data-ttu-id="f7484-137">Die auf Aktivitätsebene festgelegte Einstellung für den Protokollschweregrad bestimmt die Einstellung für den Protokollschweregrad aller Module, aus denen sich die Aktivität zusammensetzt.</span><span class="sxs-lookup"><span data-stu-id="f7484-137">The log severity setting specified at the activity level determines the log severity setting of all the modules that constitute the activity.</span></span> <span data-ttu-id="f7484-138">Wenn jedoch ein Konflikt zwischen den Einstellungen für den Protokollschweregrad auf Aktivitäts- und Modulebene besteht, werden die Schweregradeinstellungen auf Modulebene verwendet.</span><span class="sxs-lookup"><span data-stu-id="f7484-138">However, if there is any conflict between the log severity settings at the activity and module levels, the severity settings at the module level are considered.</span></span>  
+  
+> [!NOTE]
+>  -   <span data-ttu-id="f7484-139">Das Modul **Microsoft.Ssdqs.Core.Startup** ist im Bereich **Erweitert** standardmäßig mit dem Schweregrad **Info**vorkonfiguriert.</span><span class="sxs-lookup"><span data-stu-id="f7484-139">By default, the **Microsoft.Ssdqs.Core.Startup** module is preconfigured in the **Advanced** section with the severity level set as **Info**.</span></span> <span data-ttu-id="f7484-140">Diese Einstellung wurde gewählt, um die Protokollierung von Ereignissen mit dem Schweregrad Info und höher (Warnen, Fehler und Schwerwiegend) zu ermöglichen, die mit dem Starten und Beenden von DQS-Diensten in Verbindung stehen.</span><span class="sxs-lookup"><span data-stu-id="f7484-140">This is done to enable logging of events of severity Info and higher (Warn, Error, and Fatal) that are related to starting and stopping of DQS services.</span></span>  
+> -   <span data-ttu-id="f7484-141">Sie sollten Protokollschweregrade nur auf Modulebene konfigurieren, wenn Sie über fortgeschrittene Kenntnisse zu DQS verfügen und mit DQS-Systemassemblys vertraut sind.</span><span class="sxs-lookup"><span data-stu-id="f7484-141">You should configure log severity levels at the module level only if you are an advanced DQS user who is familiar with the DQS system assemblies.</span></span>  
+  
+ <span data-ttu-id="f7484-142">So konfigurieren Sie Schweregrade auf Modulebene:</span><span class="sxs-lookup"><span data-stu-id="f7484-142">To configure log severity levels at the module level:</span></span>  
+  
+1.  <span data-ttu-id="f7484-143">Klicken Sie auf der Registerkarte **Protokolleinstellungen** auf den Pfeil nach unten neben **Erweitert** , um den Bereich anzuzeigen.</span><span class="sxs-lookup"><span data-stu-id="f7484-143">In the **Log Settings** tab, click the down arrow against **Advanced** to display the area.</span></span>  
+  
+2.  <span data-ttu-id="f7484-144">Wählen Sie im angezeigten Raster aus der Dropdownliste in der Spalte **Modul** einen Modulnamen aus.</span><span class="sxs-lookup"><span data-stu-id="f7484-144">In the grid that appears, select a module name from the drop-down list in the **Module** column.</span></span>  
+  
+3.  <span data-ttu-id="f7484-145">Wählen Sie als Nächstes aus der Dropdownliste in der Spalte **Schweregrad** einen Schweregrad für das Modul aus.</span><span class="sxs-lookup"><span data-stu-id="f7484-145">Next, select a severity level for the module from the drop-down list in the **Severity** column.</span></span> <span data-ttu-id="f7484-146">Die folgenden Optionen stehen zur Auswahl: **Schwerwiegend**, **Fehler**, **Warnen**, **Info**und **Debuggen**.</span><span class="sxs-lookup"><span data-stu-id="f7484-146">You can select one among the following: **Fatal**, **Error**, **Warn**, **Info**, and **Debug**.</span></span>  
+  
+     <span data-ttu-id="f7484-147">Sie können z. B. in der Domänenverwaltungsaktivität für die Funktionalitäten der Domänenregeldefinition eine Granularitätsebene festlegen, die sich von der Einstellung für die Domänenverwaltungsaktivität unterscheidet, indem Sie das Modul **Microsoft.Ssdqs.DomainRules.Define** auswählen und einen anderen Protokollschweregrad auswählen.</span><span class="sxs-lookup"><span data-stu-id="f7484-147">For example, within the domain management activity, you can set a different granularity level for the domain rule definition functionality than the domain management activity by selecting the **Microsoft.Ssdqs.DomainRules.Define** module, and selecting a different log severity level.</span></span> <span data-ttu-id="f7484-148">Dementsprechend können Sie eine andere Granularitätsebene für die Funktionalität der domänenübergreifenden Regel festlegen, indem Sie das Modul **Microsoft.Ssdqs.DomainRules.Condition.CrossDomain** auswählen und einen anderen Protokollschweregrad auswählen.</span><span class="sxs-lookup"><span data-stu-id="f7484-148">Similarly, you can set a different granularity level for the cross-domain rule functionality by selecting the **Microsoft.Ssdqs.DomainRules.Condition.CrossDomain** module, and selecting a different log severity level.</span></span>  
+  
+4.  <span data-ttu-id="f7484-149">Wiederholen Sie ggf. Schritt 2 und 3 für die anderen Module.</span><span class="sxs-lookup"><span data-stu-id="f7484-149">Repeat steps 2 and 3 for other modules, if required.</span></span> <span data-ttu-id="f7484-150">Sie können außerdem Zeilen im Raster hinzufügen oder löschen, indem Sie auf das Symbol **Modul hinzufügen** bzw. **Modul entfernen** klicken.</span><span class="sxs-lookup"><span data-stu-id="f7484-150">You can also add or delete rows to the grid by clicking the **Add Module** and **Remove Module** icons.</span></span>  
+  
+5.  <span data-ttu-id="f7484-151">Klicken Sie auf **Schließen**.</span><span class="sxs-lookup"><span data-stu-id="f7484-151">Click **Close**.</span></span>  
+  
+## <a name="see-also"></a><span data-ttu-id="f7484-152">Weitere Informationen</span><span class="sxs-lookup"><span data-stu-id="f7484-152">See Also</span></span>  
+ [<span data-ttu-id="f7484-153">Konfigurieren der erweiterten Einstellungen für DQS-Protokolldateien</span><span class="sxs-lookup"><span data-stu-id="f7484-153">Configure Advanced Settings for DQS Log Files</span></span>](../../2014/data-quality-services/configure-advanced-settings-for-dqs-log-files.md)  
+  
+  
