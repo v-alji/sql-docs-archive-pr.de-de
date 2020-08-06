@@ -1,0 +1,42 @@
+---
+title: Aktualisieren von Zellen (XMLA) | Microsoft-Dokumentation
+ms.custom: ''
+ms.date: 04/27/2017
+ms.prod: sql-server-2014
+ms.reviewer: ''
+ms.technology: analysis-services
+ms.topic: reference
+helpviewer_keywords:
+- modifying cells
+- XMLA, cells
+- updating cells
+- cells [Analysis Services]
+- XML for Analysis, cells
+ms.assetid: a1c61496-36ee-4bce-98d9-d13440d349aa
+author: minewiskan
+ms.author: owend
+ms.openlocfilehash: 2c3d9a7c27533666c75102d9eac3b8311bfe4af6
+ms.sourcegitcommit: ad4d92dce894592a259721a1571b1d8736abacdb
+ms.translationtype: MT
+ms.contentlocale: de-DE
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87723193"
+---
+# <a name="updating-cells-xmla"></a><span data-ttu-id="6a9bd-102">Aktualisieren von Zellen (XMLA)</span><span class="sxs-lookup"><span data-stu-id="6a9bd-102">Updating Cells (XMLA)</span></span>
+  <span data-ttu-id="6a9bd-103">Sie können den [UpdateCells](https://docs.microsoft.com/bi-reference/xmla/xml-elements-commands/updatecells-element-xmla) -Befehl verwenden, um den Wert einer oder mehrerer Zellen in einem Cube zu ändern, der für das Cuberückschreiben aktiviert ist.</span><span class="sxs-lookup"><span data-stu-id="6a9bd-103">You can use the [UpdateCells](https://docs.microsoft.com/bi-reference/xmla/xml-elements-commands/updatecells-element-xmla) command to change the value of one or more cells in a cube enabled for cube writeback.</span></span> [!INCLUDE[msCoName](../../includes/msconame-md.md)]<span data-ttu-id="6a9bd-104">[!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] [!INCLUDE[ssASnoversion](../../includes/ssasnoversion-md.md)] speichert die aktualisierten Informationen in einer separaten Rück schreibe Tabelle für jede Partition, die zu Aktualisier Ende Zellen enthält.</span><span class="sxs-lookup"><span data-stu-id="6a9bd-104">[!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] [!INCLUDE[ssASnoversion](../../includes/ssasnoversion-md.md)] stores the updated information in a separate writeback table for each partition that contains cells to be updated.</span></span>  
+  
+> [!NOTE]  
+>  <span data-ttu-id="6a9bd-105">Der Befehl `UpdateCells` unterstützt während des Rückschreibens keine Zuordnungen.</span><span class="sxs-lookup"><span data-stu-id="6a9bd-105">The `UpdateCells` command does not support allocations during cube writeback.</span></span> <span data-ttu-id="6a9bd-106">Um das zugeordnete Rück schreiben zu verwenden, verwenden Sie den [Anweisungs](https://docs.microsoft.com/bi-reference/xmla/xml-elements-commands/statement-element-xmla) Befehl, um eine MDX-UPDATE Anweisung (Multidimensional Expressions) zu senden.</span><span class="sxs-lookup"><span data-stu-id="6a9bd-106">To use allocated writeback, you should use the [Statement](https://docs.microsoft.com/bi-reference/xmla/xml-elements-commands/statement-element-xmla) command to send a Multidimensional Expressions (MDX) UPDATE statement.</span></span> <span data-ttu-id="6a9bd-107">Weitere Informationen finden Sie unter [Update CUBE-Anweisung &#40;MDX-&#41;](/sql/mdx/mdx-data-manipulation-update-cube).</span><span class="sxs-lookup"><span data-stu-id="6a9bd-107">For more information, see [UPDATE CUBE Statement &#40;MDX&#41;](/sql/mdx/mdx-data-manipulation-update-cube).</span></span>  
+  
+## <a name="specifying-cells"></a><span data-ttu-id="6a9bd-108">Angeben von Zellen</span><span class="sxs-lookup"><span data-stu-id="6a9bd-108">Specifying Cells</span></span>  
+ <span data-ttu-id="6a9bd-109">Die [Cell](https://docs.microsoft.com/bi-reference/xmla/xml-elements-properties/cell-element-xmla) -Eigenschaft des `UpdateCells` Befehls enthält die zu aktualisierenden Zellen.</span><span class="sxs-lookup"><span data-stu-id="6a9bd-109">The [Cell](https://docs.microsoft.com/bi-reference/xmla/xml-elements-properties/cell-element-xmla) property of the `UpdateCells` command contains the cells to be updated.</span></span> <span data-ttu-id="6a9bd-110">Sie identifizieren jede Zelle in der Eigenschaft `Cell` mithilfe der Ordinalzahl dieser Zelle.</span><span class="sxs-lookup"><span data-stu-id="6a9bd-110">You identify each cell in the `Cell` property using that cell's ordinal number.</span></span> <span data-ttu-id="6a9bd-111">Konzeptionell [!INCLUDE[ssASnoversion](../../includes/ssasnoversion-md.md)] zählt Zellen in einem Cube so, als ob der Cube ein *p*-dimensionales Array wäre, wobei *p* für die Anzahl der Achsen steht.</span><span class="sxs-lookup"><span data-stu-id="6a9bd-111">Conceptually, [!INCLUDE[ssASnoversion](../../includes/ssasnoversion-md.md)] numbers cells in a cube as if the cube were a *p*-dimensional array, where *p* is the number of axes.</span></span> <span data-ttu-id="6a9bd-112">Die Zellen werden in zeilengerichteter Reihenfolge adressiert.</span><span class="sxs-lookup"><span data-stu-id="6a9bd-112">Cells are addressed in row-major order.</span></span> <span data-ttu-id="6a9bd-113">Die folgende Abbildung zeigt die Formel für die Berechnung der Ordinalzahl einer Zelle.</span><span class="sxs-lookup"><span data-stu-id="6a9bd-113">The following illustration shows the formula for calculating the ordinal number of a cell.</span></span>  
+  
+ <span data-ttu-id="6a9bd-114">![Formel zum Berechnen der Zellenordnungsposition](../../analysis-services/dev-guide/media/cellordinalformula.gif "Formel zum Berechnen der Zellenordnungsposition")</span><span class="sxs-lookup"><span data-stu-id="6a9bd-114">![Formula to calculate the cell ordinal position](../../analysis-services/dev-guide/media/cellordinalformula.gif "Formula to calculate the cell ordinal position")</span></span>  
+  
+ <span data-ttu-id="6a9bd-115">Nachdem Sie die Ordinalzahl einer Zelle kennen, können Sie den beabsichtigten Wert der Zelle in der [value](https://docs.microsoft.com/bi-reference/xmla/xml-elements-properties/value-element-xmla) -Eigenschaft der [Cell](https://docs.microsoft.com/bi-reference/xmla/xml-elements-properties/cell-element-xmla) -Eigenschaft angeben.</span><span class="sxs-lookup"><span data-stu-id="6a9bd-115">Once you know a cell's ordinal number, you can indicate the intended value of the cell in the [Value](https://docs.microsoft.com/bi-reference/xmla/xml-elements-properties/value-element-xmla) property of the [Cell](https://docs.microsoft.com/bi-reference/xmla/xml-elements-properties/cell-element-xmla) property.</span></span>  
+  
+## <a name="see-also"></a><span data-ttu-id="6a9bd-116">Weitere Informationen</span><span class="sxs-lookup"><span data-stu-id="6a9bd-116">See Also</span></span>  
+ <span data-ttu-id="6a9bd-117">[Element &#40;XMLA aktualisieren&#41;](https://docs.microsoft.com/bi-reference/xmla/xml-elements-commands/update-element-xmla) </span><span class="sxs-lookup"><span data-stu-id="6a9bd-117">[Update Element &#40;XMLA&#41;](https://docs.microsoft.com/bi-reference/xmla/xml-elements-commands/update-element-xmla) </span></span>  
+ [<span data-ttu-id="6a9bd-118">Entwickeln mit XMLA in Analysis Services</span><span class="sxs-lookup"><span data-stu-id="6a9bd-118">Developing with XMLA in Analysis Services</span></span>](../multidimensional-models-scripting-language-assl-xmla/developing-with-xmla-in-analysis-services.md)  
+  
+  
