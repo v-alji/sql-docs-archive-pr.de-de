@@ -1,0 +1,40 @@
+---
+title: Sitzungs Eigenschaften | Microsoft-Dokumentation
+ms.custom: ''
+ms.date: 06/13/2017
+ms.prod: sql-server-2014
+ms.reviewer: ''
+ms.technology: native-client
+ms.topic: reference
+helpviewer_keywords:
+- sessions [OLE DB]
+- SQL Server Native Client OLE DB provider, sessions
+ms.assetid: 2498fbad-b3db-4bea-8fc6-fef5317d3eba
+author: rothja
+ms.author: jroth
+ms.openlocfilehash: 99f2bc6def0f470f653446c87216c3e854b2f819
+ms.sourcegitcommit: ad4d92dce894592a259721a1571b1d8736abacdb
+ms.translationtype: MT
+ms.contentlocale: de-DE
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87609194"
+---
+# <a name="session-properties"></a><span data-ttu-id="42a8d-102">Sitzungseigenschaften</span><span class="sxs-lookup"><span data-stu-id="42a8d-102">Session Properties</span></span>
+  <span data-ttu-id="42a8d-103">Der [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] Native Client OLE DB-Anbieter interpretiert OLE DB Sitzungs Eigenschaften wie folgt.</span><span class="sxs-lookup"><span data-stu-id="42a8d-103">The [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] Native Client OLE DB provider interprets OLE DB session properties as follows.</span></span>  
+  
+|<span data-ttu-id="42a8d-104">Eigenschafts-ID</span><span class="sxs-lookup"><span data-stu-id="42a8d-104">Property ID</span></span>|<span data-ttu-id="42a8d-105">BESCHREIBUNG</span><span class="sxs-lookup"><span data-stu-id="42a8d-105">Description</span></span>|  
+|-----------------|-----------------|  
+|<span data-ttu-id="42a8d-106">DBPROP_SESS_AUTOCOMMITISOLEVELS</span><span class="sxs-lookup"><span data-stu-id="42a8d-106">DBPROP_SESS_AUTOCOMMITISOLEVELS</span></span>|<span data-ttu-id="42a8d-107">Der [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] Native Client OLE DB-Anbieter unterstützt alle Isolations Stufen für Autocommit-Transaktionen mit Ausnahme des DBPROPVAL_TI_CHAOS Chaos Level.</span><span class="sxs-lookup"><span data-stu-id="42a8d-107">The [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] Native Client OLE DB provider supports all autocommit transaction isolation levels with the exception of the chaos level DBPROPVAL_TI_CHAOS.</span></span>|  
+  
+ <span data-ttu-id="42a8d-108">Im anbieterspezifischen Eigenschaften Satz DBPROPSET_SQLSERVERSESSION [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] definiert der Native Client OLE DB-Anbieter die folgende zusätzliche Sitzungs Eigenschaft.</span><span class="sxs-lookup"><span data-stu-id="42a8d-108">In the provider-specific property set DBPROPSET_SQLSERVERSESSION, the [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] Native Client OLE DB provider defines the following additional session property.</span></span>  
+  
+|<span data-ttu-id="42a8d-109">Eigenschafts-ID</span><span class="sxs-lookup"><span data-stu-id="42a8d-109">Property ID</span></span>|<span data-ttu-id="42a8d-110">BESCHREIBUNG</span><span class="sxs-lookup"><span data-stu-id="42a8d-110">Description</span></span>|  
+|-----------------|-----------------|  
+|<span data-ttu-id="42a8d-111">SSPROP_QUOTEDCATALOGNAMES</span><span class="sxs-lookup"><span data-stu-id="42a8d-111">SSPROP_QUOTEDCATALOGNAMES</span></span>|<span data-ttu-id="42a8d-112">Typ: VT_BOOL</span><span class="sxs-lookup"><span data-stu-id="42a8d-112">Type: VT_BOOL</span></span><br /><br /> <span data-ttu-id="42a8d-113">R/W: Lesen/Schreiben</span><span class="sxs-lookup"><span data-stu-id="42a8d-113">R/W: Read/write</span></span><br /><br /> <span data-ttu-id="42a8d-114">Standardwert: VARIANT_FALSE</span><span class="sxs-lookup"><span data-stu-id="42a8d-114">Default: VARIANT_FALSE</span></span><br /><br /> <span data-ttu-id="42a8d-115">Beschreibung: In CATALOG-Einschränkung zugelassene Bezeichner in Anführungszeichen.</span><span class="sxs-lookup"><span data-stu-id="42a8d-115">Description: Quoted identifiers allowed in CATALOG restriction.</span></span><br /><br /> <span data-ttu-id="42a8d-116">VARIANT_TRUE: Bezeichner in Anführungszeichen werden für eine CATALOG-Einschränkung für die Schemarowsets erkannt, die Unterstützung für verteilte Abfragen bieten.</span><span class="sxs-lookup"><span data-stu-id="42a8d-116">VARIANT_TRUE: Quoted identifiers are recognized for a catalog restriction for the schema rowsets that supply distributed query support.</span></span><br /><br /> <span data-ttu-id="42a8d-117">VARIANT_FALSE: Bezeichner in Anführungszeichen werden nicht für eine CATALOG-Einschränkung für die Schemarowsets erkannt, die Unterstützung für verteilte Abfragen bieten.</span><span class="sxs-lookup"><span data-stu-id="42a8d-117">VARIANT_FALSE: Quoted identifiers are not recognized for a catalog restriction for the schema rowsets that supply distributed query support.</span></span><br /><br /> <span data-ttu-id="42a8d-118">Weitere Informationen zu Schemarowsets, die Unterstützung für verteilte Abfragen bieten, finden Sie unter [Unterstützung von verteilten Abfragen in Schemarowsets](../native-client/ole-db/schema-rowsets-distributed-query-support.md).</span><span class="sxs-lookup"><span data-stu-id="42a8d-118">For more information about schema rowsets that supply distributed query support, see [Distributed Query Support in Schema Rowsets](../native-client/ole-db/schema-rowsets-distributed-query-support.md).</span></span>|  
+|<span data-ttu-id="42a8d-119">SSPROP_ALLOWNATIVEVARIANT</span><span class="sxs-lookup"><span data-stu-id="42a8d-119">SSPROP_ALLOWNATIVEVARIANT</span></span>|<span data-ttu-id="42a8d-120">Typ: VT_BOOL</span><span class="sxs-lookup"><span data-stu-id="42a8d-120">Type: VT_BOOL</span></span><br /><br /> <span data-ttu-id="42a8d-121">R/W: Lesen/Schreiben</span><span class="sxs-lookup"><span data-stu-id="42a8d-121">R/W: Read/Write</span></span><br /><br /> <span data-ttu-id="42a8d-122">Standardwert: VARIANT_FALSE</span><span class="sxs-lookup"><span data-stu-id="42a8d-122">Default: VARIANT_FALSE</span></span><br /><br /> <span data-ttu-id="42a8d-123">Beschreibung: Bestimmt, ob die Daten als DBTYPE_VARIANT oder DBTYPE_SQLVARIANT abgerufen werden.</span><span class="sxs-lookup"><span data-stu-id="42a8d-123">Description: Determines if the data fetched in is as DBTYPE_VARIANT or DBTYPE_SQLVARIANT.</span></span><br /><br /> <span data-ttu-id="42a8d-124">VARIANT_TRUE: Der Spaltentyp wird als DBTYPE_SQLVARIANT zurückgegeben. In diesem Fall enthält der Puffer die SSVARIANT-Struktur.</span><span class="sxs-lookup"><span data-stu-id="42a8d-124">VARIANT_TRUE: Column type is returned as DBTYPE_SQLVARIANT in which case the buffer will hold SSVARIANT structure.</span></span><br /><br /> <span data-ttu-id="42a8d-125">VARIANT_FALSE: Der Spaltentyp wird als DBTYPE_VARIANT zurückgegeben und der Puffer enthält die VARIANT-Struktur.</span><span class="sxs-lookup"><span data-stu-id="42a8d-125">VARIANT_FALSE: Column type is returned as DBTYPE_VARIANT and the buffer will have VARIANT structure.</span></span>|  
+|<span data-ttu-id="42a8d-126">SSPROP_ASYNCH_BULKCOPY</span><span class="sxs-lookup"><span data-stu-id="42a8d-126">SSPROP_ASYNCH_BULKCOPY</span></span>|<span data-ttu-id="42a8d-127">Zur Verwendung des asynchronen Modus legen Sie die anbieterspezifische Sitzungseigenschaft SSPROP_ASYNCH_BULKCOPY vor dem Aufrufen der BCPExec-Methode auf VARIANT_TRUE fest.</span><span class="sxs-lookup"><span data-stu-id="42a8d-127">To use asynchronous mode, set the provider specific session property SSPROP_ASYNCH_BULKCOPY to VARIANT_TRUE before calling the BCPExec method.</span></span> <span data-ttu-id="42a8d-128">Diese Eigenschaft ist im DBPROPSET_SQLSERVERSESSION-Eigenschaftensatz verfügbar.</span><span class="sxs-lookup"><span data-stu-id="42a8d-128">This property is available in the DBPROPSET_SQLSERVERSESSION property set.</span></span>|  
+  
+## <a name="see-also"></a><span data-ttu-id="42a8d-129">Weitere Informationen</span><span class="sxs-lookup"><span data-stu-id="42a8d-129">See Also</span></span>  
+ [<span data-ttu-id="42a8d-130">Datenquellenobjekte &#40;OLE DB&#41;</span><span class="sxs-lookup"><span data-stu-id="42a8d-130">Data Source Objects &#40;OLE DB&#41;</span></span>](data-source-objects-ole-db.md)  
+  
+  

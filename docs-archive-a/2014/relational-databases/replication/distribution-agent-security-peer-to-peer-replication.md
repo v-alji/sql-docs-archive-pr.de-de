@@ -1,0 +1,48 @@
+---
+title: Sicherheit für den Verteilungs-Agent (Peer-zu-Peer-Replikation) | Microsoft-Dokumentation
+ms.custom: ''
+ms.date: 03/06/2017
+ms.prod: sql-server-2014
+ms.reviewer: ''
+ms.technology: replication
+ms.topic: conceptual
+f1_keywords:
+- sql12.rep.p2pwizard.DA.f1
+ms.assetid: def6bf26-c640-4caf-ad30-05d1e649541d
+author: MashaMSFT
+ms.author: mathoma
+ms.openlocfilehash: 72b5a52fbb3ddc11d0ea6f2c0b26786463e08eaf
+ms.sourcegitcommit: ad4d92dce894592a259721a1571b1d8736abacdb
+ms.translationtype: MT
+ms.contentlocale: de-DE
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87609127"
+---
+# <a name="distribution-agent-security-peer-to-peer-replication"></a><span data-ttu-id="9755f-102">Sicherheit für den Verteilungs-Agent (Peer-zu-Peer-Replikation)</span><span class="sxs-lookup"><span data-stu-id="9755f-102">Distribution Agent Security (Peer-to-Peer Replication)</span></span>
+  <span data-ttu-id="9755f-103">Mithilfe der Seite **Sicherheit für den Verteilungs-Agent** können Sie die Konten angeben, unter denen der Verteilungs-Agent ausgeführt wird und Verbindungen mit den Computern in einer Peer-zu-Peer-Topologie hergestellt werden.</span><span class="sxs-lookup"><span data-stu-id="9755f-103">The **Distribution Agent Security** page allows you to specify the accounts under which the Distribution Agent runs and makes connections to the computers in a peer-to-peer topology.</span></span> <span data-ttu-id="9755f-104">Informationen zu erforderlichen Berechtigungen für Agents und bewährten Methoden für die Replikationssicherheit finden Sie unter [Sicherheitsmodell des Replikations-Agent](security/replication-agent-security-model.md) und [Replikationssicherheit, bewährte Methoden](security/replication-security-best-practices.md).</span><span class="sxs-lookup"><span data-stu-id="9755f-104">For information on permissions required by agents and best practices for replication security, see [Replication Agent Security Model](security/replication-agent-security-model.md) and [Replication Security Best Practices](security/replication-security-best-practices.md).</span></span>  
+  
+> [!NOTE]  
+>  <span data-ttu-id="9755f-105">Wenn der Verteilungs-Agent für ein Abonnement bereits in einer früheren Ausführung dieses Assistenten konfiguriert wurde, können Sie die entsprechenden in diesem Assistenten verwendeten Anmeldeinformationen nicht ändern.</span><span class="sxs-lookup"><span data-stu-id="9755f-105">If the Distribution Agent for a subscription has already been configured in a previous run of this wizard, you cannot change the credentials it uses in this wizard.</span></span> <span data-ttu-id="9755f-106">Von Ihnen neu angegebene Anmeldeinformationen werden ignoriert.</span><span class="sxs-lookup"><span data-stu-id="9755f-106">If you specify new credentials, they are ignored.</span></span> <span data-ttu-id="9755f-107">Sie können die Anmeldeinformationen im Dialogfeld **Abonnementeigenschaften** ändern.</span><span class="sxs-lookup"><span data-stu-id="9755f-107">To change credentials, use the **Subscription Properties** dialog box.</span></span> <span data-ttu-id="9755f-108">Weitere Informationen finden Sie unter [View and Modify Replication Security Settings](security/view-and-modify-replication-security-settings.md).</span><span class="sxs-lookup"><span data-stu-id="9755f-108">For more information, see [View and Modify Replication Security Settings](security/view-and-modify-replication-security-settings.md).</span></span>  
+  
+## <a name="options"></a><span data-ttu-id="9755f-109">Tastatur</span><span class="sxs-lookup"><span data-stu-id="9755f-109">Options</span></span>  
+ <span data-ttu-id="9755f-110">Klicken Sie in der Zeile für jeden Abonnenten auf die Eigenschaftenschaltfläche (die Schaltfläche mit den **drei Punkten**), um auf das Dialogfeld **Sicherheit für den Verteilungs-Agent** zuzugreifen.</span><span class="sxs-lookup"><span data-stu-id="9755f-110">Click the properties button (**...**) in the row for each Subscriber to access the **Distribution Agent Security** dialog box.</span></span> <span data-ttu-id="9755f-111">Klicken Sie im geöffneten Dialogfeld **Sicherheit für den Verteilungs-Agent** auf **Hilfe** , um weitere Informationen zu den Berechtigungen zu erhalten, die für die von den Agents verwendeten Konten erforderlich sind.</span><span class="sxs-lookup"><span data-stu-id="9755f-111">Click **Help** on the **Distribution Agent Security** dialog box that is launched for more information on the permissions required for accounts used by the agents.</span></span>  
+  
+ <span data-ttu-id="9755f-112">Wenn Sie die Einstellungen in einem der beiden Dialogfelder eingegeben haben, werden im Raster die Verbindungsinformationen zu dem Abonnenten angezeigt.</span><span class="sxs-lookup"><span data-stu-id="9755f-112">After settings have been entered in one of the dialog boxes, connection information for the Subscriber is displayed in the grid.</span></span>  
+  
+ <span data-ttu-id="9755f-113">**Agent für Abonnent**</span><span class="sxs-lookup"><span data-stu-id="9755f-113">**Agent for Subscriber**</span></span>  
+ <span data-ttu-id="9755f-114">Der Name der einzelnen Peers.</span><span class="sxs-lookup"><span data-stu-id="9755f-114">The name of each peer.</span></span>  
+  
+ <span data-ttu-id="9755f-115">**Peerdatenbank**</span><span class="sxs-lookup"><span data-stu-id="9755f-115">**Peer Database**</span></span>  
+ <span data-ttu-id="9755f-116">Die Datenbank auf dem Peer, der sowohl als Veröffentlichungs- als auch als Abonnementdatenbank dient.</span><span class="sxs-lookup"><span data-stu-id="9755f-116">The database at the peer that will serve as both a publication database and subscription database.</span></span>  
+  
+ <span data-ttu-id="9755f-117">**Verbindung mit Verteiler**</span><span class="sxs-lookup"><span data-stu-id="9755f-117">**Connection to Distributor**</span></span>  
+ <span data-ttu-id="9755f-118">Der Kontext, unter dem die Verbindung mit dem Verteiler hergestellt wird.</span><span class="sxs-lookup"><span data-stu-id="9755f-118">The context under which the connection to the Distributor is made.</span></span> <span data-ttu-id="9755f-119">Lokale Verbindungen werden immer unter dem Kontext des Windows-Kontos hergestellt, das zum Ausführen der Agents verwendet wird.</span><span class="sxs-lookup"><span data-stu-id="9755f-119">Local connections are always made using the context of the Windows account under which the agent runs.</span></span> <span data-ttu-id="9755f-120">Dieser Assistent erstellt Pushabonnements (die lokale Verbindung ist die Verbindung mit dem Verteiler). Daher wird in diesem Feld immer Folgendes angezeigt: **Identität von '\<Domain>\\<Anmeldename\>' annehmen** oder **Identität von '\<Computer>\\<Anmeldename\>' annehmen**.</span><span class="sxs-lookup"><span data-stu-id="9755f-120">This wizard creates push subscriptions (the local connection is the connection to the Distributor), so this field will always display: **Impersonate '\<Domain>\\<Login\>'** or **Impersonate '\<Computer>\\<Login\>'**.</span></span>  
+  
+ <span data-ttu-id="9755f-121">**Verbindung mit Abonnent**</span><span class="sxs-lookup"><span data-stu-id="9755f-121">**Connection to Subscriber**</span></span>  
+ <span data-ttu-id="9755f-122">Der Kontext, unter dem die Verbindung mit dem Abonnenten hergestellt wird.</span><span class="sxs-lookup"><span data-stu-id="9755f-122">The context under which the connection to the Subscriber is made.</span></span> <span data-ttu-id="9755f-123">Die Verbindung kann entweder mithilfe des Kontexts des Windows-Kontos hergestellt werden, unter dem der Agent ausgeführt wird, oder mithilfe des Kontexts einer [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] -Anmeldung.</span><span class="sxs-lookup"><span data-stu-id="9755f-123">The connection can be made using the context of the Windows account under which the agent runs or under the context of a [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] login.</span></span> <span data-ttu-id="9755f-124">In dem Feld wird eine der folgenden Optionen angezeigt: **Anmeldenamen '\<Login>' verwenden**, **Identität annehmen '\<Domain>\\<Anmeldename\>'** oder **Identität annehmen '\<Computer>\\<Anmeldename\>'** .</span><span class="sxs-lookup"><span data-stu-id="9755f-124">The field displays one of the following: **Use login '\<Login>'**, **Impersonate '\<Domain>\\<Login\>'** or **Impersonate '\<Computer>\\<Login\>'**.</span></span> [!INCLUDE[msCoName](../../includes/msconame-md.md)] <span data-ttu-id="9755f-125">empfiehlt, alle Verbindungen unter dem Kontext des Windows-Kontos herzustellen.</span><span class="sxs-lookup"><span data-stu-id="9755f-125">recommends that all connections be made using the context of the Windows account.</span></span>  
+  
+## <a name="see-also"></a><span data-ttu-id="9755f-126">Weitere Informationen</span><span class="sxs-lookup"><span data-stu-id="9755f-126">See Also</span></span>  
+ <span data-ttu-id="9755f-127">[Verwalten einer Peer-zu-Peer-Topologie &#40;Replikationsprogrammierung mit Transact-SQL&#41;](administration/administer-a-peer-to-peer-topology-replication-transact-sql-programming.md) </span><span class="sxs-lookup"><span data-stu-id="9755f-127">[Administer a Peer-to-Peer Topology &#40;Replication Transact-SQL Programming&#41;](administration/administer-a-peer-to-peer-topology-replication-transact-sql-programming.md) </span></span>  
+ [<span data-ttu-id="9755f-128">Peer-to-Peer Transactional Replication</span><span class="sxs-lookup"><span data-stu-id="9755f-128">Peer-to-Peer Transactional Replication</span></span>](transactional/peer-to-peer-transactional-replication.md)  
+  
+  

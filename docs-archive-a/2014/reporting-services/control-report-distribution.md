@@ -1,0 +1,54 @@
+---
+title: Steuern der Berichts Verteilung | Microsoft-Dokumentation
+ms.custom: ''
+ms.date: 03/07/2017
+ms.prod: sql-server-2014
+ms.reviewer: ''
+ms.technology: reporting-services-native
+ms.topic: conceptual
+helpviewer_keywords:
+- subscriptions [Reporting Services], report distribution
+- subscriptions [Reporting Services], e-mail
+- subscriptions [Reporting Services], file share delivery
+- file share delivery [Reporting Services]
+- e-mail [Reporting Services]
+- subscriptions [Reporting Services], security
+- mail [Reporting Services]
+ms.assetid: 8f15e2c6-a647-4b05-a519-1743b5d8654c
+author: maggiesMSFT
+ms.author: maggies
+manager: kfile
+ms.openlocfilehash: de8a27801ef89f10bf303cee17d1c2d0e1081c5a
+ms.sourcegitcommit: ad4d92dce894592a259721a1571b1d8736abacdb
+ms.translationtype: MT
+ms.contentlocale: de-DE
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87607552"
+---
+# <a name="control-report-distribution"></a><span data-ttu-id="2d4d9-102">Steuern der Berichtsverteilung</span><span class="sxs-lookup"><span data-stu-id="2d4d9-102">Control Report Distribution</span></span>
+  <span data-ttu-id="2d4d9-103">Sie können einen Berichtsserver so konfigurieren, dass die Sicherheitsrisiken im Zusammenhang mit der Verteilung per E-Mail und Dateifreigabe minimiert werden.</span><span class="sxs-lookup"><span data-stu-id="2d4d9-103">You can configure a report server to reduce the security risks associated with e-mail and file share distribution.</span></span>  
+  
+## <a name="securing-reports"></a><span data-ttu-id="2d4d9-104">Sichern von Berichten</span><span class="sxs-lookup"><span data-stu-id="2d4d9-104">Securing Reports</span></span>  
+ <span data-ttu-id="2d4d9-105">Der erste Schritt beim Steuern der Berichtsverteilung besteht im Sichern des Berichts vor unbefugtem Zugriff.</span><span class="sxs-lookup"><span data-stu-id="2d4d9-105">The first step in controlling report distribution is to secure the report against unauthorized access.</span></span> <span data-ttu-id="2d4d9-106">Wenn ein Bericht in einem Abonnement verwendet werden soll, muss er gespeicherte Anmeldeinformationen verwenden, die für alle Übermittlungen identisch sind.</span><span class="sxs-lookup"><span data-stu-id="2d4d9-106">To be used in a subscription, a report must use a stored set of credentials that do not vary for individual deliveries.</span></span> <span data-ttu-id="2d4d9-107">Jeder Benutzer mit Zugriff auf den Bericht im Berichtsserver kann diesen ausführen und möglicherweise verteilen.</span><span class="sxs-lookup"><span data-stu-id="2d4d9-107">Any user who can access the report on the report server can run it and possibly distribute it.</span></span> <span data-ttu-id="2d4d9-108">Um dies zu verhindern, müssen Sie den Zugriff auf den Bericht auf die erforderlichen Benutzer beschränken.</span><span class="sxs-lookup"><span data-stu-id="2d4d9-108">To prevent this from occurring, you must limit report access to only those users who require it.</span></span> <span data-ttu-id="2d4d9-109">Weitere Informationen finden Sie unter [Sichern von Berichten und Ressourcen](security/secure-reports-and-resources.md) und [sicheren Ordnern](security/secure-folders.md).</span><span class="sxs-lookup"><span data-stu-id="2d4d9-109">For more information, see [Secure Reports and Resources](security/secure-reports-and-resources.md) and [Secure Folders](security/secure-folders.md).</span></span>  
+  
+ <span data-ttu-id="2d4d9-110">Streng vertrauliche Berichte, die den Zugriff mithilfe der Datenbanksicherheit autorisieren, können nicht mit einem Abonnement verteilt werden.</span><span class="sxs-lookup"><span data-stu-id="2d4d9-110">Highly confidential reports that use database security to authorize access cannot be distributed by way of subscription.</span></span>  
+  
+> [!IMPORTANT]  
+>  <span data-ttu-id="2d4d9-111">Berichte werden als Dateien transportiert.</span><span class="sxs-lookup"><span data-stu-id="2d4d9-111">Reports are transported as files.</span></span> <span data-ttu-id="2d4d9-112">Die Risiken und Sicherheitsmaßnahmen im Zusammenhang mit Dateien gelten auch für Berichte, die auf einem Datenträger gespeichert oder als Anlagen gesendet werden.</span><span class="sxs-lookup"><span data-stu-id="2d4d9-112">The risks and safeguards that apply to files apply equally to reports that are saved to disk or sent as attachments.</span></span> <span data-ttu-id="2d4d9-113">Jeder Benutzer mit Zugriff auf eine Datei kann diese nach seinem Ermessen verteilen oder verwenden.</span><span class="sxs-lookup"><span data-stu-id="2d4d9-113">Any user who has access to a file can distribute or use the file at his or her discretion.</span></span>  
+  
+## <a name="controlling-e-mail-delivery"></a><span data-ttu-id="2d4d9-114">Steuern der E-Mail-Übermittlung</span><span class="sxs-lookup"><span data-stu-id="2d4d9-114">Controlling E-Mail Delivery</span></span>  
+ <span data-ttu-id="2d4d9-115">Sie können einen Berichtsserver so konfigurieren, dass die E-Mail-Verteilung auf bestimmte Hostdomänen beschränkt wird.</span><span class="sxs-lookup"><span data-stu-id="2d4d9-115">You can configure a report server to limit e-mail distribution to specific host domains.</span></span> <span data-ttu-id="2d4d9-116">Beispielsweise können Sie verhindern, dass ein Berichtsserver einen Bericht an alle Domänen übermittelt, außer an jene, die in der RSReportServer-Konfigurationsdatei aufgeführt sind.</span><span class="sxs-lookup"><span data-stu-id="2d4d9-116">For example, you can prevent a report server from delivering a report to all domains except those listed in the RSReportServer configuration file.</span></span>  
+  
+ <span data-ttu-id="2d4d9-117">Darüber hinaus können Sie mithilfe von Konfigurationseinstellungen das Feld **An** in einem Abonnement ausblenden.</span><span class="sxs-lookup"><span data-stu-id="2d4d9-117">You can also set configuration settings to hide the **To** field in a subscription.</span></span> <span data-ttu-id="2d4d9-118">In diesem Fall werden Berichte nur an den Benutzer übermittelt, den das Abonnement definiert.</span><span class="sxs-lookup"><span data-stu-id="2d4d9-118">In this case, reports are delivered only to the user defining the subscription.</span></span> <span data-ttu-id="2d4d9-119">Wenn jedoch ein Bericht an einen Benutzer gesendet wurde, können Sie nicht verhindern, dass der Bericht weitergeleitet wird.</span><span class="sxs-lookup"><span data-stu-id="2d4d9-119">However, after a report is sent to a user, you cannot explicitly prevent it from being forwarded.</span></span>  
+  
+ <span data-ttu-id="2d4d9-120">Die effizienteste Möglichkeit zum Steuern der Berichtsverteilung besteht darin, einen Berichtsserver so konfigurieren, dass nur eine Berichtsserver-URL gesendet wird.</span><span class="sxs-lookup"><span data-stu-id="2d4d9-120">The most effective way to control report distribution is to configure a report server to send only a report server URL.</span></span> <span data-ttu-id="2d4d9-121">Der Berichtsserver verwendet die Windows-Authentifizierung und das rollenbasierte Autorisierungsmodell, um den Zugriff auf einen Bericht zu steuern.</span><span class="sxs-lookup"><span data-stu-id="2d4d9-121">The report server uses Windows Authentication and a role-based authorization model to control access to a report.</span></span> <span data-ttu-id="2d4d9-122">Falls ein Benutzer versehentlich per E-Mail einen Bericht erhält, für den er keine Anzeigeberechtigung hat, zeigt der Berichtsserver den Bericht nicht an.</span><span class="sxs-lookup"><span data-stu-id="2d4d9-122">If a user accidentally receives through e-mail a report that he or she is not authorized to view, the report server will not display the report.</span></span>  
+  
+## <a name="controlling-file-share-delivery"></a><span data-ttu-id="2d4d9-123">Steuern der Dateifreigabeübermittlung</span><span class="sxs-lookup"><span data-stu-id="2d4d9-123">Controlling File Share Delivery</span></span>  
+ <span data-ttu-id="2d4d9-124">Mit der Dateifreigabeübermittlung wird ein Bericht an eine Datei auf einer Festplatte gesendet.</span><span class="sxs-lookup"><span data-stu-id="2d4d9-124">File share delivery is used to send a report to a file on a hard disk.</span></span> <span data-ttu-id="2d4d9-125">Nachdem die Datei auf den Datenträger gespeichert wurde, unterliegt sie nicht mehr dem rollenbasierten Sicherheitsmodell, mit dem der Berichtsserver den Benutzerzugriff steuert.</span><span class="sxs-lookup"><span data-stu-id="2d4d9-125">After the file has been saved to disk, it is no longer subject to the role-based security model that the report server uses to control user access.</span></span> <span data-ttu-id="2d4d9-126">Um einen Bericht zu sichern, der an einen Datenträger übermittelt wurde, können Sie Zugriffssteuerungslisten (ACLs, Access Control Lists) in der Datei selbst oder im Ordner, in dem die Datei gespeichert ist, platzieren.</span><span class="sxs-lookup"><span data-stu-id="2d4d9-126">To secure a report that has been delivered to disk, you can place Access Control Lists (ACLs) on the file itself or on the folder that contains it.</span></span> <span data-ttu-id="2d4d9-127">Je nach Betriebssystem sind möglicherweise zusätzliche Sicherheitsoptionen verfügbar.</span><span class="sxs-lookup"><span data-stu-id="2d4d9-127">Additional security options might be available, depending on your operating system.</span></span>  
+  
+## <a name="see-also"></a><span data-ttu-id="2d4d9-128">Weitere Informationen</span><span class="sxs-lookup"><span data-stu-id="2d4d9-128">See Also</span></span>  
+ <span data-ttu-id="2d4d9-129">[Konfigurieren eines Berichts Servers für die e-Mail-Übermittlung &#40;SSRS-Configuration Manager&#41;](../../2014/sql-server/install/configure-a-report-server-for-e-mail-delivery-ssrs-configuration-manager.md) </span><span class="sxs-lookup"><span data-stu-id="2d4d9-129">[Configure a Report Server for E-Mail Delivery &#40;SSRS Configuration Manager&#41;](../../2014/sql-server/install/configure-a-report-server-for-e-mail-delivery-ssrs-configuration-manager.md) </span></span>  
+ <span data-ttu-id="2d4d9-130">[Abonnements und Übermittlung &#40;Reporting Services&#41;](subscriptions/subscriptions-and-delivery-reporting-services.md) </span><span class="sxs-lookup"><span data-stu-id="2d4d9-130">[Subscriptions and Delivery &#40;Reporting Services&#41;](subscriptions/subscriptions-and-delivery-reporting-services.md) </span></span>  
+ [<span data-ttu-id="2d4d9-131">Create and Manage Subscriptions for Native Mode Report Servers (Erstellen und Verwalten von Abonnements für Berichtsserver im einheitlichen Modus)</span><span class="sxs-lookup"><span data-stu-id="2d4d9-131">Create and Manage Subscriptions for Native Mode Report Servers</span></span>](../../2014/reporting-services/create-manage-subscriptions-native-mode-report-servers.md)  
+  
+  

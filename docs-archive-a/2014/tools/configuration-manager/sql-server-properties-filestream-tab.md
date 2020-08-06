@@ -1,0 +1,35 @@
+---
+title: SQL Server-Eigenschaften (Registerkarte „FILESTREAM“) | Microsoft-Dokumentation
+ms.custom: ''
+ms.date: 06/13/2017
+ms.prod: sql-server-2014
+ms.reviewer: ''
+ms.technology: configuration
+ms.topic: conceptual
+ms.assetid: 07ca5ac6-a68a-4e85-bc6f-fa7ccf9f1c10
+author: stevestein
+ms.author: sstein
+ms.openlocfilehash: 088f9ad4314c8facc4c624f4bb9ed134d81583f2
+ms.sourcegitcommit: ad4d92dce894592a259721a1571b1d8736abacdb
+ms.translationtype: MT
+ms.contentlocale: de-DE
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87608184"
+---
+# <a name="sql-server-properties-filestream-tab"></a><span data-ttu-id="7db75-102">SQL Server-Eigenschaften (Registerkarte FILESTREAM)</span><span class="sxs-lookup"><span data-stu-id="7db75-102">SQL Server Properties (FILESTREAM Tab)</span></span>
+  <span data-ttu-id="7db75-103">Verwenden Sie diese Seite, um FILESTREAM für diese Installation von [!INCLUDE[ssCurrent](../../includes/sscurrent-md.md)] zu aktivieren.</span><span class="sxs-lookup"><span data-stu-id="7db75-103">Use this page to enable FILESTREAM for this installation of [!INCLUDE[ssCurrent](../../includes/sscurrent-md.md)].</span></span>  
+  
+## <a name="ui-element-list"></a><span data-ttu-id="7db75-104">Liste der Benutzeroberflächenelemente</span><span class="sxs-lookup"><span data-stu-id="7db75-104">UI element list</span></span>  
+ <span data-ttu-id="7db75-105">**FILESTREAM für Transact-SQL-Zugriff aktivieren**</span><span class="sxs-lookup"><span data-stu-id="7db75-105">**Enable FILESTREAM for Transact-SQL access**</span></span>  
+ <span data-ttu-id="7db75-106">Wählen Sie diese Option aus, um FILESTREAM für den [!INCLUDE[tsql](../../includes/tsql-md.md)] -Zugriff zu aktivieren.</span><span class="sxs-lookup"><span data-stu-id="7db75-106">Select to enable FILESTREAM for [!INCLUDE[tsql](../../includes/tsql-md.md)] access.</span></span> <span data-ttu-id="7db75-107">Dieses Steuerelement muss aktiviert werden, bevor die anderen Steuerelementoptionen verfügbar sind.</span><span class="sxs-lookup"><span data-stu-id="7db75-107">This control must be checked before the other control options will be available.</span></span>  
+  
+ <span data-ttu-id="7db75-108">**FILESTREAM für E/A-Streamingzugriff auf Datei aktivieren**</span><span class="sxs-lookup"><span data-stu-id="7db75-108">**Enable FILESTREAM for file I/O streaming access**</span></span>  
+ <span data-ttu-id="7db75-109">Wählen Sie diese Option aus, um den Win32-Streamingzugriff für FILESTREAM zu aktivieren.</span><span class="sxs-lookup"><span data-stu-id="7db75-109">Select to enable Win32 streaming access for FILESTREAM.</span></span>  
+  
+ <span data-ttu-id="7db75-110">**Windows-Freigabename**</span><span class="sxs-lookup"><span data-stu-id="7db75-110">**Windows share name**</span></span>  
+ <span data-ttu-id="7db75-111">Verwenden Sie dieses Steuerelement, um den Namen der Windows-Freigabe einzugeben, in der die FILESTREAM-Daten gespeichert werden sollen.</span><span class="sxs-lookup"><span data-stu-id="7db75-111">Use this control to enter the name of the Windows share in which the FILESTREAM data will be stored.</span></span>  
+  
+ <span data-ttu-id="7db75-112">**Streamingzugriff von Remoteclients auf FILESTREAM-Daten zulassen**</span><span class="sxs-lookup"><span data-stu-id="7db75-112">**Allow remote clients to have streaming access to FILESTREAM data**</span></span>  
+ <span data-ttu-id="7db75-113">Aktivieren Sie dieses Steuerelement, damit Remoteclients auf diese FILESTREAM-Daten auf diesem Server zugreifen können.</span><span class="sxs-lookup"><span data-stu-id="7db75-113">Select this control to allow remote clients to access this FILESTREAM data on this server.</span></span>  
+  
+  

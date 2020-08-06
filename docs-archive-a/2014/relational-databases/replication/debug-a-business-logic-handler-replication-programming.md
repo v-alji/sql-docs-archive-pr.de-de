@@ -1,0 +1,86 @@
+---
+title: Debuggen eines Geschäftslogik Handlers | Microsoft-Dokumentation
+ms.custom: ''
+ms.date: 03/08/2017
+ms.prod: sql-server-2014
+ms.reviewer: ''
+ms.technology: replication
+ms.topic: conceptual
+dev_langs:
+- VB
+- CSharp
+helpviewer_keywords:
+- merge replication business logic handlers [SQL Server replication]
+- business logic handlers [SQL Server replication]
+- BusinessLogicModule class
+ms.assetid: edd0d17a-0e9c-4c28-8395-a7d47e8ce3d6
+author: MashaMSFT
+ms.author: mathoma
+ms.openlocfilehash: 7b255407783b1e52a376e562ec910f8b123e42c1
+ms.sourcegitcommit: ad4d92dce894592a259721a1571b1d8736abacdb
+ms.translationtype: MT
+ms.contentlocale: de-DE
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87609142"
+---
+# <a name="debug-a-business-logic-handler-replication-programming"></a><span data-ttu-id="58f72-102">Debuggen eines Geschäftslogikhandlers (Replikationsprogrammierung)</span><span class="sxs-lookup"><span data-stu-id="58f72-102">Debug a Business Logic Handler (Replication Programming)</span></span>
+  <span data-ttu-id="58f72-103">Verwenden Sie einen Geschäftslogikhandler, um eine benutzerdefinierte Geschäftslogik aufzurufen, wenn ein Mergeabonnement synchronisiert wird.</span><span class="sxs-lookup"><span data-stu-id="58f72-103">Use a business logic handler to invoke custom business logic when a merge subscription is synchronized.</span></span> <span data-ttu-id="58f72-104">Weitere Informationen finden Sie unter [Ausführen von Geschäftslogik während der Mergesynchronisierung](merge/execute-business-logic-during-merge-synchronization.md).</span><span class="sxs-lookup"><span data-stu-id="58f72-104">For more information, see [Execute Business Logic During Merge Synchronization](merge/execute-business-logic-during-merge-synchronization.md).</span></span>  
+  
+ <span data-ttu-id="58f72-105">Die Mergereplikationssynchronisierung (replrec.dll) ruft die Assembly mit verwaltetem Code auf, die die Geschäftslogik enthält.</span><span class="sxs-lookup"><span data-stu-id="58f72-105">The Merge Replication Reconciler (replrec.dll) calls the managed code assembly containing the business logic.</span></span> <span data-ttu-id="58f72-106">In den meisten Fällen werden die Datei replrec.dll und die benutzerdefinierte Geschäftslogik auf dem Computer ausgeführt, auf dem der Merge-Agent ausgeführt wird (bei einem Pullabonnement auf dem Abonnenten und bei einem Pushabonnement auf dem Verteiler).</span><span class="sxs-lookup"><span data-stu-id="58f72-106">In most cases, replrec.dll and the custom business logic is executed on the computer where the Merge Agent runs (at the Subscriber for a pull subscription or at the Distributor for a push subscription).</span></span> <span data-ttu-id="58f72-107">Bei der Websynchronisierung oder bei einem [!INCLUDE[ssEW](../../includes/ssew-md.md)] -Abonnenten werden die Synchronisierung und die benutzerdefinierte Geschäftslogik auf dem Webserver ausgeführt.</span><span class="sxs-lookup"><span data-stu-id="58f72-107">In the case of Web synchronization, or in the case of a [!INCLUDE[ssEW](../../includes/ssew-md.md)] Subscriber, the reconciler and the custom business logic is executed on the Web server.</span></span>  
+  
+### <a name="to-debug-a-business-logic-handler-on-a-local-computer"></a><span data-ttu-id="58f72-108">So debuggen Sie einen Geschäftslogikhandler auf einem lokalen Computer</span><span class="sxs-lookup"><span data-stu-id="58f72-108">To debug a business logic handler on a local computer</span></span>  
+  
+1.  <span data-ttu-id="58f72-109">Konfigurieren Sie die Veröffentlichung und Verteilung, erstellen Sie eine Veröffentlichung, und erstellen Sie ein Abonnement für die Veröffentlichung.</span><span class="sxs-lookup"><span data-stu-id="58f72-109">Configure publishing and distribution, create a publication, and create a subscription to the publication.</span></span> <span data-ttu-id="58f72-110">Weitere Informationen finden Sie unter [Konfigurieren der Veröffentlichung und der Verteilung](configure-publishing-and-distribution.md) und [Create a Publication (Erstellen einer Veröffentlichung)](publish/create-a-publication.md).</span><span class="sxs-lookup"><span data-stu-id="58f72-110">For more information, see [Configure Publishing and Distribution](configure-publishing-and-distribution.md) and [Create a Publication](publish/create-a-publication.md).</span></span>  
+  
+2.  <span data-ttu-id="58f72-111">Erstellen und registrieren Sie einen Geschäftslogikhandler.</span><span class="sxs-lookup"><span data-stu-id="58f72-111">Create and register a business logic handler.</span></span> <span data-ttu-id="58f72-112">Weitere Informationen finden Sie unter [Implementieren eines Geschäftslogikhandlers für einen Mergeartikel](implement-a-business-logic-handler-for-a-merge-article.md).</span><span class="sxs-lookup"><span data-stu-id="58f72-112">For more information, see [Implement a Business Logic Handler for a Merge Article](implement-a-business-logic-handler-for-a-merge-article.md).</span></span>  
+  
+3.  <span data-ttu-id="58f72-113">Erstellen Sie ein RMO-Projekt (Replication Management Objects, Replikationsverwaltungsobjekte) in [!INCLUDE[msCoName](../../includes/msconame-md.md)] Visual Studio, das den Merge-Agent programmgesteuert synchron startet.</span><span class="sxs-lookup"><span data-stu-id="58f72-113">Create a Replication Management Objects (RMO) project in [!INCLUDE[msCoName](../../includes/msconame-md.md)] Visual Studio that programmatically starts the Merge Agent synchronously.</span></span> <span data-ttu-id="58f72-114">Weitere Informationen finden Sie unter [Synchronize a Pull Subscription](synchronize-a-pull-subscription.md).</span><span class="sxs-lookup"><span data-stu-id="58f72-114">For more information, see [Synchronize a Pull Subscription](synchronize-a-pull-subscription.md).</span></span>  
+  
+4.  <span data-ttu-id="58f72-115">Legen Sie, entweder in der zu debuggenden Methode oder im Klassenkonstruktor, einen Breakpoint im Code des Geschäftslogikhandlers fest.</span><span class="sxs-lookup"><span data-stu-id="58f72-115">Set a breakpoint in the business logic handler code, either in the method being debugged or in the class constructor.</span></span> <span data-ttu-id="58f72-116">Weitere Informationen zu den Methoden, die in einem Geschäftslogikhandler implementiert werden können, finden Sie in den Themen zu den <xref:Microsoft.SqlServer.Replication.BusinessLogicSupport.BusinessLogicModule> -Methoden.</span><span class="sxs-lookup"><span data-stu-id="58f72-116">For more information about the methods that can be implemented in a business logic handler, see the <xref:Microsoft.SqlServer.Replication.BusinessLogicSupport.BusinessLogicModule> methods topic.</span></span>  
+  
+5.  <span data-ttu-id="58f72-117">Erstellen Sie den Geschäftslogikhandler im Debugmodus, und stellen Sie die Assembly und die Debugsymboldatei (PDB-Datei) an dem Speicherort bereit, der in Schritt 1 registriert wurde.</span><span class="sxs-lookup"><span data-stu-id="58f72-117">Build the business logic handler in debug mode and deploy the assembly and debugging symbol file (.pdb) in the location registered in step 1.</span></span>  
+  
+    > [!NOTE]  
+    >  <span data-ttu-id="58f72-118">Um den Debugvorgang zu vereinfachen, erstellen Sie eine einzelne Visual Studio .NET-Lösung, die sowohl das Projekt für den Geschäftslogikhandler als auch das Projekt enthält, das das Abonnement synchronisiert.</span><span class="sxs-lookup"><span data-stu-id="58f72-118">To simplify debugging, create a single Visual Studio .NET solution that contains both the business logic handler project and the project that synchronizes the subscription.</span></span> <span data-ttu-id="58f72-119">Legen Sie das Synchronisierungsprojekt in diesem Fall als Startprojekt fest, und konfigurieren Sie die Buildumgebung so, dass die Geschäftslogikassembly an dem Speicherort bereitgestellt wird, der in Schritt 1 beim Debuggen registriert wurde.</span><span class="sxs-lookup"><span data-stu-id="58f72-119">In this case, set the synchronization project as the startup project, and configure the build environment to deploy the business logic assembly to the location registered in step 1 during debugging.</span></span>  
+  
+6.  <span data-ttu-id="58f72-120">Führen Sie Einfüge-, Update- oder Löschbefehle an der Abonnement- oder Veröffentlichungsdatenbank aus.</span><span class="sxs-lookup"><span data-stu-id="58f72-120">Execute insert, update, or delete commands against the subscription or publication database.</span></span> <span data-ttu-id="58f72-121">Der Speicherort für Befehle und Ausführung hängt von der Methode ab, die gedebuggt wird.</span><span class="sxs-lookup"><span data-stu-id="58f72-121">The command and execution location depends on the method being debugged.</span></span>  
+  
+7.  <span data-ttu-id="58f72-122">Starten Sie das Projekt aus Schritt 3 im Debugmodus, um das Abonnement zu synchronisieren.</span><span class="sxs-lookup"><span data-stu-id="58f72-122">Start the project from step 3 in debug mode to synchronize the subscription.</span></span>  
+  
+8.  <span data-ttu-id="58f72-123">Die Ausführung stoppt, wenn sie den Breakpoint im Geschäftslogikhandler erreicht, falls keine anderen Breakpoints festgelegt und die richtigen Befehle repliziert wurden.</span><span class="sxs-lookup"><span data-stu-id="58f72-123">Assuming that no other breakpoints are set and the proper commands are replicated, the execution stops when it reaches the breakpoint in the business logic handler.</span></span>  
+  
+### <a name="to-debug-a-business-logic-handler-on-a-web-server-using-web-synchronization-or-for-a-sql-server-compact-subscriber"></a><span data-ttu-id="58f72-124">So debuggen Sie einen Geschäftslogikhandler auf einem Webserver mit der Websynchronisierung oder für einen Abonnenten von SQL Server Compact</span><span class="sxs-lookup"><span data-stu-id="58f72-124">To debug a business logic handler on a Web server using Web synchronization, or for a SQL Server Compact Subscriber</span></span>  
+  
+1.  <span data-ttu-id="58f72-125">Konfigurieren Sie die Veröffentlichung und Verteilung, erstellen Sie eine Veröffentlichung, und erstellen Sie ein Pullabonnement für die Veröffentlichung.</span><span class="sxs-lookup"><span data-stu-id="58f72-125">Configure publishing and distribution, create a publication, and create a pull subscription to the publication.</span></span> <span data-ttu-id="58f72-126">Die Veröffentlichung muss die Websynchronisierung oder Abonnenten von [!INCLUDE[ssEW](../../includes/ssew-md.md)] unterstützen.</span><span class="sxs-lookup"><span data-stu-id="58f72-126">The publication must support Web synchronization or [!INCLUDE[ssEW](../../includes/ssew-md.md)] Subscribers.</span></span>  
+  
+2.  <span data-ttu-id="58f72-127">Erstellen und registrieren Sie einen Geschäftslogikhandler.</span><span class="sxs-lookup"><span data-stu-id="58f72-127">Create and register a business logic handler.</span></span> <span data-ttu-id="58f72-128">Weitere Informationen finden Sie unter [Implementieren eines Geschäftslogikhandlers für einen Mergeartikel](implement-a-business-logic-handler-for-a-merge-article.md).</span><span class="sxs-lookup"><span data-stu-id="58f72-128">For more information, see [Implement a Business Logic Handler for a Merge Article](implement-a-business-logic-handler-for-a-merge-article.md).</span></span>  
+  
+3.  <span data-ttu-id="58f72-129">Legen Sie, entweder in der zu debuggenden Methode oder im Klassenkonstruktor, einen Breakpoint im Code des Geschäftslogikhandlers fest.</span><span class="sxs-lookup"><span data-stu-id="58f72-129">Set a breakpoint in the business logic handler code, either in the method being debugged or in the class constructor.</span></span> <span data-ttu-id="58f72-130">Weitere Informationen zu den Methoden, die in einem Geschäftslogikhandler implementiert werden können, finden Sie in den Themen zu den <xref:Microsoft.SqlServer.Replication.BusinessLogicSupport.BusinessLogicModule> -Methoden.</span><span class="sxs-lookup"><span data-stu-id="58f72-130">For more information about the methods that can be implemented in a business logic handler, see the <xref:Microsoft.SqlServer.Replication.BusinessLogicSupport.BusinessLogicModule> methods topic.</span></span>  
+  
+4.  <span data-ttu-id="58f72-131">Erstellen Sie den Geschäftslogikhandler im Debugmodus, und stellen Sie die Assembly und die Debugsymboldatei (PDB-Datei) auf dem Webserver an dem Speicherort bereit, der in Schritt 1 registriert wurde.</span><span class="sxs-lookup"><span data-stu-id="58f72-131">Build the business logic handler in debug mode and deploy the assembly and debugging symbol file (.pdb) at the Web server in the location registered in step 1.</span></span>  
+  
+    > [!NOTE]  
+    >  <span data-ttu-id="58f72-132">Falls der Geschäftslogikhandler nicht erstellt werden kann, weil die Assembly verwendet wird, geben Sie den Befehl `iisreset` an der Eingabeaufforderung auf dem Webserver ein, um den Webserver zurückzusetzen.</span><span class="sxs-lookup"><span data-stu-id="58f72-132">If the business logic handler fails to build because the assembly is in use, type the command `iisreset` on the Web server at the command prompt to reset the Web server.</span></span>  
+  
+5.  <span data-ttu-id="58f72-133">Synchronisieren Sie das Abonnement mit aktivierter Websynchronisierung.</span><span class="sxs-lookup"><span data-stu-id="58f72-133">Synchronize the subscription with Web synchronization enabled.</span></span> <span data-ttu-id="58f72-134">Während der Synchronisierung lädt der Webserver die registrierte Assembly.</span><span class="sxs-lookup"><span data-stu-id="58f72-134">During synchronization, the Web server loads the registered assembly.</span></span>  
+  
+6.  <span data-ttu-id="58f72-135">Fügen Sie mit dem Debugger von Visual Studio .NET einen der folgenden Prozesse auf dem Webserver an.</span><span class="sxs-lookup"><span data-stu-id="58f72-135">Using the Visual Studio .NET debugger, attach to the one of the following processes on the Web server:</span></span>  
+  
+    -   <span data-ttu-id="58f72-136">w3wp.exe &ndash; Windows Server 2003.</span><span class="sxs-lookup"><span data-stu-id="58f72-136">w3wp.exe - Windows Server 2003.</span></span>  
+  
+    -   <span data-ttu-id="58f72-137">inetinfo.exe &ndash; Windows 2000 und Windows XP.</span><span class="sxs-lookup"><span data-stu-id="58f72-137">inetinfo.exe - Windows 2000 and Windows XP.</span></span>  
+  
+7.  <span data-ttu-id="58f72-138">Prüfen Sie im Fenster **Ausgabe** die Debugausgabe, um festzustellen, ob die Symbole für die registrierte Assembly ordnungsgemäß geladen wurden.</span><span class="sxs-lookup"><span data-stu-id="58f72-138">In the **Output** window, check the debug output to verify that the symbols for the registered assembly loaded properly.</span></span> <span data-ttu-id="58f72-139">Wenn die Symbole nicht geladen wurden, stellen Sie sicher, dass die richtige PDB-Datei in Schritt 4 kopiert wurde, und wiederholen Sie Schritt 5.</span><span class="sxs-lookup"><span data-stu-id="58f72-139">If the symbols were not loaded, ensure that the correct .pdb file was copied in step 4, and repeat step 5.</span></span>  
+  
+8.  <span data-ttu-id="58f72-140">Führen Sie Einfüge-, Update- oder Löschbefehle an der Abonnement- oder Veröffentlichungsdatenbank aus.</span><span class="sxs-lookup"><span data-stu-id="58f72-140">Execute insert, update, or delete commands against the subscription or publication database.</span></span> <span data-ttu-id="58f72-141">Der Speicherort für Befehle und Ausführung hängt von der Methode ab, die gedebuggt wird.</span><span class="sxs-lookup"><span data-stu-id="58f72-141">The command and execution location depends on the method being debugged.</span></span>  
+  
+9. <span data-ttu-id="58f72-142">Hängen Sie den w3wp.exe-Prozess mit dem Debugger von Visual Studio an.</span><span class="sxs-lookup"><span data-stu-id="58f72-142">Using the Visual Studio debugger, attach to the w3wp.exe process.</span></span>  
+  
+10. <span data-ttu-id="58f72-143">Synchronisieren Sie das Abonnement erneut mit der Websynchronisierung.</span><span class="sxs-lookup"><span data-stu-id="58f72-143">Synchronize the subscription again, using Web synchronization.</span></span>  
+  
+11. <span data-ttu-id="58f72-144">Die Ausführung stoppt, wenn sie den Breakpoint im Geschäftslogikhandler erreicht, falls keine anderen Breakpoints festgelegt und die richtigen Befehle repliziert wurden.</span><span class="sxs-lookup"><span data-stu-id="58f72-144">Assuming that no other breakpoints are set and the proper commands are replicated, the execution stops when it reaches the breakpoint in the business logic handler.</span></span>  
+  
+## <a name="see-also"></a><span data-ttu-id="58f72-145">Weitere Informationen</span><span class="sxs-lookup"><span data-stu-id="58f72-145">See Also</span></span>  
+ [<span data-ttu-id="58f72-146">Implementieren eines Geschäftslogikhandlers für einen Mergeartikel</span><span class="sxs-lookup"><span data-stu-id="58f72-146">Implement a Business Logic Handler for a Merge Article</span></span>](implement-a-business-logic-handler-for-a-merge-article.md)  
+  
+  
