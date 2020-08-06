@@ -1,0 +1,57 @@
+---
+title: Exportieren und Importieren von Data Mining-Objekten | Microsoft-Dokumentation
+ms.custom: ''
+ms.date: 06/13/2017
+ms.prod: sql-server-2014
+ms.reviewer: ''
+ms.technology: analysis-services
+ms.topic: conceptual
+helpviewer_keywords:
+- backing up databases [Analysis Services]
+- exporting mining models
+- exporting mining structures
+- mining structures [Analysis Services], creating
+- mining structures [DMX], exporting
+- mining models [Analysis Services], migration
+ms.assetid: 10a83b13-2640-4ff5-80c8-a35e1d692908
+author: minewiskan
+ms.author: owend
+ms.openlocfilehash: 01e8651dd7e9d59012b0ba065bccb9ea62a1ee54
+ms.sourcegitcommit: ad4d92dce894592a259721a1571b1d8736abacdb
+ms.translationtype: MT
+ms.contentlocale: de-DE
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87620054"
+---
+# <a name="export-and-import-data-mining-objects"></a><span data-ttu-id="2201d-102">Exportieren und Importieren von Data Mining-Objekten</span><span class="sxs-lookup"><span data-stu-id="2201d-102">Export and Import Data Mining Objects</span></span>
+  <span data-ttu-id="2201d-103">Zusätzlich zu den in [!INCLUDE[ssASnoversion](../../includes/ssasnoversion-md.md)] verfügbaren Funktionen zum Sichern, Wiederherstellen und Migrieren von Lösungen bietet SQL Server Data Mining die Möglichkeit, Data Mining-Strukturen und -Modelle mithilfe von Data Mining-Erweiterungen (Data Mining Extensions, DMX) zügig zwischen verschiedenen Servern zu übertragen.</span><span class="sxs-lookup"><span data-stu-id="2201d-103">In addition to the functionality provided in [!INCLUDE[ssASnoversion](../../includes/ssasnoversion-md.md)] for backing up, restoring, and migrating solutions, SQL Server Data Mining provides the ability to quickly transfer data mining structures and models between different servers by using Data Mining Extensions (DMX).</span></span>  
+  
+ <span data-ttu-id="2201d-104">Wenn die Data Mining-Lösung relationale Daten statt einer multidimensionalen Datenbank verwendet, ist die Übertragung von Modellen mit `EXPORT` und `IMPORT` wesentlich schneller und einfacher, als die Datenbankwiederherstellung zu verwenden oder eine vollständige Lösung bereitzustellen.</span><span class="sxs-lookup"><span data-stu-id="2201d-104">If your data mining solution uses relational data instead of a multidimensional database, transferring models by using `EXPORT` and `IMPORT` is much faster and easier than either using database restore or deploying an entire solution.</span></span>  
+  
+ <span data-ttu-id="2201d-105">Dieser Abschnitt enthält eine Übersicht über die Übertragung von Data Mining-Strukturen und Modellen mithilfe von DMX-Anweisungen.</span><span class="sxs-lookup"><span data-stu-id="2201d-105">This section provides an overview of how to transfer data mining structures and models by using DMX statements.</span></span> <span data-ttu-id="2201d-106">Details zur Syntax sowie Beispiele finden Sie unter [EXPORT &#40;DMX&#41;](/sql/dmx/export-dmx) und [IMPORT &#40;DMX&#41;](/sql/dmx/import-dmx).</span><span class="sxs-lookup"><span data-stu-id="2201d-106">For details of the syntax, together with examples, see [EXPORT &#40;DMX&#41;](/sql/dmx/export-dmx) and [IMPORT &#40;DMX&#41;](/sql/dmx/import-dmx).</span></span>  
+  
+> [!NOTE]  
+>  <span data-ttu-id="2201d-107">Sie müssen Datenbank- oder Serveradministrator sein, damit Sie Objekte aus einer bzw. in eine Datenbank von Microsoft SQL Server Analysis Services exportieren bzw. importieren können.</span><span class="sxs-lookup"><span data-stu-id="2201d-107">You must be a database or server administrator to export or import objects from a Microsoft SQL Server Analysis Services database.</span></span>  
+  
+## <a name="exporting-data-mining-structures"></a><span data-ttu-id="2201d-108">Exportieren von Data Mining-Strukturen</span><span class="sxs-lookup"><span data-stu-id="2201d-108">Exporting Data Mining Structures</span></span>  
+ <span data-ttu-id="2201d-109">Wenn Sie eine Miningstruktur exportieren, exportiert die EXPORT-Anweisung automatisch alle zugeordneten Modelle.</span><span class="sxs-lookup"><span data-stu-id="2201d-109">When you export a mining structure, the EXPORT statement automatically exports all associated models.</span></span> <span data-ttu-id="2201d-110">Wenn Sie die Objekte kontrollieren möchten, die exportiert werden, müssen Sie jedes Objekt mit Namen angeben.</span><span class="sxs-lookup"><span data-stu-id="2201d-110">If you want to control the objects that are exported, you must specify each object by name.</span></span>  
+  
+ <span data-ttu-id="2201d-111">Wenn die Miningstruktur dem Standardverhalten beim Exportieren der Miningstruktur entsprechend verarbeitet wurde und die Ergebnisse zwischengespeichert wurden, enthält die Definition eine Zusammenfassung der Daten, auf denen die Struktur basiert.</span><span class="sxs-lookup"><span data-stu-id="2201d-111">If the mining structure has been processed and the results have been cached, which is the default behavior, when you export the mining structure, the definition contains a summary of the data on which the structure is based.</span></span> <span data-ttu-id="2201d-112">Um diese Zusammenfassung zu entfernen, müssen Sie den mit der Miningstruktur verknüpften Cache löschen, indem Sie einen `Process Clear Structure`-Vorgang ausführen.</span><span class="sxs-lookup"><span data-stu-id="2201d-112">To remove this summary, you must clear the cache associated with the mining structure by performing a `Process Clear Structure` operation.</span></span> <span data-ttu-id="2201d-113">Weitere Informationen finden Sie unter [Process a Mining Structure](process-a-mining-structure.md).</span><span class="sxs-lookup"><span data-stu-id="2201d-113">For more information, see [Process a Mining Structure](process-a-mining-structure.md).</span></span>  
+  
+### <a name="exporting-data-mining-models"></a><span data-ttu-id="2201d-114">Exportieren von Data Mining-Modellen</span><span class="sxs-lookup"><span data-stu-id="2201d-114">Exporting Data Mining Models</span></span>  
+ <span data-ttu-id="2201d-115">Mit dem `WITH DEPENDENCIES`-Schlüsselwort können Sie die Datenquelle und die Datenquellensichtdefinition zusammen mit dem Miningmodell und seiner Struktur exportieren.</span><span class="sxs-lookup"><span data-stu-id="2201d-115">You can use the `WITH DEPENDENCIES` keyword to export the data source and data source view definition together with the mining model and its structure.</span></span>  
+  
+ <span data-ttu-id="2201d-116">Wenn Sie ein Miningmodell exportieren, ohne seine Abhängigkeiten zu exportieren, exportiert die EXPORT-Anweisung zwar die Definition des Miningmodells und der zugehörigen Miningstruktur, jedoch nicht die Definition der Datenquellen.</span><span class="sxs-lookup"><span data-stu-id="2201d-116">When you export a mining model without exporting its dependencies, the EXPORT statement will export the definition of the mining model and its mining structure, but does not export the definition of the data sources.</span></span> <span data-ttu-id="2201d-117">Nach dem Importieren können Sie das Modell daher sofort durchsuchen. Wenn Sie das Miningmodell auf dem Zielserver jedoch erneut verarbeiten oder Abfragen für die zugrunde liegenden Daten ausführen möchten, müssen Sie eine entsprechende Datenquelle auf dem Zielserver erstellen.</span><span class="sxs-lookup"><span data-stu-id="2201d-117">As a consequence, after you import the model you will be able to browse the model immediately, but if you want to reprocess the mining model on the target server, or run queries against the underlying data, you must create a corresponding data source on the destination server.</span></span>  
+  
+## <a name="importing-data-mining-structures-and-models"></a><span data-ttu-id="2201d-118">Importieren von Data Mining-Strukturen und -Modellen</span><span class="sxs-lookup"><span data-stu-id="2201d-118">Importing Data Mining Structures and Models</span></span>  
+ <span data-ttu-id="2201d-119">Beim Importieren eines Data Mining-Objekts wird das Objekt auf den Server und in die Datenbank importiert, mit dem bzw. der Sie beim Ausführen der IMPORT-Anweisung verbunden sind.</span><span class="sxs-lookup"><span data-stu-id="2201d-119">When you import a data mining object, the object is imported to the server and database to which you are connected when you execute the IMPORT statement.</span></span> <span data-ttu-id="2201d-120">Wenn die Importdatei eine Datenbank enthält, die auf dem Server nicht vorhanden ist, wird die Datenbank erstellt.</span><span class="sxs-lookup"><span data-stu-id="2201d-120">If the import file includes a database that does not exist on the server, the database will be created.</span></span>  
+  
+ <span data-ttu-id="2201d-121">Sie können eine Miningstruktur oder ein Miningmodell auch mit dem `Restore`-Befehl importieren.</span><span class="sxs-lookup"><span data-stu-id="2201d-121">You can also import a mining structure or mining model by using the `Restore` command.</span></span> <span data-ttu-id="2201d-122">Die Modelle oder Strukturen werden in der Datenbank wiederhergestellt, die den gleichen Namen trägt, wie die Datenbank, aus der sie exportiert wurden.</span><span class="sxs-lookup"><span data-stu-id="2201d-122">Your models or structures will be restored into the database that has the same name as the database from which they were exported.</span></span> <span data-ttu-id="2201d-123">Weitere Informationen finden Sie unter [Restore Options](../multidimensional-models/restore-options.md).</span><span class="sxs-lookup"><span data-stu-id="2201d-123">For more information, see [Restore Options](../multidimensional-models/restore-options.md).</span></span>  
+  
+## <a name="remarks"></a><span data-ttu-id="2201d-124">Bemerkungen</span><span class="sxs-lookup"><span data-stu-id="2201d-124">Remarks</span></span>  
+ <span data-ttu-id="2201d-125">Sie können ein Modell oder eine Struktur nicht auf einen Server importieren, wenn bereits ein Modell oder eine Struktur mit dem gleichen Namen vorhanden ist.</span><span class="sxs-lookup"><span data-stu-id="2201d-125">You cannot import a model or structure to a server if a model or structure of the same name already exists on that server.</span></span> <span data-ttu-id="2201d-126">Sie können auch kein Data Mining-Objekt exportieren und anschließend den Namen dieses Objekts in der Exportdatei ändern.</span><span class="sxs-lookup"><span data-stu-id="2201d-126">Also, you cannot export a data mining object and then modify the name of that object in the export file.</span></span> <span data-ttu-id="2201d-127">Wenn Namenskonflikte zu erwarten sind, sollten Sie daher entweder das Data Mining-Objekt auf dem Zielserver löschen oder das Data Mining-Objekt umbenennen, bevor Sie die Definition exportieren.</span><span class="sxs-lookup"><span data-stu-id="2201d-127">Therefore, if you anticipate naming conflicts, you should either delete the data mining object on the target server, or rename the data mining object before you export the definition.</span></span>  
+  
+## <a name="see-also"></a><span data-ttu-id="2201d-128">Weitere Informationen</span><span class="sxs-lookup"><span data-stu-id="2201d-128">See Also</span></span>  
+ [<span data-ttu-id="2201d-129">Verwaltung von Data Mining-Lösungen und -Objekten</span><span class="sxs-lookup"><span data-stu-id="2201d-129">Management of Data Mining Solutions and Objects</span></span>](management-of-data-mining-solutions-and-objects.md)  
+  
+  
