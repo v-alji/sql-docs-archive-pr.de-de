@@ -1,0 +1,46 @@
+---
+title: Entwerfen von Aggregationen (Analysis Services-Multidimensional) | Microsoft-Dokumentation
+ms.custom: ''
+ms.date: 06/13/2017
+ms.prod: sql-server-2014
+ms.reviewer: ''
+ms.technology: analysis-services
+ms.topic: conceptual
+helpviewer_keywords:
+- aggregations [Analysis Services], partitions
+- partitions [Analysis Services], aggregations
+ms.assetid: 3072b7e0-6961-42ad-a287-16f391f2cec4
+author: minewiskan
+ms.author: owend
+ms.openlocfilehash: 18d8ea1adb645868a11b70966ba3be2ed1764fbc
+ms.sourcegitcommit: ad4d92dce894592a259721a1571b1d8736abacdb
+ms.translationtype: MT
+ms.contentlocale: de-DE
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87622249"
+---
+# <a name="designing-aggregations-analysis-services---multidimensional"></a><span data-ttu-id="bfa4c-102">Entwerfen von Aggregationen (Analysis Services – Mehrdimensional)</span><span class="sxs-lookup"><span data-stu-id="bfa4c-102">Designing Aggregations (Analysis Services - Multidimensional)</span></span>
+  <span data-ttu-id="bfa4c-103">Aggregationen sind vorausberechnete Zusammenfassungen von Cubedaten, die die Abfrageantwortzeiten in [!INCLUDE[ssASnoversion](../../includes/ssasnoversion-md.md)] beschleunigen.</span><span class="sxs-lookup"><span data-stu-id="bfa4c-103">Aggregations are precalculated summaries of cube data that help enable [!INCLUDE[ssASnoversion](../../includes/ssasnoversion-md.md)] to provide rapid query responses.</span></span>  
+  
+ <span data-ttu-id="bfa4c-104">Verwenden Sie den Aggregationsentwurfs-Assistenten, um Speicheroptionen und Entwurfsaggregationen für eine Partition zu speichern.</span><span class="sxs-lookup"><span data-stu-id="bfa4c-104">To set storage options and design aggregations for a partition, use the Aggregation Design Wizard.</span></span> <span data-ttu-id="bfa4c-105">Jede Ausführung des Assistenten bezieht sich immer nur auf eine einzige Partition einer Measuregruppe, sodass Sie für jede Partition andere Optionen und Entwürfe auswählen können.</span><span class="sxs-lookup"><span data-stu-id="bfa4c-105">The wizard operates on a single partition of a measure group at a time so that you can select different options and designs for each partition.</span></span> <span data-ttu-id="bfa4c-106">Der Assistent führt Sie durch mehrere Schritte, in denen Sie die Speicher- und Aggregationsoptionen für eine Partition konfigurieren können.</span><span class="sxs-lookup"><span data-stu-id="bfa4c-106">The wizard takes you through steps to configure storage and design aggregation for a partition.</span></span> <span data-ttu-id="bfa4c-107">Weitere Informationen zum Konfigurieren von Speicher finden Sie unter:</span><span class="sxs-lookup"><span data-stu-id="bfa4c-107">For more information about configuring storage, see.</span></span>  
+  
+ <span data-ttu-id="bfa4c-108">Wählen Sie eine Methode zur Steuerung der Anzahl der Aggregationen aus, die der Assistent entwerfen soll. Anschließend werden die Aggregationen vom Assistenten entworfen.</span><span class="sxs-lookup"><span data-stu-id="bfa4c-108">Select a method for controlling the number of aggregations the wizard will design, and then let the wizard design the aggregations.</span></span>  
+  
+ <span data-ttu-id="bfa4c-109">Das Ziel ist es, die optimale Anzahl an Aggregationen zu entwerfen.</span><span class="sxs-lookup"><span data-stu-id="bfa4c-109">The goal is to design the optimal number of aggregations.</span></span> <span data-ttu-id="bfa4c-110">Diese Anzahl sollte nicht nur eine zufrieden stellende Antwortzeit ermöglichen, sondern auch zur Vermeidung unverhältnismäßig großer Partitionen beitragen.</span><span class="sxs-lookup"><span data-stu-id="bfa4c-110">This number should not only provide satisfactory response time, but also prevent excessive partition size.</span></span> <span data-ttu-id="bfa4c-111">Mit einer größeren Anzahl an Aggregationen können Sie schnellere Antwortzeiten erreichen. Jedoch wird mehr Speicherplatz benötigt, und der Computer kann zum Berechnen mehr Zeit beanspruchen.</span><span class="sxs-lookup"><span data-stu-id="bfa4c-111">A greater number of aggregations produces faster response times but it also requires more storage space and may take longer to compute.</span></span> <span data-ttu-id="bfa4c-112">Mit zunehmender Anzahl der vom Assistenten entworfenen Aggregationen erreichen frühere Aggregationen zudem bedeutend größere Leistungssteigerungen als spätere Aggregationen.</span><span class="sxs-lookup"><span data-stu-id="bfa4c-112">Moreover, as the wizard designs more and more aggregations, earlier aggregations produce considerably larger performance gains than later aggregations.</span></span> <span data-ttu-id="bfa4c-113">Durch die Reduzierung von weniger nützlichen Aggregationen wird auch die Leistung gesteigert.</span><span class="sxs-lookup"><span data-stu-id="bfa4c-113">Reduction in less useful aggregations increases performance as well.</span></span> <span data-ttu-id="bfa4c-114">Mithilfe der folgenden vom Assistenten bereitgestellten Methoden können Sie die Anzahl der Aggregationen steuern, die der Assistent entwirft:</span><span class="sxs-lookup"><span data-stu-id="bfa4c-114">You can control the number of aggregations the wizard designs by one of the following methods available in the wizard:</span></span>  
+  
+-   <span data-ttu-id="bfa4c-115">Angeben einer Speicherplatzgrenze für die Aggregationen.</span><span class="sxs-lookup"><span data-stu-id="bfa4c-115">Specify a storage space limit for the aggregations.</span></span>  
+  
+-   <span data-ttu-id="bfa4c-116">Angeben einer Grenze für die Leistungssteigerung.</span><span class="sxs-lookup"><span data-stu-id="bfa4c-116">Specify a performance gain limit.</span></span>  
+  
+-   <span data-ttu-id="bfa4c-117">Manuelles Beenden des Assistenten, wenn sich die Kurve, mit der Leistung und Größe im Verhältnis angezeigt werden, bei einer zufrieden stellenden Leistungssteigerung einpendelt.</span><span class="sxs-lookup"><span data-stu-id="bfa4c-117">Stop the wizard manually when the displayed performance versus size curve starts to level off at an acceptable performance gain.</span></span>  
+  
+-   <span data-ttu-id="bfa4c-118">Auswahl, Aggregationen nicht zu entwerfen.</span><span class="sxs-lookup"><span data-stu-id="bfa4c-118">Choose not to design aggregations.</span></span>  
+  
+ <span data-ttu-id="bfa4c-119">Um Speicher zu entwerfen, muss der Assistent in der Lage sein, eine Verbindung zu [!INCLUDE[ssASnoversion](../../includes/ssasnoversion-md.md)] auf dem Zielserver herzustellen.</span><span class="sxs-lookup"><span data-stu-id="bfa4c-119">To design storage, the wizard must be able to connect to [!INCLUDE[ssASnoversion](../../includes/ssasnoversion-md.md)] on the target server.</span></span> <span data-ttu-id="bfa4c-120">Der Assistent zeigt eine Fehlermeldung an, wenn [!INCLUDE[ssASnoversion](../../includes/ssasnoversion-md.md)] nicht auf dem Zielserver ausgeführt wird oder wenn andernfalls der Speicherentwurfsprozess keine Verbindung zum Zielserver herstellen kann.</span><span class="sxs-lookup"><span data-stu-id="bfa4c-120">The wizard will display an error message if [!INCLUDE[ssASnoversion](../../includes/ssasnoversion-md.md)] is not running on the target server or if the storage design process is otherwise unable to connect to the target server.</span></span>  
+  
+ <span data-ttu-id="bfa4c-121">Der letzte Schritt des Assistenten ermöglicht Ihnen die Durchführung der Verarbeitung oder das Aufschieben der Verarbeitung.</span><span class="sxs-lookup"><span data-stu-id="bfa4c-121">The final step of the wizard allows you to process or defer processing.</span></span> <span data-ttu-id="bfa4c-122">Durch die Verarbeitung werden die Aggregationen erstellt, die Sie mit dem Assistenten entwerfen. Ein Aufschub der Verarbeitung speichert die entworfenen Aggregationen, sodass sie später verarbeitet werden können. Diese Option ermöglicht es Ihnen, die Entwurfsaktivitäten fortzusetzen, ohne eine Verarbeitung vornehmen zu müssen.</span><span class="sxs-lookup"><span data-stu-id="bfa4c-122">Processing creates the aggregations you design with the wizard, while deferring processing saves the designed aggregations for future processing, thus allowing design activities to continue without processing.</span></span> <span data-ttu-id="bfa4c-123">Je nach Größe der Partition kann die Verarbeitung sehr viel Zeit in Anspruch nehmen.</span><span class="sxs-lookup"><span data-stu-id="bfa4c-123">Depending on the size of the partition, processing may take considerable time.</span></span> <span data-ttu-id="bfa4c-124">Sie können die Verarbeitung einer Partition unterbrechen, wenn Sie möchten.</span><span class="sxs-lookup"><span data-stu-id="bfa4c-124">If you choose, you can interrupt processing a partition.</span></span>  
+  
+## <a name="see-also"></a><span data-ttu-id="bfa4c-125">Weitere Informationen</span><span class="sxs-lookup"><span data-stu-id="bfa4c-125">See Also</span></span>  
+ [<span data-ttu-id="bfa4c-126">Aggregations and Aggregation Designs</span><span class="sxs-lookup"><span data-stu-id="bfa4c-126">Aggregations and Aggregation Designs</span></span>](../multidimensional-models-olap-logical-cube-objects/aggregations-and-aggregation-designs.md)  
+  
+  

@@ -1,0 +1,44 @@
+---
+title: Konfigurieren des ADO.NET-Verbindungs-Managers | Microsoft-Dokumentation
+ms.custom: ''
+ms.date: 06/13/2017
+ms.prod: sql-server-2014
+ms.reviewer: ''
+ms.technology: integration-services
+ms.topic: conceptual
+f1_keywords:
+- sql12.dts.designer.adonetconnection.f1
+helpviewer_keywords:
+- Configure ADO.NET Connection Manager dialog box
+ms.assetid: 609f8354-e876-4fed-adab-ac8d57a94f1c
+author: chugugrace
+ms.author: chugu
+ms.openlocfilehash: 13efde1888c50e243f0d07a534f538646db1eaa5
+ms.sourcegitcommit: ad4d92dce894592a259721a1571b1d8736abacdb
+ms.translationtype: MT
+ms.contentlocale: de-DE
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87622790"
+---
+# <a name="configure-adonet-connection-manager"></a><span data-ttu-id="0d017-102">ADO.NET-Verbindungs-Manager konfigurieren</span><span class="sxs-lookup"><span data-stu-id="0d017-102">Configure ADO.NET Connection Manager</span></span>
+  <span data-ttu-id="0d017-103">Verwenden Sie das Dialogfeld **ADO.NET-Verbindungs-Manager konfigurieren** , um einer Datenquelle, auf die mithilfe eines .NET Framework-Datenanbieters (z. B. des SqlClient-Anbieters) zugegriffen werden kann, eine Verbindung hinzuzufügen.</span><span class="sxs-lookup"><span data-stu-id="0d017-103">Use the **Configure ADO.NET Connection Manager** dialog box to add a connection to a data source that can be accessed by using a .NET Framework data provider, such as the SqlClient provider.</span></span> <span data-ttu-id="0d017-104">Der Verbindungs-Manager kann eine vorhandene Verbindung verwenden, oder Sie können eine neue erstellen.</span><span class="sxs-lookup"><span data-stu-id="0d017-104">The connection manager can use an existing connection, or you can create a new one.</span></span>  
+  
+ <span data-ttu-id="0d017-105">Weitere Informationen zum ADO.NET-Verbindungs-Manager finden Sie unter [ADO.NET Connection Manager](connection-manager/ado-net-connection-manager.md).</span><span class="sxs-lookup"><span data-stu-id="0d017-105">To learn more about the ADO.NET connection manager, see [ADO.NET Connection Manager](connection-manager/ado-net-connection-manager.md).</span></span>  
+  
+## <a name="options"></a><span data-ttu-id="0d017-106">Tastatur</span><span class="sxs-lookup"><span data-stu-id="0d017-106">Options</span></span>  
+ <span data-ttu-id="0d017-107">**Datenverbindungen**</span><span class="sxs-lookup"><span data-stu-id="0d017-107">**Data connections**</span></span>  
+ <span data-ttu-id="0d017-108">Wählen Sie in der Liste eine vorhandene ADO.NET.Datenverbindung aus.</span><span class="sxs-lookup"><span data-stu-id="0d017-108">Select an existing ADO.NET data connection from the list.</span></span>  
+  
+ <span data-ttu-id="0d017-109">**Datenverbindungseigenschaften**</span><span class="sxs-lookup"><span data-stu-id="0d017-109">**Data connection properties**</span></span>  
+ <span data-ttu-id="0d017-110">Zeigt Eigenschaften und Werte für die ausgewählte ADO.NET-Datenverbindung an.</span><span class="sxs-lookup"><span data-stu-id="0d017-110">View properties and values for the selected ADO.NET data connection.</span></span>  
+  
+ <span data-ttu-id="0d017-111">**Neu**</span><span class="sxs-lookup"><span data-stu-id="0d017-111">**New**</span></span>  
+ <span data-ttu-id="0d017-112">Erstellen Sie mithilfe des Dialogfelds **Verbindungs-Manager** eine ADO.NET-Datenverbindung.</span><span class="sxs-lookup"><span data-stu-id="0d017-112">Create an ADO.NET data connection by using the **Connection Manager** dialog box.</span></span>  
+  
+ <span data-ttu-id="0d017-113">**Löschen**</span><span class="sxs-lookup"><span data-stu-id="0d017-113">**Delete**</span></span>  
+ <span data-ttu-id="0d017-114">Wählen Sie eine Verbindung aus, und löschen Sie sie mithilfe der Schaltfläche **Löschen** .</span><span class="sxs-lookup"><span data-stu-id="0d017-114">Select a connection, and then delete it by using the **Delete** button.</span></span>  
+  
+## <a name="see-also"></a><span data-ttu-id="0d017-115">Weitere Informationen</span><span class="sxs-lookup"><span data-stu-id="0d017-115">See Also</span></span>  
+ [<span data-ttu-id="0d017-116">Fehler- und Meldungsreferenz von Integration Services</span><span class="sxs-lookup"><span data-stu-id="0d017-116">Integration Services Error and Message Reference</span></span>](../../2014/integration-services/integration-services-error-and-message-reference.md)  
+  
+  
