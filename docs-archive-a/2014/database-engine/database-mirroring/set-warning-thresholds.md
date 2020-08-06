@@ -1,0 +1,95 @@
+---
+title: Festlegen von Warnungsschwellenwerten | Microsoft-Dokumentation
+ms.custom: ''
+ms.date: 06/13/2017
+ms.prod: sql-server-2014
+ms.reviewer: ''
+ms.technology: high-availability
+ms.topic: conceptual
+f1_keywords:
+- sql12.swb.dbmmonitor.setwarningthreshold.f1
+ms.assetid: 17f93147-e7d9-4092-b4c2-c11b38051171
+author: MikeRayMSFT
+ms.author: mikeray
+ms.openlocfilehash: 2d5fd9c0213d74f3a6b5d0d4cb2f11d3531d336d
+ms.sourcegitcommit: ad4d92dce894592a259721a1571b1d8736abacdb
+ms.translationtype: MT
+ms.contentlocale: de-DE
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87701744"
+---
+# <a name="set-warning-thresholds"></a><span data-ttu-id="b8605-102">Schwellenwerte für Warnung festlegen</span><span class="sxs-lookup"><span data-stu-id="b8605-102">Set Warning Thresholds</span></span>
+  <span data-ttu-id="b8605-103">Mithilfe dieses Dialogfelds können Sie einen oder mehrere Warnungsschwellenwerte für die in der Navigationsstruktur des Dialogfelds **Datenbankspiegelungs-Monitor** ausgewählte Datenbank aktivieren und konfigurieren.</span><span class="sxs-lookup"><span data-stu-id="b8605-103">Use this dialog box to enable and configure one or more warning thresholds for the database selected in the navigation tree of the **Database Mirroring Monitor** dialog box.</span></span>  
+  
+ <span data-ttu-id="b8605-104">Mit dem Dialogfeld wird versucht, eine Verbindung mit beiden Serverinstanzen herzustellen.</span><span class="sxs-lookup"><span data-stu-id="b8605-104">The dialog box tries to connect to both server instances.</span></span> <span data-ttu-id="b8605-105">Diese Verbindungen werden asynchron hergestellt.</span><span class="sxs-lookup"><span data-stu-id="b8605-105">These connections are established asynchronously.</span></span> <span data-ttu-id="b8605-106">Das Dialogfeld zeigt den Verbindungsstatus von jedem Partner an.</span><span class="sxs-lookup"><span data-stu-id="b8605-106">The dialog shows the connection status of each partner.</span></span> <span data-ttu-id="b8605-107">Wenn der Partner nicht verbunden ist, können Sie auf **Verbinden**klicken.</span><span class="sxs-lookup"><span data-stu-id="b8605-107">If the partner is not connected, you can click **Connect**.</span></span>  
+  
+ <span data-ttu-id="b8605-108">**So verwenden Sie SQL Server Management Studio zum Überwachen der Datenbankspiegelung**</span><span class="sxs-lookup"><span data-stu-id="b8605-108">**To use SQL Server Management Studio to monitor database mirroring**</span></span>  
+  
+-   [<span data-ttu-id="b8605-109">Starten des Datenbankspiegelungs-Monitors &#40;SQL Server Management Studio&#41;</span><span class="sxs-lookup"><span data-stu-id="b8605-109">Start Database Mirroring Monitor &#40;SQL Server Management Studio&#41;</span></span>](../database-mirroring/start-database-mirroring-monitor-sql-server-management-studio.md)  
+  
+## <a name="options"></a><span data-ttu-id="b8605-110">Tastatur</span><span class="sxs-lookup"><span data-stu-id="b8605-110">Options</span></span>  
+ <span data-ttu-id="b8605-111">*Serverinstanz und zugehöriger Verbindungsstatus*</span><span class="sxs-lookup"><span data-stu-id="b8605-111">*Server instance and its connection status*</span></span>  
+ <span data-ttu-id="b8605-112">Der Name einer Partner Serverinstanz in der Form _System_ **\\** _instance_name_.</span><span class="sxs-lookup"><span data-stu-id="b8605-112">Name of a partner server instance in the form _SYSTEM_**\\**_INSTANCE_NAME_.</span></span> <span data-ttu-id="b8605-113">Für eine Standardserverinstanz wird nur der Systemname angezeigt.</span><span class="sxs-lookup"><span data-stu-id="b8605-113">For a default server instance, only the system name is displayed.</span></span>  
+  
+ <span data-ttu-id="b8605-114">Dieses Feld zeigt auch an, ob der Monitor zum aktuellen Zeitpunkt mit der Serverinstanz verbunden ist.</span><span class="sxs-lookup"><span data-stu-id="b8605-114">This field also indicates whether the monitor is currently connected to this server instance.</span></span> <span data-ttu-id="b8605-115">Folgende Werte sind für den Verbindungsstatus möglich:</span><span class="sxs-lookup"><span data-stu-id="b8605-115">The possible connection statuses are:</span></span>  
+  
+-   <span data-ttu-id="b8605-116">**Nicht verbunden mit** *Name_der_Serverinstanz*</span><span class="sxs-lookup"><span data-stu-id="b8605-116">**Not connected to**  *server_instance_name*</span></span>  
+  
+-   <span data-ttu-id="b8605-117">**Verbindung wird hergestellt** *Name_der_Serverinstanz*</span><span class="sxs-lookup"><span data-stu-id="b8605-117">**Trying to connect to**  *server_instance_name*</span></span>  
+  
+-   <span data-ttu-id="b8605-118">\**Verbunden mit\*\*\*Name_der_Serverinstanz*</span><span class="sxs-lookup"><span data-stu-id="b8605-118">**Connected to**  *server_instance_name*</span></span>  
+  
+    > [!NOTE]  
+    >  <span data-ttu-id="b8605-119">Wenn Sie kein Mitglied der festen Serverrolle **sysadmin** sind, lautet dieser Statuts **Verbunden mit** *Name_der_Serverinstanz* **(Begrenzte Berechtigungen)** .</span><span class="sxs-lookup"><span data-stu-id="b8605-119">If you do are not a member of the **sysadmin** fixed server role, this status is **Connected to** *server_instance_name* **(Limited permissions)**.</span></span>  
+  
+ <span data-ttu-id="b8605-120">Der Name jeder der Partnerserverinstanzen wird in einem separaten Feld für die *Serverinstanz und den zugehörigen Verbindungsstatus* angezeigt.</span><span class="sxs-lookup"><span data-stu-id="b8605-120">The name of each of the partner server instances is displayed in a separate *Server instance and its connection status* field.</span></span> <span data-ttu-id="b8605-121">Das oberste Feld listet den Prinzipalserver auf, wenn die Ausführung des Monitors gestartet wurde.</span><span class="sxs-lookup"><span data-stu-id="b8605-121">The top field lists the principal server when the monitor started running.</span></span>  
+  
+ <span data-ttu-id="b8605-122">**Verbinden**/**Abbrechen**</span><span class="sxs-lookup"><span data-stu-id="b8605-122">**Connect**/**Cancel**</span></span>  
+ <span data-ttu-id="b8605-123">Eine Schaltfläche **Verbinden**/**Abbrechen** ist jedem Feld für die *Serverinstanz und den zugehörigen Verbindungsstatus* zugeordnet.</span><span class="sxs-lookup"><span data-stu-id="b8605-123">A **Connect**/**Cancel** button is associated with each *Server instance and its connection status* fields.</span></span> <span data-ttu-id="b8605-124">Der Status der Schaltfläche ist abhängig vom Verbindungsstatus:</span><span class="sxs-lookup"><span data-stu-id="b8605-124">The state of the button depends on the connection status:</span></span>  
+  
+-   <span data-ttu-id="b8605-125">Wenn keine Verbindung mit der Serverinstanz besteht, lautet der Schaltflächentext **Verbinden**.</span><span class="sxs-lookup"><span data-stu-id="b8605-125">If there is no connection to the server instance, the button text is **Connect**.</span></span> <span data-ttu-id="b8605-126">Klicken Sie auf die Schaltfläche, um eine Verbindung mit der Serverinstanz herzustellen.</span><span class="sxs-lookup"><span data-stu-id="b8605-126">Click to connect to the server instance.</span></span>  
+  
+-   <span data-ttu-id="b8605-127">Wenn gerade ein Verbindungsversuch ausgeführt wird, lautet der Schaltflächentext **Abbrechen**.</span><span class="sxs-lookup"><span data-stu-id="b8605-127">When a connection attempt is in progress, the button text is **Cancel**.</span></span> <span data-ttu-id="b8605-128">Klicken Sie auf die Schaltfläche, um den Verbindungsversuch abzubrechen.</span><span class="sxs-lookup"><span data-stu-id="b8605-128">Click to cancel the connection attempt.</span></span>  
+  
+-   <span data-ttu-id="b8605-129">Wenn der Server verbunden ist, lautet der Schaltflächentext **Verbunden**, und die Schaltfläche ist abgeblendet.</span><span class="sxs-lookup"><span data-stu-id="b8605-129">If the server is connected, the button text is **Connected**, and the button is dimmed.</span></span>  
+  
+ <span data-ttu-id="b8605-130">**Schwellenwerte**</span><span class="sxs-lookup"><span data-stu-id="b8605-130">**Thresholds**</span></span>  
+ <span data-ttu-id="b8605-131">Das Raster **Schwellenwerte** zeigt die Warnungseinstellungen für beide Serverinstanzen an.</span><span class="sxs-lookup"><span data-stu-id="b8605-131">The **Thresholds** grid displays the warnings settings for the two server instances.</span></span>  
+  
+> [!NOTE]  
+>  <span data-ttu-id="b8605-132">Wenn eine Serverinstanz nicht verbunden ist, werden die Spalten mit leeren Zellen und grauem Hintergrund angezeigt.</span><span class="sxs-lookup"><span data-stu-id="b8605-132">If a server instance is not connected, its columns are displayed with empty cells and a gray background.</span></span> <span data-ttu-id="b8605-133">Wenn die Verbindung geöffnet wird, zeigt das Raster automatisch den Inhalt der Instanz an.</span><span class="sxs-lookup"><span data-stu-id="b8605-133">When the connection opens, the grid automatically displays the content from the instance.</span></span>  
+  
+ <span data-ttu-id="b8605-134">Das Raster enthält die folgenden Spalten:</span><span class="sxs-lookup"><span data-stu-id="b8605-134">The grid contains the following columns:</span></span>  
+  
+ <span data-ttu-id="b8605-135">**Warnungen**</span><span class="sxs-lookup"><span data-stu-id="b8605-135">**Warnings**</span></span>  
+ <span data-ttu-id="b8605-136">Listet die unterstützten Warnungen auf:</span><span class="sxs-lookup"><span data-stu-id="b8605-136">Lists the supported warnings:</span></span>  
+  
+|<span data-ttu-id="b8605-137">Warnung</span><span class="sxs-lookup"><span data-stu-id="b8605-137">Warning</span></span>|<span data-ttu-id="b8605-138">BESCHREIBUNG</span><span class="sxs-lookup"><span data-stu-id="b8605-138">Description</span></span>|  
+|-------------|-----------------|  
+|<span data-ttu-id="b8605-139">**Warnhinweis anzeigen, wenn das nicht gesendete Protokoll den Schwellenwert überschreitet.**</span><span class="sxs-lookup"><span data-stu-id="b8605-139">**Warn if the unsent log exceeds the threshold**</span></span>|<span data-ttu-id="b8605-140">Der Schwellenwert gibt die Anzahl der Kilobytes (KB) des nicht gesendeten Protokolls in der Sendewarteschlange auf dem Prinzipal an.</span><span class="sxs-lookup"><span data-stu-id="b8605-140">The threshold indicates the number of kilobytes (KB) of the unsent log in the send queue on the principal.</span></span>|  
+|<span data-ttu-id="b8605-141">**Warnhinweis anzeigen, wenn das nicht wiederhergestellte Protokoll den Schwellenwert überschreitet.**</span><span class="sxs-lookup"><span data-stu-id="b8605-141">**Warn if the unrestored log exceeds the threshold**</span></span>|<span data-ttu-id="b8605-142">Der Schwellenwert gibt die Anzahl an KB der Wiederholungswarteschlange auf der Spiegelserverinstanz an.</span><span class="sxs-lookup"><span data-stu-id="b8605-142">The threshold indicates the number of KB of the redo queue on the mirror server instance.</span></span>|  
+|<span data-ttu-id="b8605-143">**Warnhinweis anzeigen, wenn das Alter der ältesten, nicht gesendeten Transaktion den Schwellenwert überschreitet.**</span><span class="sxs-lookup"><span data-stu-id="b8605-143">**Warn if the age of the oldest unsent transaction exceeds the threshold**</span></span>|<span data-ttu-id="b8605-144">Der Schwellenwert gibt die Anzahl der Transaktionsminuten an, die noch nicht aus der Sendewarteschlange an die Spiegelserverinstanz gesendet wurden.</span><span class="sxs-lookup"><span data-stu-id="b8605-144">The threshold indicates the number of minutes of transactions that have not yet been sent from the send queue to the mirror server instance.</span></span> <span data-ttu-id="b8605-145">Dieser Wert hilft, das Datenverlustrisiko in Bezug auf die Zeit zu messen.</span><span class="sxs-lookup"><span data-stu-id="b8605-145">This value helps measure the potential for data loss in terms of time.</span></span>|  
+|<span data-ttu-id="b8605-146">**Warnhinweis anzeigen, wenn der Spiegelungscommitaufwand den Schwellenwert überschreitet.**</span><span class="sxs-lookup"><span data-stu-id="b8605-146">**Warn if the mirror commit overhead exceeds the threshold**</span></span>|<span data-ttu-id="b8605-147">Der Schwellenwert gibt die Anzahl der Verzögerung pro Transaktion in Millisekunden an. Dieser Wert ist nur im Modus für hohe Sicherheit relevant.</span><span class="sxs-lookup"><span data-stu-id="b8605-147">The threshold indicates the number of milliseconds of delay per transaction (relevant only in high-safety mode).</span></span> <span data-ttu-id="b8605-148">Hierbei handelt es sich um die Verzögerung, die entsteht, während die Prinzipalserverinstanz darauf wartet, dass die Spiegelserverinstanz den Transaktionsprotokolldatensatz in die Wiederholungswarteschlange schreibt.</span><span class="sxs-lookup"><span data-stu-id="b8605-148">This delay is the amount of overhead incurred while the principal server instance waits for the mirror server instance to write the transaction's log record into the redo queue.</span></span>|  
+  
+ <span data-ttu-id="b8605-149">**Aktiviert für '** *\<server instance>* **'**</span><span class="sxs-lookup"><span data-stu-id="b8605-149">**Enabled at '** *\<server instance>* **'**</span></span>  
+ <span data-ttu-id="b8605-150">Ein leeres Kontrollkästchen gibt an, dass die Warnung zum jetzigen Zeitpunkt auf der Serverinstanz deaktiviert ist.</span><span class="sxs-lookup"><span data-stu-id="b8605-150">A blank check box indicates that the warning is currently disabled on the server instance.</span></span> <span data-ttu-id="b8605-151">Klicken Sie auf das zugehörige Kontrollkästchen, um eine Warnung zu aktivieren.</span><span class="sxs-lookup"><span data-stu-id="b8605-151">To enable a warning, click its check box.</span></span>  
+  
+ <span data-ttu-id="b8605-152">**Schwellenwert bei '** *\<server instance>* **'**</span><span class="sxs-lookup"><span data-stu-id="b8605-152">**Threshold at '** *\<server instance>* **'**</span></span>  
+ <span data-ttu-id="b8605-153">Legen Sie den Schwellenwert auf der linken Seite der Spalte fest, wenn eine Warnung aktiviert ist.</span><span class="sxs-lookup"><span data-stu-id="b8605-153">When a warning is enabled, set the threshold on the left side of this column.</span></span> <span data-ttu-id="b8605-154">Ein Ereignis tritt beim Erreichen des angegebenen Schwellenwerts auf, wenn die Statustabelle aktualisiert wird.</span><span class="sxs-lookup"><span data-stu-id="b8605-154">An event occurs if the specified threshold has been reached when the status table is updated.</span></span> <span data-ttu-id="b8605-155">Wenn Sie einen Schwellenwert nach dem Konfigurieren eines Werts deaktivieren, verbleibt der betreffende Wert in diesem Feld und wird verwendet, sobald Sie die Warnung wieder aktivieren.</span><span class="sxs-lookup"><span data-stu-id="b8605-155">If you disable a threshold after configuring a value, your value remains in this field and will be used if you re-enable the warning.</span></span>  
+  
+ <span data-ttu-id="b8605-156">Wenn eine Warnung nicht aktiviert ist, ist dieses Feld inaktiv.</span><span class="sxs-lookup"><span data-stu-id="b8605-156">When a warning is not enabled, this field is inactive.</span></span>  
+  
+ <span data-ttu-id="b8605-157">**OK**</span><span class="sxs-lookup"><span data-stu-id="b8605-157">**OK**</span></span>  
+ <span data-ttu-id="b8605-158">Wenn Sie auf **OK** klicken, wird das Dialogfeld geschlossen, und die aktuell angegebenen Warnungsschwellenwerte werden im Raster **Schwellenwerte** auf der Seite **Warnungen**angezeigt.</span><span class="sxs-lookup"><span data-stu-id="b8605-158">Clicking **OK** closes this dialog box and displays the currently specified values of warning thresholds in the **Thresholds** grid on the **Warnings**tabbed page.</span></span>  
+  
+## <a name="remarks"></a><span data-ttu-id="b8605-159">Bemerkungen</span><span class="sxs-lookup"><span data-stu-id="b8605-159">Remarks</span></span>  
+ <span data-ttu-id="b8605-160">Ein Schwellenwert gilt jeweils nur auf einem Partner. Es ist jedoch empfehlenswert, einen Schwellenwert für ein bestimmtes Ereignis auf beiden Partnern festzulegen, um sicherzustellen, dass die Warnung weiterhin angezeigt wird, wenn ein Failover der Datenbank erfolgt.</span><span class="sxs-lookup"><span data-stu-id="b8605-160">A threshold is only applicable at one partner at a time, but we recommend that you set a threshold for a given event on both partners to ensure that the warning persists if the database fails over.</span></span> <span data-ttu-id="b8605-161">Der geeignete Schwellenwert für jeden Partner ist abhängig von der Leistungsfähigkeit des Systems des betreffenden Partners.</span><span class="sxs-lookup"><span data-stu-id="b8605-161">The appropriate threshold for each partner depends on the performance capabilities of that partner's system.</span></span>  
+  
+ <span data-ttu-id="b8605-162">Ein Ereignis wird nur dann in das Ereignisprotokoll für eine Leistung geschrieben, sofern der Wert seinen Schwellenwert erreicht oder überschreitet, wenn die Statustabelle aktualisiert wird.</span><span class="sxs-lookup"><span data-stu-id="b8605-162">An event is written to the event log for a performance only if its value is at or above its threshold when the status table is being updated.</span></span> <span data-ttu-id="b8605-163">Wenn ein Spitzenwert den Schwellenwert vorübergehend zwischen zwei Statusupdates erreicht, wird dieser Spitzenwert nicht erkannt.</span><span class="sxs-lookup"><span data-stu-id="b8605-163">If a peak value reaches the threshold momentarily between status updates that peak is missed.</span></span>  
+  
+## <a name="see-also"></a><span data-ttu-id="b8605-164">Weitere Informationen</span><span class="sxs-lookup"><span data-stu-id="b8605-164">See Also</span></span>  
+ <span data-ttu-id="b8605-165">[Starten des Datenbankspiegelungs-Monitors &#40;SQL Server Management Studio&#41;](../database-mirroring/start-database-mirroring-monitor-sql-server-management-studio.md) </span><span class="sxs-lookup"><span data-stu-id="b8605-165">[Start Database Mirroring Monitor &#40;SQL Server Management Studio&#41;](../database-mirroring/start-database-mirroring-monitor-sql-server-management-studio.md) </span></span>  
+ <span data-ttu-id="b8605-166">[Überwachen der Datenbankspiegelung &#40;SQL Server&#41;](database-mirroring-sql-server.md) </span><span class="sxs-lookup"><span data-stu-id="b8605-166">[Monitoring Database Mirroring &#40;SQL Server&#41;](database-mirroring-sql-server.md) </span></span>  
+ [<span data-ttu-id="b8605-167">Starten des Assistenten zum Konfigurieren der Sicherheit für die Datenbankspiegelung &#40;SQL Server Management Studio&#41;</span><span class="sxs-lookup"><span data-stu-id="b8605-167">Start the Configuring Database Mirroring Security Wizard &#40;SQL Server Management Studio&#41;</span></span>](start-the-configuring-database-mirroring-security-wizard.md)  
+  
+  
