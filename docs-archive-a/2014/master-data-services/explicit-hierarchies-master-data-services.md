@@ -1,0 +1,95 @@
+---
+title: Explizite Hierarchien (Master Data Services) | Microsoft-Dokumentation
+ms.custom: ''
+ms.date: 06/13/2017
+ms.prod: sql-server-2014
+ms.reviewer: ''
+ms.technology: master-data-services
+ms.topic: conceptual
+helpviewer_keywords:
+- explicit hierarchies, about explicit hierarchies
+- hierarchies [Master Data Services], explicit hierarchies
+- explicit hierarchies
+ms.assetid: e6f44e37-e1f0-4c38-a816-1935a856d5a4
+author: lrtoyou1223
+ms.author: lle
+ms.openlocfilehash: f37f341dc2c003683e696f2767a6b644047d5a0a
+ms.sourcegitcommit: ad4d92dce894592a259721a1571b1d8736abacdb
+ms.translationtype: MT
+ms.contentlocale: de-DE
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87699939"
+---
+# <a name="explicit-hierarchies-master-data-services"></a><span data-ttu-id="122e0-102">Explizite Hierarchien (Master Data Services)</span><span class="sxs-lookup"><span data-stu-id="122e0-102">Explicit Hierarchies (Master Data Services)</span></span>
+  <span data-ttu-id="122e0-103">In [!INCLUDE[ssMDSshort](../includes/ssmdsshort-md.md)]werden in expliziten Hierarchien Elemente aus einer einzelnen Entität auf eine von Ihnen angegebene Weise organisiert.</span><span class="sxs-lookup"><span data-stu-id="122e0-103">In [!INCLUDE[ssMDSshort](../includes/ssmdsshort-md.md)], an explicit hierarchy organizes members from a single entity in any way you specify.</span></span> <span data-ttu-id="122e0-104">Die Struktur kann unregelmäßig sein, und im Gegensatz zu abgeleiteten Hierarchien beruhen explizite Hierarchien nicht auf domänenbasierten Attributbeziehungen.</span><span class="sxs-lookup"><span data-stu-id="122e0-104">The structure can be ragged and unlike derived hierarchies, explicit hierarchies are not based on domain-based attribute relationships.</span></span>
+
+## <a name="consolidated-members-group-other-members"></a><span data-ttu-id="122e0-105">Konsolidierte Elemente gruppieren andere Elemente</span><span class="sxs-lookup"><span data-stu-id="122e0-105">Consolidated Members Group Other Members</span></span>
+ <span data-ttu-id="122e0-106">Eine explizite Hierarchie verwendet konsolidierte Elemente, die Sie für die Gruppierung anderer Elemente erstellt haben.</span><span class="sxs-lookup"><span data-stu-id="122e0-106">An explicit hierarchy uses consolidated members that you create for the purpose of grouping other members.</span></span> <span data-ttu-id="122e0-107">Diese konsolidierten Elemente gehören immer nur zu einer expliziten Hierarchie.</span><span class="sxs-lookup"><span data-stu-id="122e0-107">These consolidated members can belong to only one explicit hierarchy at a time.</span></span> <span data-ttu-id="122e0-108">Eine explizite Hierarchie schließt zudem alle Blattelemente der zugehörigen Entität ein.</span><span class="sxs-lookup"><span data-stu-id="122e0-108">An explicit hierarchy also includes all of the leaf members from the associated entity.</span></span>
+
+ <span data-ttu-id="122e0-109">Eine explizite Hierarchie kann unregelmäßig sein; das bedeutet, dass die Hierarchie gleichzeitig auf unterschiedlichen Ebenen enden kann.</span><span class="sxs-lookup"><span data-stu-id="122e0-109">An explicit hierarchy can be ragged, which means that the hierarchy can end at different levels simultaneously.</span></span> <span data-ttu-id="122e0-110">Jedes konsolidierte Element kann eine unbegrenzte Anzahl untergeordneter konsolidierter Elemente und Blattelemente oder überhaupt keine untergeordneten Elemente aufweisen.</span><span class="sxs-lookup"><span data-stu-id="122e0-110">Each consolidated member can have an unlimited number of consolidated and leaf members underneath, or can have none.</span></span> <span data-ttu-id="122e0-111">Die Blattelemente können sich unter einem einzelnen konsolidierten Element oder unter mehreren Ebenen konsolidierter Elemente befinden.</span><span class="sxs-lookup"><span data-stu-id="122e0-111">The leaf members can be under a single consolidated member or under multiple levels of consolidated members.</span></span>
+
+> [!NOTE]
+>  <span data-ttu-id="122e0-112">Bevor Sie eine explizite Hierarchie erstellen können, muss die Entität für explizite Hierarchien aktiviert werden.</span><span class="sxs-lookup"><span data-stu-id="122e0-112">Before you can create an explicit hierarchy, the entity must be enabled for explicit hierarchies.</span></span> <span data-ttu-id="122e0-113">Weitere Informationen finden Sie unter [Aktivieren einer Entität für explizite Hierarchien und Auflistungen &#40;Master Data Services&#41;](enable-an-entity-for-explicit-hierarchies-and-collections-master-data-services.md).</span><span class="sxs-lookup"><span data-stu-id="122e0-113">For more information, see [Enable an Entity for Explicit Hierarchies and Collections &#40;Master Data Services&#41;](enable-an-entity-for-explicit-hierarchies-and-collections-master-data-services.md).</span></span>
+
+## <a name="types-of-explicit-hierarchies"></a><span data-ttu-id="122e0-114">Typen expliziter Hierarchien</span><span class="sxs-lookup"><span data-stu-id="122e0-114">Types of Explicit Hierarchies</span></span>
+ <span data-ttu-id="122e0-115">Es gibt zwei Typen von expliziten Hierarchien: erforderliche und nicht erforderliche Hierarchien.</span><span class="sxs-lookup"><span data-stu-id="122e0-115">There are two types of explicit hierarchies: mandatory and non-mandatory.</span></span>
+
+### <a name="mandatory-explicit-hierarchy"></a><span data-ttu-id="122e0-116">Verbindliche explizite Hierarchie</span><span class="sxs-lookup"><span data-stu-id="122e0-116">Mandatory Explicit Hierarchy</span></span>
+ <span data-ttu-id="122e0-117">Eine verbindliche explizite Hierarchie ist eine Hierarchie, in der alle Blattelemente in der Hierarchiestruktur enthalten sein müssen.</span><span class="sxs-lookup"><span data-stu-id="122e0-117">A mandatory explicit hierarchy is a hierarchy in which all leaf members must be included in the hierarchy tree.</span></span> <span data-ttu-id="122e0-118">Alle Elemente werden standardmäßig auf der Stammebene der Struktur angelegt.</span><span class="sxs-lookup"><span data-stu-id="122e0-118">By default, all members are included at the root of the tree.</span></span> <span data-ttu-id="122e0-119">Sie können die Elemente bei Bedarf neu anordnen.</span><span class="sxs-lookup"><span data-stu-id="122e0-119">You can rearrange the members as needed.</span></span>
+
+### <a name="non-mandatory-explicit-hierarchy"></a><span data-ttu-id="122e0-120">Nicht verbindliche explizite Hierarchie</span><span class="sxs-lookup"><span data-stu-id="122e0-120">Non-Mandatory Explicit Hierarchy</span></span>
+ <span data-ttu-id="122e0-121">Eine nicht verbindliche explizite Hierarchie ist eine Hierarchie, in der alle Blattelemente in einem vom System erstellten Knoten namens **Nicht verwendet** enthalten sind.</span><span class="sxs-lookup"><span data-stu-id="122e0-121">A non-mandatory explicit hierarchy is a hierarchy in which all leaf members are in a system-created **Unused** node.</span></span> <span data-ttu-id="122e0-122">Sie können Elemente von diesem Knoten aus verschieben, wenn Sie sie benötigen.</span><span class="sxs-lookup"><span data-stu-id="122e0-122">You can move members out of this node as you need them.</span></span> <span data-ttu-id="122e0-123">Der übrigen Elemente verbleiben im Knoten **Nicht verwendet** .</span><span class="sxs-lookup"><span data-stu-id="122e0-123">The rest of the members can remain in the **Unused** node.</span></span>
+
+ <span data-ttu-id="122e0-124">Wenn Sie nicht verbindliche explizite Hierarchien verwenden, entsprechen möglicherweise für diese Hierarchie ausgeführte Berichts- oder Analyseaufgaben nicht den Berichts- und Analyseaufgaben in verbindlichen Hierarchien.</span><span class="sxs-lookup"><span data-stu-id="122e0-124">When you use non-mandatory explicit hierarchies, any reporting or analysis done on the hierarchy may not match reporting or analysis done on mandatory hierarchies.</span></span>
+
+## <a name="rules"></a><span data-ttu-id="122e0-125">Regeln</span><span class="sxs-lookup"><span data-stu-id="122e0-125">Rules</span></span>
+ <span data-ttu-id="122e0-126">Die folgenden Regeln gelten für explizite Hierarchien (sowohl verbindliche als auch nicht verbindliche).</span><span class="sxs-lookup"><span data-stu-id="122e0-126">The following rules apply to explicit hierarchies (both mandatory and non-mandatory).</span></span>
+
+-   <span data-ttu-id="122e0-127">Jedes Blattelement kann nur einmal in die Hierarchie aufgenommen werden.</span><span class="sxs-lookup"><span data-stu-id="122e0-127">Each leaf member can be included in the hierarchy only once.</span></span>
+
+-   <span data-ttu-id="122e0-128">Alle konsolidierten Elemente müssen in eine Hierarchie aufgenommen werden.</span><span class="sxs-lookup"><span data-stu-id="122e0-128">All consolidated members must be included in a hierarchy.</span></span>
+
+-   <span data-ttu-id="122e0-129">Konsolidierte Elemente dürfen in maximal einer expliziten Hierarchie enthalten sein.</span><span class="sxs-lookup"><span data-stu-id="122e0-129">Consolidated members cannot be in more than one explicit hierarchy.</span></span>
+
+-   <span data-ttu-id="122e0-130">Konsolidierte Elemente in der Hierarchiestruktur müssen keine untergeordneten Blattelemente haben.</span><span class="sxs-lookup"><span data-stu-id="122e0-130">Consolidated members in the hierarchy tree do not have to contain leaf members underneath them.</span></span>
+
+-   <span data-ttu-id="122e0-131">Wenn Sie eine explizite Hierarchie löschen, werden alle in der Hierarchie verwendeten konsolidierten Elemente gelöscht.</span><span class="sxs-lookup"><span data-stu-id="122e0-131">If you delete an explicit hierarchy, all consolidated members that were used in the hierarchy are deleted.</span></span>
+
+-   <span data-ttu-id="122e0-132">Wenn Sie ein konsolidiertes Element löschen, das in einer expliziten Hierarchie enthalten war, werden alle von diesem konsolidierten Element gruppierten Blattelemente auf die Stammebene verschoben.</span><span class="sxs-lookup"><span data-stu-id="122e0-132">If you delete a consolidated member that was in an explicit hierarchy, all leaf members that were grouped by that consolidated member are moved to the root.</span></span>
+
+## <a name="explicit-hierarchies-versus-derived-hierarchies"></a><span data-ttu-id="122e0-133">Explizite Hierarchien im Vergleich zu abgeleiteten Hierarchien</span><span class="sxs-lookup"><span data-stu-id="122e0-133">Explicit Hierarchies versus Derived Hierarchies</span></span>
+ <span data-ttu-id="122e0-134">In der folgenden Tabelle werden einige der Unterschiede zwischen expliziten und abgeleiteten Hierarchien gezeigt.</span><span class="sxs-lookup"><span data-stu-id="122e0-134">The following table shows some of the differences between explicit and derived hierarchies.</span></span>
+
+|<span data-ttu-id="122e0-135">Explizite Hierarchien</span><span class="sxs-lookup"><span data-stu-id="122e0-135">Explicit Hierarchies</span></span>|<span data-ttu-id="122e0-136">Abgeleitete Hierarchien</span><span class="sxs-lookup"><span data-stu-id="122e0-136">Derived Hierarchies</span></span>|
+|--------------------------|-------------------------|
+|<span data-ttu-id="122e0-137">Struktur wird vom Benutzer definiert</span><span class="sxs-lookup"><span data-stu-id="122e0-137">Structure is defined by the user</span></span>|<span data-ttu-id="122e0-138">Struktur wird von den Beziehungen zwischen domänenbasierten Attributen abgeleitet</span><span class="sxs-lookup"><span data-stu-id="122e0-138">Structure is derived from the relationships between domain-based attributes</span></span>|
+|<span data-ttu-id="122e0-139">Enthält Elemente aus einer einzigen Entität</span><span class="sxs-lookup"><span data-stu-id="122e0-139">Contains members from a single entity</span></span>|<span data-ttu-id="122e0-140">Enthält Elemente aus mehreren Entitäten</span><span class="sxs-lookup"><span data-stu-id="122e0-140">Contains members from multiple entities</span></span>|
+|<span data-ttu-id="122e0-141">Verwendet konsolidierte Elemente, um andere Elemente zu gruppieren</span><span class="sxs-lookup"><span data-stu-id="122e0-141">Uses consolidated members to group other members</span></span>|<span data-ttu-id="122e0-142">Verwendet Blattelemente von einer Entität, um Blattelemente von einer anderen Entität zu gruppieren</span><span class="sxs-lookup"><span data-stu-id="122e0-142">Uses leaf members from one entity to group leaf members from another entity</span></span>|
+|<span data-ttu-id="122e0-143">Kann unregelmäßig sein</span><span class="sxs-lookup"><span data-stu-id="122e0-143">Can be ragged</span></span>|<span data-ttu-id="122e0-144">Enthält immer eine konsistente Anzahl an Ebenen</span><span class="sxs-lookup"><span data-stu-id="122e0-144">Always contains a consistent number of levels</span></span>|
+
+## <a name="explicit-hierarchy-example"></a><span data-ttu-id="122e0-145">Beispiel einer expliziten Hierarchie</span><span class="sxs-lookup"><span data-stu-id="122e0-145">Explicit Hierarchy Example</span></span>
+ <span data-ttu-id="122e0-146">Im folgenden Beispiel enthält die Product-Entität die folgenden Blattelemente: BK-M101 {Berg-100}, BK-M201 {Mountain-200}, BK-M301 {Berg-300}, BK-R150 {Straße-150}, BK-R450 {Straße-450} und BK-R650 {Straße-650}.</span><span class="sxs-lookup"><span data-stu-id="122e0-146">In the following example, the Product entity contains these leaf members: BK-M101 {Mountain-100}, BK-M201 {Mountain-200}, BK-M301 {Mountain-300}, BK-R150 {Road-150}, BK-R450 {Road-450}, and BK-R650 {Road-650}.</span></span>
+
+ <span data-ttu-id="122e0-147">Um diese Blattelemente an bestimmten Konsolidierungspunkten zusammenzufassen, können Sie konsolidierte Elemente in der Product-Entität erstellen.</span><span class="sxs-lookup"><span data-stu-id="122e0-147">To summarize these leaf members at specific consolidation points, you can create consolidated members in the Product entity.</span></span> <span data-ttu-id="122e0-148">Fügen Sie die konsolidierten Elemente auf den Ebenen der Hierarchiestruktur ein, auf denen Sie die Blattelemente zusammenfassen möchten.</span><span class="sxs-lookup"><span data-stu-id="122e0-148">Insert the consolidated members at levels in the hierarchy tree where you want to summarize the leaf members.</span></span> <span data-ttu-id="122e0-149">Es gibt keine Einschränkung hinsichtlich der Einfügung konsolidierter Elemente. Jedes Element (Blattelement oder konsolidiertes Element) darf jedoch nur einmal verwendet werden.</span><span class="sxs-lookup"><span data-stu-id="122e0-149">There is no limitation on where you insert your consolidated members; however, each member (leaf or consolidated) can be used only once.</span></span>
+
+ <span data-ttu-id="122e0-150">![Beispiel für explizite Mountainbikehierarchie](../../2014/master-data-services/media/mds-conc-explicit-hierarchy.gif "Beispiel für explizite Mountainbikehierarchie")</span><span class="sxs-lookup"><span data-stu-id="122e0-150">![Mountain Bike Explicit Hierarchy Example](../../2014/master-data-services/media/mds-conc-explicit-hierarchy.gif "Mountain Bike Explicit Hierarchy Example")</span></span>
+
+ <span data-ttu-id="122e0-151">Konsolidierte Elemente können zum Gruppieren von Elementen auf beliebigen Ebenen verwendet werden. Konsolidierte Elemente und Blattelemente werden in der von Ihnen festgelegten Reihenfolge sortiert.</span><span class="sxs-lookup"><span data-stu-id="122e0-151">Consolidated members can be used to group members at any level, and leaf and consolidated members are sorted in the order you determine.</span></span>
+
+## <a name="related-tasks"></a><span data-ttu-id="122e0-152">Related Tasks</span><span class="sxs-lookup"><span data-stu-id="122e0-152">Related Tasks</span></span>
+
+|<span data-ttu-id="122e0-153">Taskbeschreibung</span><span class="sxs-lookup"><span data-stu-id="122e0-153">Task Description</span></span>|<span data-ttu-id="122e0-154">Thema</span><span class="sxs-lookup"><span data-stu-id="122e0-154">Topic</span></span>|
+|----------------------|-----------|
+|<span data-ttu-id="122e0-155">Aktivieren Sie eine Entität für explizite Hierarchien und Auflistungen.</span><span class="sxs-lookup"><span data-stu-id="122e0-155">Enable an entity for explicit hierarchies and collections.</span></span>|[<span data-ttu-id="122e0-156">Aktivieren einer Entität für explizite Hierarchien und Auflistungen &#40;Master Data Services&#41;</span><span class="sxs-lookup"><span data-stu-id="122e0-156">Enable an Entity for Explicit Hierarchies and Collections &#40;Master Data Services&#41;</span></span>](enable-an-entity-for-explicit-hierarchies-and-collections-master-data-services.md)|
+|<span data-ttu-id="122e0-157">Erstellen Sie eine neue explizite Hierarchie.</span><span class="sxs-lookup"><span data-stu-id="122e0-157">Create a new explicit hierarchy.</span></span>|[<span data-ttu-id="122e0-158">Erstellen einer expliziten Hierarchie &#40;Master Data Services&#41;</span><span class="sxs-lookup"><span data-stu-id="122e0-158">Create an Explicit Hierarchy &#40;Master Data Services&#41;</span></span>](../../2014/master-data-services/create-an-explicit-hierarchy-master-data-services.md)|
+|<span data-ttu-id="122e0-159">Ändern Sie den Namen einer vorhandenen expliziten Hierarchie.</span><span class="sxs-lookup"><span data-stu-id="122e0-159">Change the name of an existing explicity hierarchy.</span></span>|[<span data-ttu-id="122e0-160">Ändern des Namens einer expliziten Hierarchie &#40;Master Data Services&#41;</span><span class="sxs-lookup"><span data-stu-id="122e0-160">Change an Explicit Hierarchy Name &#40;Master Data Services&#41;</span></span>](../../2014/master-data-services/change-an-explicit-hierarchy-name-master-data-services.md)|
+|<span data-ttu-id="122e0-161">Löschen Sie eine vorhandene explizite Hierarchie.</span><span class="sxs-lookup"><span data-stu-id="122e0-161">Delete an existing explicit hierarchy.</span></span>|[<span data-ttu-id="122e0-162">Löschen einer expliziten Hierarchie &#40;Master Data Services&#41;</span><span class="sxs-lookup"><span data-stu-id="122e0-162">Delete an Explicit Hierarchy &#40;Master Data Services&#41;</span></span>](../../2014/master-data-services/delete-an-explicit-hierarchy-master-data-services.md)|
+|||
+
+## <a name="related-content"></a><span data-ttu-id="122e0-163">Verwandte Inhalte</span><span class="sxs-lookup"><span data-stu-id="122e0-163">Related Content</span></span>
+
+-   [<span data-ttu-id="122e0-164">Abgeleitete Hierarchien &#40;Master Data Services&#41;</span><span class="sxs-lookup"><span data-stu-id="122e0-164">Derived Hierarchies &#40;Master Data Services&#41;</span></span>](../../2014/master-data-services/derived-hierarchies-master-data-services.md)
+
+-   [<span data-ttu-id="122e0-165">Sammlungen &#40;Master Data Services&#41;</span><span class="sxs-lookup"><span data-stu-id="122e0-165">Collections &#40;Master Data Services&#41;</span></span>](../../2014/master-data-services/collections-master-data-services.md)
+
+
