@@ -1,0 +1,54 @@
+---
+title: Implementierungsanforderungen für benutzerdefinierte Berichtselemente | Microsoft-Dokumentation
+ms.custom: ''
+ms.date: 11/25/2019
+ms.prod: sql-server-2014
+ms.reviewer: ''
+ms.technology: reporting-services
+ms.topic: reference
+helpviewer_keywords:
+- custom report items
+ms.assetid: cfacd816-00d6-4a3d-be72-1bba6f7f6886
+author: maggiesMSFT
+ms.author: maggies
+manager: kfile
+ms.openlocfilehash: 69fdf58eb385e819b524b9c5b5178997257c797c
+ms.sourcegitcommit: ad4d92dce894592a259721a1571b1d8736abacdb
+ms.translationtype: MT
+ms.contentlocale: de-DE
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87725322"
+---
+# <a name="custom-report-item-implementation-requirements"></a><span data-ttu-id="ff49e-102">Implementierungsanforderungen für benutzerdefinierte Berichtselemente</span><span class="sxs-lookup"><span data-stu-id="ff49e-102">Custom Report Item Implementation Requirements</span></span>
+  <span data-ttu-id="ff49e-103">In diesem Thema werden die Voraussetzungen zur Entwicklung und Bereitstellung von benutzerdefinierten Berichtselementen erläutert.</span><span class="sxs-lookup"><span data-stu-id="ff49e-103">This topic will discuss the prerequisites for developing and deploying custom report items.</span></span>  
+  
+## <a name="development-and-deployment-requirements"></a><span data-ttu-id="ff49e-104">Entwicklungs- und Bereitstellungsanforderungen</span><span class="sxs-lookup"><span data-stu-id="ff49e-104">Development and Deployment Requirements</span></span>  
+ <span data-ttu-id="ff49e-105">Die Entwicklung eines benutzerdefinierten Berichtselements für [!INCLUDE[ssRSnoversion](../../includes/ssrsnoversion-md.md)] erfordert Folgendes:</span><span class="sxs-lookup"><span data-stu-id="ff49e-105">Developing a custom report item for [!INCLUDE[ssRSnoversion](../../includes/ssrsnoversion-md.md)] requires the following:</span></span>  
+  
+-   <span data-ttu-id="ff49e-106">Administrativer Zugriff auf einen Server, auf dem [!INCLUDE[msCoName](../../includes/msconame-md.md)] [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] mit und ausgeführt wird [!INCLUDE[ssRSnoversion](../../includes/ssrsnoversion-md.md)] [!INCLUDE[ssBIDevStudioFull](../../includes/ssbidevstudiofull-md.md)] .</span><span class="sxs-lookup"><span data-stu-id="ff49e-106">Administrative access to a server running [!INCLUDE[msCoName](../../includes/msconame-md.md)] [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] with [!INCLUDE[ssRSnoversion](../../includes/ssrsnoversion-md.md)] and [!INCLUDE[ssBIDevStudioFull](../../includes/ssbidevstudiofull-md.md)].</span></span>  
+  
+-   [!INCLUDE[vsprvsext](../../includes/vsprvsext-md.md)]<span data-ttu-id="ff49e-107">oder höher mit [!INCLUDE[msCoName](../../includes/msconame-md.md)] [!INCLUDE[dnprdnshort](../../includes/dnprdnshort-md.md)] installiertem Software Development Kit (SDK).</span><span class="sxs-lookup"><span data-stu-id="ff49e-107">or above with the [!INCLUDE[msCoName](../../includes/msconame-md.md)] [!INCLUDE[dnprdnshort](../../includes/dnprdnshort-md.md)] software development kit (SDK) installed.</span></span>  
+  
+-   <span data-ttu-id="ff49e-108">Zugriff auf die [!INCLUDE[dnprdnshort](../../includes/dnprdnshort-md.md)] SDK-Dokumentation.</span><span class="sxs-lookup"><span data-stu-id="ff49e-108">Access to the [!INCLUDE[dnprdnshort](../../includes/dnprdnshort-md.md)] SDK documentation.</span></span>  
+  
+-   <span data-ttu-id="ff49e-109">Kenntnisse über die Komponentenerstellung und die Komponentenmodell-Namespaces in [!INCLUDE[vsprvs](../../includes/vsprvs-md.md)].</span><span class="sxs-lookup"><span data-stu-id="ff49e-109">Familiarity with component authoring and the component model namespaces in [!INCLUDE[vsprvs](../../includes/vsprvs-md.md)].</span></span> <span data-ttu-id="ff49e-110">Weitere Informationen finden Sie in "Erstellen von Komponenten" und "Namespaces für Komponentenmodelle in Visual Studio" auf msdn.microsoft.com.</span><span class="sxs-lookup"><span data-stu-id="ff49e-110">For more information, see "Component Authoring" and "Component Model Namespaces in Visual Studio" on msdn.microsoft.com.</span></span>  
+  
+## <a name="language-and-namespace-requirements"></a><span data-ttu-id="ff49e-111">Sprach- und Namespace-Anforderungen</span><span class="sxs-lookup"><span data-stu-id="ff49e-111">Language and Namespace Requirements</span></span>  
+ [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)]<span data-ttu-id="ff49e-112">-Berichtselemente unterstützen [!INCLUDE[dnprdnshort](../../includes/dnprdnshort-md.md)] vollständig.</span><span class="sxs-lookup"><span data-stu-id="ff49e-112">custom report items fully support the [!INCLUDE[dnprdnshort](../../includes/dnprdnshort-md.md)].</span></span> <span data-ttu-id="ff49e-113">Sie können benutzerdefinierte Berichtselemente mithilfe einer Auswahl .NET-konformer Sprachen entwickeln.</span><span class="sxs-lookup"><span data-stu-id="ff49e-113">You can develop custom report items using your choice of .NET-compliant languages.</span></span>  
+  
+ [!INCLUDE[vsprvs](../../includes/vsprvs-md.md)] <span data-ttu-id="ff49e-114">enthält viele Tools und Funktionen für Entwickler, die die iterativen Zyklen, bestehend aus Codierung, Debugging und Testen, sowie die Bereitstellung vereinfachen und beschleunigen.</span><span class="sxs-lookup"><span data-stu-id="ff49e-114">offers the developer many tools and features to simplify and accelerate the iterative cycles of coding, debugging, and testing and to make deployment easier.</span></span> <span data-ttu-id="ff49e-115">Das [!INCLUDE[dnprdnshort](../../includes/dnprdnshort-md.md)] SDK enthält [!INCLUDE[vbprvb](../../includes/vbprvb-md.md)] und C#-Compiler sowie zugehörige Tools.</span><span class="sxs-lookup"><span data-stu-id="ff49e-115">The [!INCLUDE[dnprdnshort](../../includes/dnprdnshort-md.md)] SDK includes [!INCLUDE[vbprvb](../../includes/vbprvb-md.md)] and C# compilers and related tools.</span></span>  
+  
+-   <span data-ttu-id="ff49e-116">Benutzerdefinierte Berichtselemente verwenden die Namespaces `Microsoft.ReportDesigner` und <xref:Microsoft.ReportingServices.Interfaces>.</span><span class="sxs-lookup"><span data-stu-id="ff49e-116">Custom report items use the `Microsoft.ReportDesigner` and <xref:Microsoft.ReportingServices.Interfaces> namespaces.</span></span> <span data-ttu-id="ff49e-117">Diese werden in den Assemblys „Microsoft.ReportingServices.Designer.DLL“ und „Microsoft.ReportingServices.Interfaces.DLL“ gespeichert, die als Teil von [!INCLUDE[ssRSnoversion](../../includes/ssrsnoversion-md.md)] installiert werden.</span><span class="sxs-lookup"><span data-stu-id="ff49e-117">These are stored in the Microsoft.ReportingServices.Designer.DLL and Microsoft.ReportingServices.Interfaces.DLL assemblies, which are installed as part of [!INCLUDE[ssRSnoversion](../../includes/ssrsnoversion-md.md)].</span></span>  
+  
+-   <span data-ttu-id="ff49e-118">Benutzerdefinierte Berichtselement-Entwurfszeitkomponenten müssen Schnittstellen des <xref:System.ComponentModel>-Namespace in [!INCLUDE[dnprdnshort](../../includes/dnprdnshort-md.md)] implementieren.</span><span class="sxs-lookup"><span data-stu-id="ff49e-118">Custom report item design-time components need to implement interfaces from the <xref:System.ComponentModel> namespace in the [!INCLUDE[dnprdnshort](../../includes/dnprdnshort-md.md)].</span></span> <span data-ttu-id="ff49e-119"><xref:System.ComponentModel> ist in der [!INCLUDE[dnprdnshort](../../includes/dnprdnshort-md.md)] SDK-Dokumentation dokumentiert.</span><span class="sxs-lookup"><span data-stu-id="ff49e-119">The <xref:System.ComponentModel> is documented in the [!INCLUDE[dnprdnshort](../../includes/dnprdnshort-md.md)] SDK documentation.</span></span>  
+  
+> [!IMPORTANT]  
+>  <span data-ttu-id="ff49e-120">Standardmäßg wird [!INCLUDE[dnprdnshort](../../includes/dnprdnshort-md.md)] mit [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)]installiert, das [!INCLUDE[dnprdnshort](../../includes/dnprdnshort-md.md)] -SDK jedoch nicht.</span><span class="sxs-lookup"><span data-stu-id="ff49e-120">By default, the [!INCLUDE[dnprdnshort](../../includes/dnprdnshort-md.md)] is installed with [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)], but the [!INCLUDE[dnprdnshort](../../includes/dnprdnshort-md.md)] SDK is not.</span></span> <span data-ttu-id="ff49e-121">Die in diesem Abschnitt vorkommenden Links auf SDK-Inhalte funktionieren nur, wenn das SDK auf Ihrem Computer installiert und die SDK-Dokumentation in der Onlinedokumentation enthalten ist.</span><span class="sxs-lookup"><span data-stu-id="ff49e-121">Unless the SDK is installed on the computer and the SDK documentation is included in the Books Online collection, links to SDK content in this section will not work.</span></span> <span data-ttu-id="ff49e-122">Fügen Sie das SDK nach der Installation des [!INCLUDE[dnprdnshort](../../includes/dnprdnshort-md.md)] SDK zur Onlinedokumentation und dem Inhaltsverzeichnis hinzu, indem Sie die Anweisungen unter [Hinzufügen oder Entfernen der Produktdokumentation für SQL Server](../../index.yml) befolgen.</span><span class="sxs-lookup"><span data-stu-id="ff49e-122">After you have installed the [!INCLUDE[dnprdnshort](../../includes/dnprdnshort-md.md)] SDK, you can add the SDK documentation to the Books Online collection and table of contents by following the instructions in [Add or Remove Product Documentation for SQL Server](../../index.yml).</span></span>  
+  
+## <a name="see-also"></a><span data-ttu-id="ff49e-123">Weitere Informationen</span><span class="sxs-lookup"><span data-stu-id="ff49e-123">See Also</span></span>  
+ <span data-ttu-id="ff49e-124">[Erstellen einer Laufzeitkomponente für ein benutzerdefiniertes Berichts Element](creating-a-custom-report-item-run-time-component.md) </span><span class="sxs-lookup"><span data-stu-id="ff49e-124">[Creating a Custom Report Item Run-Time Component](creating-a-custom-report-item-run-time-component.md) </span></span>  
+ <span data-ttu-id="ff49e-125">[Erstellen einer Entwurfszeit Komponente für ein benutzerdefiniertes Berichts Element](creating-a-custom-report-item-design-time-component.md) </span><span class="sxs-lookup"><span data-stu-id="ff49e-125">[Creating a Custom Report Item Design-Time Component](creating-a-custom-report-item-design-time-component.md) </span></span>  
+ <span data-ttu-id="ff49e-126">[Vorgehensweise: Bereitstellen eines benutzerdefinierten Berichts Elements](how-to-deploy-a-custom-report-item.md) </span><span class="sxs-lookup"><span data-stu-id="ff49e-126">[How to: Deploy a Custom Report Item](how-to-deploy-a-custom-report-item.md) </span></span>  
+ [<span data-ttu-id="ff49e-127">Klassenbibliotheken für ein benutzerdefiniertes Berichtselement</span><span class="sxs-lookup"><span data-stu-id="ff49e-127">Custom Report Item Class Libraries</span></span>](custom-report-item-class-libraries.md)  
+  
+  

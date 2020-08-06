@@ -1,0 +1,62 @@
+---
+title: Hinzufügen eines Lesezeichens zu einem Bericht (Berichts-Generator und SSRS) | Microsoft-Dokumentation
+ms.custom: ''
+ms.date: 06/13/2017
+ms.prod: sql-server-2014
+ms.reviewer: ''
+ms.technology: reporting-services-native
+ms.topic: conceptual
+ms.assetid: f130562e-5673-40e3-8e01-de7227a21d41
+author: maggiesMSFT
+ms.author: maggies
+manager: kfile
+ms.openlocfilehash: fae543dd1b071ff38853637a3da57ffd2410c3a0
+ms.sourcegitcommit: ad4d92dce894592a259721a1571b1d8736abacdb
+ms.translationtype: MT
+ms.contentlocale: de-DE
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87723481"
+---
+# <a name="add-a-bookmark-to-a-report-report-builder-and-ssrs"></a><span data-ttu-id="63a24-102">Hinzufügen eines Lesezeichens zu einem Bericht (Berichts-Generator und SSRS)</span><span class="sxs-lookup"><span data-stu-id="63a24-102">Add a Bookmark to a Report (Report Builder and SSRS)</span></span>
+  <span data-ttu-id="63a24-103">Fügen Sie einem Bericht Lesezeichen und Lesezeichenlinks hinzu, wenn Sie ein benutzerdefiniertes Inhaltsverzeichnis oder benutzerdefinierte interne Navigationslinks bereitstellen möchten.</span><span class="sxs-lookup"><span data-stu-id="63a24-103">Add bookmarks and bookmark links to a report when you want to provide a customized table of contents or to provide customized internal navigation links in the report.</span></span> <span data-ttu-id="63a24-104">In der Regel fügen Sie Lesezeichen an Positionen im Bericht hinzu, an die Benutzer verwiesen werden sollen, wie beispielsweise Tabellen, Diagramme oder eindeutige Gruppenwerte, die in einer Tabelle oder Matrix angezeigt werden.</span><span class="sxs-lookup"><span data-stu-id="63a24-104">Typically, you add bookmarks to locations in the report to which you want to direct users, such as to each table or chart or to the unique group values displayed in a table or matrix.</span></span> <span data-ttu-id="63a24-105">Sie können eigene Zeichenfolgen zur Verwendung als Lesezeichen erstellen. Bei Gruppen können Sie das Lesezeichen auf den Gruppierungsausdruck festlegen.</span><span class="sxs-lookup"><span data-stu-id="63a24-105">You can create your own strings to use as bookmarks, or, for groups, you can set the bookmark to the group expression.</span></span>  
+  
+ <span data-ttu-id="63a24-106">Nachdem Sie Lesezeichen erstellt haben, können Sie Berichtselemente hinzufügen, auf die der Benutzer klicken kann, um zu den einzelnen Lesezeichen zu wechseln.</span><span class="sxs-lookup"><span data-stu-id="63a24-106">After you create bookmarks, you can add report items that the user can click to go to each bookmark.</span></span> <span data-ttu-id="63a24-107">Bei diesen Elementen handelt es sich in der Regel um Textfelder oder Bilder.</span><span class="sxs-lookup"><span data-stu-id="63a24-107">These items are typically text boxes or images.</span></span>  
+  
+ <span data-ttu-id="63a24-108">Wenn der Bericht beispielsweise eine nach Farbe gruppierte Tabelle enthält, fügen Sie dem Gruppenkopf ein Lesezeichen hinzu, das auf dem Gruppierungsausdruck basiert.</span><span class="sxs-lookup"><span data-stu-id="63a24-108">For example, if your report displays a table grouped by color, you would add a bookmark based on the group expression to the group header.</span></span> <span data-ttu-id="63a24-109">Anschließend fügen Sie am Anfang des Berichts eine Tabelle mit einem einzelnen Textfeld hinzu, das die Farbwerte anzeigt, und legen den Lesezeichenlink auf dieses Textfeld fest.</span><span class="sxs-lookup"><span data-stu-id="63a24-109">Then you would add a table with a single text box at the beginning of the report that displayed the color values, and set the bookmark link on that text box.</span></span> <span data-ttu-id="63a24-110">Wenn der Benutzer auf eine Farbe klickt, wird er zu der Seite mit der Gruppenkopfzeile für diese Farbe geleitet.</span><span class="sxs-lookup"><span data-stu-id="63a24-110">When you click the color, the report jumps to the page that displays the group header row for that color.</span></span>  
+  
+ <span data-ttu-id="63a24-111">Sie können jedem beliebigen Berichtselement Lesezeichen und jedem Element mit einer Eigenschaft **Aktion** Lesezeichenlinks hinzufügen (z. B. einem Textfeld, einem Bild oder einer berechneten Reihe in einem Diagramm).</span><span class="sxs-lookup"><span data-stu-id="63a24-111">You can add a bookmark to any report item and add a bookmark link to any item that has an **Action** property, for example, a text box, an image, or a calculated series in a chart.</span></span> <span data-ttu-id="63a24-112">Weitere Informationen finden Sie unter [Aktionseigenschaften (Dialogfeld) (Berichts-Generator und SSRS)](../action-properties-dialog-box-report-builder-and-ssrs.md).</span><span class="sxs-lookup"><span data-stu-id="63a24-112">For more information, see the [Action Properties Dialog Box &#40;Report Builder and SSRS&#41;](../action-properties-dialog-box-report-builder-and-ssrs.md).</span></span>  
+  
+> [!NOTE]  
+>  [!INCLUDE[ssRBRDDup](../../includes/ssrbrddup-md.md)]  
+  
+### <a name="to-add-a-bookmark"></a><span data-ttu-id="63a24-113">So fügen Sie ein Lesezeichen hinzu</span><span class="sxs-lookup"><span data-stu-id="63a24-113">To add a bookmark</span></span>  
+  
+1.  <span data-ttu-id="63a24-114">Wählen Sie in der Berichtsentwurfssicht ein Textfeld, Bild, Diagramm oder ein anderes Berichtselement aus, dem Sie ein Lesezeichen hinzufügen möchten.</span><span class="sxs-lookup"><span data-stu-id="63a24-114">In report design view, select the text box, image, chart, or other report item to which you want to add a bookmark.</span></span> <span data-ttu-id="63a24-115">Die Eigenschaften für das ausgewählte Element werden im Eigenschaftenbereich angezeigt.</span><span class="sxs-lookup"><span data-stu-id="63a24-115">The properties for the selected item appear in the Properties pane.</span></span>  
+  
+2.  <span data-ttu-id="63a24-116">Geben Sie im Textfeld neben **Lesezeichen**eine Zeichenfolge ein, die als Bezeichnung für dieses Lesezeichen dienen soll.</span><span class="sxs-lookup"><span data-stu-id="63a24-116">In the text box next to **Bookmark**, type a string that is the label for this bookmark.</span></span> <span data-ttu-id="63a24-117">Sie können z. B. für ein Bild im Bericht **BikePhoto** als Lesezeichen eingeben.</span><span class="sxs-lookup"><span data-stu-id="63a24-117">For example, you could type **BikePhoto** as the bookmark for an image in your report.</span></span> <span data-ttu-id="63a24-118">Alternativ können Sie auf die Ausdrucksschaltfläche (**fx**) klicken, um das Dialogfeld **Ausdruck** zu öffnen, und einen Ausdruck angeben, der zu einer Bezeichnung ausgewertet wird.</span><span class="sxs-lookup"><span data-stu-id="63a24-118">Alternatively, click the Expression (**fx**) button to open the **Expression** dialog box to specify an expression that evaluates to a label.</span></span> <span data-ttu-id="63a24-119">Für eine Gruppe muss der angegebene Ausdruck der Gruppierungsausdruck sein.</span><span class="sxs-lookup"><span data-stu-id="63a24-119">For a group, the expression you type should be the group expression.</span></span>  
+  
+    > [!NOTE]  
+    >  <span data-ttu-id="63a24-120">Sie können für das Lesezeichen eine beliebige Zeichenfolge wählen, sie muss jedoch im Bericht eindeutig sein.</span><span class="sxs-lookup"><span data-stu-id="63a24-120">The bookmark can be any string, but it must be unique in the report.</span></span> <span data-ttu-id="63a24-121">Wenn das Lesezeichen nicht eindeutig ist, verweist der Lesezeichenlink auf das erste übereinstimmende Lesezeichen.</span><span class="sxs-lookup"><span data-stu-id="63a24-121">If the bookmark is not unique, a link to the bookmark finds the first matching bookmark.</span></span>  
+  
+### <a name="to-add-a-bookmark-link"></a><span data-ttu-id="63a24-122">So fügen Sie einen Lesezeichenlink hinzu</span><span class="sxs-lookup"><span data-stu-id="63a24-122">To add a bookmark link</span></span>  
+  
+1.  <span data-ttu-id="63a24-123">Klicken Sie in der Entwurfssicht mit der rechten Maustaste auf das Textfeld, das Bild oder das Diagramm, dem Sie einen Link hinzufügen möchten, und klicken Sie dann auf **Eigenschaften**.</span><span class="sxs-lookup"><span data-stu-id="63a24-123">In Design view, right-click the text box, image, chart, to which you want to add a link and then click **Properties**.</span></span>  
+  
+2.  <span data-ttu-id="63a24-124">Klicken Sie im Dialogfeld **Eigenschaften** für dieses Berichtselement auf **Aktion**.</span><span class="sxs-lookup"><span data-stu-id="63a24-124">In The **Properties** dialog box for that report item, click **Action**.</span></span>  
+  
+3.  <span data-ttu-id="63a24-125">Wählen Sie **Gehe zu Lesezeichen**.</span><span class="sxs-lookup"><span data-stu-id="63a24-125">Select **Go to bookmark**.</span></span> <span data-ttu-id="63a24-126">Im Dialogfeld für diese Option wird ein zusätzlicher Abschnitt angezeigt.</span><span class="sxs-lookup"><span data-stu-id="63a24-126">An additional section appears in the dialog box for this option.</span></span>  
+  
+4.  <span data-ttu-id="63a24-127">Geben Sie im Feld **Lesezeichen auswählen** ein Lesezeichen oder einen zu einem Lesezeichen ausgewerteten Ausdruck ein, oder wählen Sie ein Lesezeichen bzw. einen Ausdruck aus.</span><span class="sxs-lookup"><span data-stu-id="63a24-127">In the **Select bookmark** box, type or select a bookmark or an expression that evaluates to a bookmark.</span></span> <span data-ttu-id="63a24-128">Im vorhergehenden Beispiel geben Sie z. B. **BikePhoto** ein, um im Bericht einen Link zum Bild zu erstellen.</span><span class="sxs-lookup"><span data-stu-id="63a24-128">Using the previous example, type **BikePhoto** to create a link to the image in your report.</span></span>  
+  
+5.  [!INCLUDE[clickOK](../../includes/clickok-md.md)]  
+  
+6.  <span data-ttu-id="63a24-129">(Optional) Der Text wird nicht automatisch als Link formatiert.</span><span class="sxs-lookup"><span data-stu-id="63a24-129">(Optional) The text is not automatically formatted like a link.</span></span> <span data-ttu-id="63a24-130">Es empfiehlt sich, die Farbe und den Effekt des Texts zu ändern, um zu verdeutlichen, dass es sich um einen Link handelt.</span><span class="sxs-lookup"><span data-stu-id="63a24-130">For text, it is helpful to change the color and effect of the text to indicate that the text is a link.</span></span> <span data-ttu-id="63a24-131">Ändern Sie im Abschnitt **Schriftart** auf der Registerkarte "Home" des Menübands z. B. die Farbe in Blau und den Effekt in "Unterstrichen".</span><span class="sxs-lookup"><span data-stu-id="63a24-131">For example, change the color to blue and the effect to underline in the **Font** section in the Home tab of the Ribbon.</span></span>  
+  
+7.  <span data-ttu-id="63a24-132">Klicken Sie zum Testen des Links auf **Ausführen** , um eine Vorschau des Berichts anzuzeigen, und klicken Sie dann auf das Berichtselement, für das Sie den Link festgelegt haben.</span><span class="sxs-lookup"><span data-stu-id="63a24-132">To test the link, click **Run** to preview the report, and then click the report item that you set this link on..</span></span>  
+  
+## <a name="see-also"></a><span data-ttu-id="63a24-133">Weitere Informationen</span><span class="sxs-lookup"><span data-stu-id="63a24-133">See Also</span></span>  
+ <span data-ttu-id="63a24-134">[Interaktive Sortierung, Dokumentstrukturen und Links &#40;Berichts-Generator und SSRS&#41;](interactive-sort-document-maps-and-links-report-builder-and-ssrs.md) </span><span class="sxs-lookup"><span data-stu-id="63a24-134">[Interactive Sort, Document Maps, and Links &#40;Report Builder and SSRS&#41;](interactive-sort-document-maps-and-links-report-builder-and-ssrs.md) </span></span>  
+ <span data-ttu-id="63a24-135">[Ausdrücke &#40;Berichts-Generator und SSRS&#41;](expressions-report-builder-and-ssrs.md) </span><span class="sxs-lookup"><span data-stu-id="63a24-135">[Expressions &#40;Report Builder and SSRS&#41;](expressions-report-builder-and-ssrs.md) </span></span>  
+ [<span data-ttu-id="63a24-136">Filtern, Gruppieren und Sortieren von Daten &#40;Berichts-Generator und SSRS&#41;</span><span class="sxs-lookup"><span data-stu-id="63a24-136">Filter, Group, and Sort Data &#40;Report Builder and SSRS&#41;</span></span>](filter-group-and-sort-data-report-builder-and-ssrs.md)  
+  
+  

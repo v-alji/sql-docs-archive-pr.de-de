@@ -1,0 +1,64 @@
+---
+title: 'Lektion 1: Erstellen eines Berichtsserverprojekts (Reporting Services) | Microsoft-Dokumentation'
+ms.custom: ''
+ms.date: 03/06/2017
+ms.prod: sql-server-2014
+ms.reviewer: ''
+ms.technology: reporting-services-native
+ms.topic: conceptual
+ms.assetid: 675671ca-e6c9-48a2-82e9-386778f3a49f
+author: maggiesMSFT
+ms.author: maggies
+manager: kfile
+ms.openlocfilehash: a708e5114344e87edd620ef58bc50594a9b9ef8d
+ms.sourcegitcommit: ad4d92dce894592a259721a1571b1d8736abacdb
+ms.translationtype: MT
+ms.contentlocale: de-DE
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87726594"
+---
+# <a name="lesson-1-creating-a-report-server-project-reporting-services"></a><span data-ttu-id="50bc7-102">Lektion 1: Erstellen eines Berichtsserverprojekts (Reporting Services)</span><span class="sxs-lookup"><span data-stu-id="50bc7-102">Lesson 1: Creating a Report Server Project (Reporting Services)</span></span>
+  <span data-ttu-id="50bc7-103">Zum Erstellen eines Berichts in [!INCLUDE[ssNoVersion](../includes/ssnoversion-md.md)] muss zuerst ein Berichtsserverprojekt erstellt werden, in dem Sie Ihre Berichtsdefinitionsdatei (\*.rdl) und alle anderen Ressourcendateien speichern können, die für Ihren Bericht erforderlich sind.</span><span class="sxs-lookup"><span data-stu-id="50bc7-103">To create a report in [!INCLUDE[ssNoVersion](../includes/ssnoversion-md.md)], you must first create a report server project where you will save your report definition (.rdl) file and any other resource files that you need for your report.</span></span> <span data-ttu-id="50bc7-104">Anschließend erstellen Sie die tatsächliche Berichtsdefinitionsdatei, und Sie definieren eine Datenquelle für Ihren Bericht, ein Dataset sowie das Berichtslayout.</span><span class="sxs-lookup"><span data-stu-id="50bc7-104">Then you will create the actual report definition file, define a data source for your report, define a dataset, and define the report layout.</span></span> <span data-ttu-id="50bc7-105">Beim Ausführen des Berichts werden die tatsächlichen Daten abgerufen und mit dem Layout kombiniert. Anschließend werden die Daten auf dem Bildschirm gerendert. Dort können Sie sie exportieren, drucken und speichern.</span><span class="sxs-lookup"><span data-stu-id="50bc7-105">When you run the report, the actual data is retrieved and combined with the layout, and then rendered on your screen, from where you can export it, print it, or save it.</span></span>  
+  
+ <span data-ttu-id="50bc7-106">In dieser Lektion wird erläutert, wie Sie ein Berichtsserverprojekt in [!INCLUDE[ssBIDevStudioFull](../includes/ssbidevstudiofull-md.md)]erstellen.</span><span class="sxs-lookup"><span data-stu-id="50bc7-106">In this lesson, you will learn how to create a report server project in [!INCLUDE[ssBIDevStudioFull](../includes/ssbidevstudiofull-md.md)].</span></span> <span data-ttu-id="50bc7-107">In einem Berichtsserverprojekt werden Berichte erstellt, die auf einem Berichtsserver ausgeführt werden.</span><span class="sxs-lookup"><span data-stu-id="50bc7-107">A report server project is used to create reports that run on a report server.</span></span>  
+  
+### <a name="to-create-a-report-server-project"></a><span data-ttu-id="50bc7-108">So erstellen Sie ein Berichtsserverprojekt</span><span class="sxs-lookup"><span data-stu-id="50bc7-108">To create a report server project</span></span>  
+  
+1.  <span data-ttu-id="50bc7-109">Klicken Sie auf **Start**, zeigen Sie auf **Alle Programme**, zeigen Sie auf [!INCLUDE[ssCurrentUI](../includes/sscurrentui-md.md)] , und klicken Sie dann auf **SQL Server Data Tools**.</span><span class="sxs-lookup"><span data-stu-id="50bc7-109">Click **Start**, point to **All Programs**, point to [!INCLUDE[ssCurrentUI](../includes/sscurrentui-md.md)], and then click **SQL Server Data Tools**.</span></span> <span data-ttu-id="50bc7-110">Wenn Sie das erste Mal öffnen [!INCLUDE[ssBIDevStudio](../includes/ssbidevstudio-md.md)] , klicken Sie auf **Business Intelligence-Einstellungen** für die Standard Umgebungseinstellungen.</span><span class="sxs-lookup"><span data-stu-id="50bc7-110">If this is the first time you have opened [!INCLUDE[ssBIDevStudio](../includes/ssbidevstudio-md.md)], click **Business Intelligence Settings** for the default environment settings.</span></span>  
+  
+2.  <span data-ttu-id="50bc7-111">Zeigen Sie im Menü **Datei** auf **Neu**, und klicken Sie dann auf **Projekt**.</span><span class="sxs-lookup"><span data-stu-id="50bc7-111">On the **File** menu, point to **New**, and then click **Project**.</span></span>  
+  
+3.  <span data-ttu-id="50bc7-112">Klicken Sie in der Liste **Installierte Vorlagen** auf **Business Intelligence**.</span><span class="sxs-lookup"><span data-stu-id="50bc7-112">In the **Installed Templates** list, click **Business Intelligence**.</span></span>  
+  
+4.  <span data-ttu-id="50bc7-113">Klicken Sie auf **Berichts Server Projekt**.</span><span class="sxs-lookup"><span data-stu-id="50bc7-113">Click **Report Server Project**.</span></span>  
+  
+5.  <span data-ttu-id="50bc7-114">Geben Sie im Feld **Name**den Namen **Tutorial**ein.</span><span class="sxs-lookup"><span data-stu-id="50bc7-114">In **Name**, type **Tutorial**.</span></span>  
+  
+6.  <span data-ttu-id="50bc7-115">Klicken Sie auf **OK**, um das Projekt zu erstellen.</span><span class="sxs-lookup"><span data-stu-id="50bc7-115">Click **OK** to create the project.</span></span>  
+  
+     <span data-ttu-id="50bc7-116">Das Projekt für das Lernprogramm wird im Projektmappen-Explorer angezeigt.</span><span class="sxs-lookup"><span data-stu-id="50bc7-116">The Tutorial project is displayed in Solution Explorer.</span></span>  
+  
+### <a name="to-create-a-new-report-definition-file"></a><span data-ttu-id="50bc7-117">So erstellen Sie eine neue Berichtsdefinitionsdatei</span><span class="sxs-lookup"><span data-stu-id="50bc7-117">To create a new report definition file</span></span>  
+  
+1.  <span data-ttu-id="50bc7-118">Klicken Sie in Projektmappen-Explorer mit der rechten Maustaste auf **Berichte**, zeigen Sie auf **Hinzufügen**, und klicken Sie auf **Neues Element**.</span><span class="sxs-lookup"><span data-stu-id="50bc7-118">In Solution Explorer, right-click **Reports**, point to **Add**, and click **New Item**.</span></span>  
+  
+    > [!NOTE]  
+    >  <span data-ttu-id="50bc7-119">Wird das Fenster **Projektmappen-Explorer** nicht angezeigt, klicken Sie im Menü **Ansicht** auf **Projektmappen-Explorer**.</span><span class="sxs-lookup"><span data-stu-id="50bc7-119">If the **Solution Explorer** window is not visible, from the **View** menu, click **Solution Explorer**.</span></span>  
+  
+2.  <span data-ttu-id="50bc7-120">Klicken Sie im Dialogfeld **Neues Element hinzufügen** unter **Vorlagen**auf **Bericht**.</span><span class="sxs-lookup"><span data-stu-id="50bc7-120">In the **Add New Item** dialog box, under **Templates**, click **Report**.</span></span>  
+  
+3.  <span data-ttu-id="50bc7-121">Geben Sie in **Name\*\*\*\*Sales Orders.rdl** ein, und klicken Sie auf **Hinzufügen**.</span><span class="sxs-lookup"><span data-stu-id="50bc7-121">In **Name**, type **Sales Orders.rdl** and then click **Add**.</span></span>  
+  
+     <span data-ttu-id="50bc7-122">Der Berichts-Designer wird geöffnet, und in der Entwurfsansicht wird die neue RDL-Datei angezeigt.</span><span class="sxs-lookup"><span data-stu-id="50bc7-122">Report Designer opens and displays the new .rdl file in Design view.</span></span>  
+  
+ <span data-ttu-id="50bc7-123">Der Berichts-Designer ist eine [!INCLUDE[ssRSnoversion](../includes/ssrsnoversion-md.md)] -Komponente, die in [!INCLUDE[ssBIDevStudioFull](../includes/ssbidevstudiofull-md.md)]ausgeführt wird.</span><span class="sxs-lookup"><span data-stu-id="50bc7-123">Report Designer is a [!INCLUDE[ssRSnoversion](../includes/ssrsnoversion-md.md)] component that runs in [!INCLUDE[ssBIDevStudioFull](../includes/ssbidevstudiofull-md.md)].</span></span> <span data-ttu-id="50bc7-124">Er weist zwei Ansichten auf: **Entwurf** und **Vorschau**.</span><span class="sxs-lookup"><span data-stu-id="50bc7-124">It has two views: **Design** and **Preview**.</span></span> <span data-ttu-id="50bc7-125">Klicken Sie auf die einzelnen Registerkarten, um zwischen den Ansichten zu wechseln.</span><span class="sxs-lookup"><span data-stu-id="50bc7-125">Click each tab to change views.</span></span>  
+  
+ <span data-ttu-id="50bc7-126">Die Daten werden im **Berichtsdatenbereich** definiert.</span><span class="sxs-lookup"><span data-stu-id="50bc7-126">You define your data in the **Report Data** pane.</span></span> <span data-ttu-id="50bc7-127">In der Ansicht **Entwurf** wird das Berichtslayout definiert.</span><span class="sxs-lookup"><span data-stu-id="50bc7-127">You define your report layout in **Design** view.</span></span> <span data-ttu-id="50bc7-128">Sie können den Bericht ausführen, und in der Ansicht **Vorschau** können Sie eine Vorschau des Berichts anzeigen.</span><span class="sxs-lookup"><span data-stu-id="50bc7-128">You can run the report and see what it looks like in **Preview** view.</span></span>  
+  
+## <a name="next-task"></a><span data-ttu-id="50bc7-129">Nächste Aufgabe</span><span class="sxs-lookup"><span data-stu-id="50bc7-129">Next Task</span></span>  
+ <span data-ttu-id="50bc7-130">Sie haben das Berichtsprojekt Tutorial erfolgreich erstellt und dem Berichtsprojekt eine Berichtsdefinitionsdatei (.rdl) hinzugefügt.</span><span class="sxs-lookup"><span data-stu-id="50bc7-130">You have successfully created a report project called "Tutorial" and added a report definition (.rdl) file to the report project.</span></span> <span data-ttu-id="50bc7-131">Als Nächstes geben Sie eine Datenquelle an, die für den Bericht verwendet werden soll.</span><span class="sxs-lookup"><span data-stu-id="50bc7-131">Next, you will specify a data source to use for the report.</span></span> <span data-ttu-id="50bc7-132">Weitere Informationen finden Sie unter [Lektion 2: Angeben von Verbindungsinformationen (Reporting Services)](lesson-2-specifying-connection-information-reporting-services.md).</span><span class="sxs-lookup"><span data-stu-id="50bc7-132">See [Lesson 2: Specifying Connection Information &#40;Reporting Services&#41;](lesson-2-specifying-connection-information-reporting-services.md).</span></span>  
+  
+## <a name="see-also"></a><span data-ttu-id="50bc7-133">Weitere Informationen</span><span class="sxs-lookup"><span data-stu-id="50bc7-133">See Also</span></span>  
+ [<span data-ttu-id="50bc7-134">Erstellen eines einfachen Tabellenberichts &#40;SSRS-Tutorial&#41;</span><span class="sxs-lookup"><span data-stu-id="50bc7-134">Create a Basic Table Report &#40;SSRS Tutorial&#41;</span></span>](create-a-basic-table-report-ssrs-tutorial.md)  
+  
+  
