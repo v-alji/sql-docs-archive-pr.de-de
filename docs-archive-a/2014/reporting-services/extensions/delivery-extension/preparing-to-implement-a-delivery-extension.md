@@ -1,0 +1,56 @@
+---
+title: Vorbereiten der Implementierung von Übermittlungserweiterungen | Microsoft-Dokumentation
+ms.custom: ''
+ms.date: 03/06/2017
+ms.prod: sql-server-2014
+ms.reviewer: ''
+ms.technology: reporting-services
+ms.topic: reference
+helpviewer_keywords:
+- interfaces [Reporting Services]
+- delivery extensions [Reporting Services], implementing
+ms.assetid: aee1608d-374f-4ad3-bc23-fe07fdaa52b7
+author: maggiesMSFT
+ms.author: maggies
+manager: kfile
+ms.openlocfilehash: bbf98286e6ed35542d8117b4b87b5ff3425def69
+ms.sourcegitcommit: ad4d92dce894592a259721a1571b1d8736abacdb
+ms.translationtype: MT
+ms.contentlocale: de-DE
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87630542"
+---
+# <a name="preparing-to-implement-a-delivery-extension"></a><span data-ttu-id="1eb58-102">Vorbereiten der Implementierung von Übermittlungserweiterungen</span><span class="sxs-lookup"><span data-stu-id="1eb58-102">Preparing to Implement a Delivery Extension</span></span>
+  <span data-ttu-id="1eb58-103">Bevor Sie die [!INCLUDE[ssRSnoversion](../../../includes/ssrsnoversion-md.md)]-Übermittlungserweiterung implementieren, sollten Sie definieren, welche Schnittstellen implementiert werden sollen.</span><span class="sxs-lookup"><span data-stu-id="1eb58-103">Before you implement your [!INCLUDE[ssRSnoversion](../../../includes/ssrsnoversion-md.md)] delivery extension, you should define the interfaces to implement.</span></span> <span data-ttu-id="1eb58-104">Sie müssen zuerst überlegen, wie die Übermittlungserweiterung verwendet werden soll, welche Einstellungen benötigt werden und welche speziellen Funktionen Sie implementieren müssen, um die Berichtsbenachrichtigungen zu übermitteln.</span><span class="sxs-lookup"><span data-stu-id="1eb58-104">You first need to decide how your delivery extension will be used, what settings your delivery extension will require, and the specific functionality you will need to implement in order to deliver report notifications.</span></span>  
+  
+ <span data-ttu-id="1eb58-105">Jede [!INCLUDE[ssRSnoversion](../../../includes/ssrsnoversion-md.md)]-Übermittlungserweiterung muss die folgenden Funktionen enthalten:</span><span class="sxs-lookup"><span data-stu-id="1eb58-105">Each [!INCLUDE[ssRSnoversion](../../../includes/ssrsnoversion-md.md)] delivery extension must provide the following functionality:</span></span>  
+  
+-   <span data-ttu-id="1eb58-106">Eine <xref:Microsoft.ReportingServices.Interfaces.IExtension>-Schnittstellenimplementierung, die die Erweiterung und einen lokalisierten Erweiterungsnamen darstellt.</span><span class="sxs-lookup"><span data-stu-id="1eb58-106">An <xref:Microsoft.ReportingServices.Interfaces.IExtension> interface implementation that represents the extension and a localized extension name.</span></span>  
+  
+-   <span data-ttu-id="1eb58-107">Eine <xref:Microsoft.ReportingServices.Interfaces.IDeliveryExtension>-Implementierung, die eine Übermittlungserweiterung erstellt, mit der die Berichtsbenachrichtigungen an die Endbenutzer übermittelt werden können.</span><span class="sxs-lookup"><span data-stu-id="1eb58-107">An <xref:Microsoft.ReportingServices.Interfaces.IDeliveryExtension> implementation that creates a delivery extension that can be used to deliver report notifications to end users.</span></span>  
+  
+-   <span data-ttu-id="1eb58-108">Die Fähigkeit, bestimmte Benutzerdaten für ein Abonnement zu verarbeiten.</span><span class="sxs-lookup"><span data-stu-id="1eb58-108">The ability to process specific user data for a subscription.</span></span>  
+  
+ <span data-ttu-id="1eb58-109">Jede Übermittlungserweiterung kann auf folgende Funktionen erweitert werden:</span><span class="sxs-lookup"><span data-stu-id="1eb58-109">Each delivery extension can be enhanced to include the following functionality:</span></span>  
+  
+-   <span data-ttu-id="1eb58-110">Eine [!INCLUDE[vstecasp](../../../includes/vstecasp-md.md)]-Implementierung von Benutzersteuerelementen, anhand der Endbenutzer mithilfe des Berichts-Managers Berichtsabonnements erstellen, die diese Übermittlungserweiterung verwenden.</span><span class="sxs-lookup"><span data-stu-id="1eb58-110">An [!INCLUDE[vstecasp](../../../includes/vstecasp-md.md)] user control implementation that enables end users to use Report Manager to create report subscriptions that use the delivery extension.</span></span>  
+  
+ <span data-ttu-id="1eb58-111">In der folgenden Tabelle werden die verfügbaren Schnittstellen und Klassen für Übermittlungserweiterungen beschrieben.</span><span class="sxs-lookup"><span data-stu-id="1eb58-111">The following table describes the available interfaces and classes for delivery extensions.</span></span>  
+  
+|<span data-ttu-id="1eb58-112">Schnittstelle oder Klasse</span><span class="sxs-lookup"><span data-stu-id="1eb58-112">Interface or class</span></span>|<span data-ttu-id="1eb58-113">BESCHREIBUNG</span><span class="sxs-lookup"><span data-stu-id="1eb58-113">Description</span></span>|  
+|------------------------|-----------------|  
+|<span data-ttu-id="1eb58-114"><xref:Microsoft.ReportingServices.Interfaces.IExtension> -Schnittstelle</span><span class="sxs-lookup"><span data-stu-id="1eb58-114"><xref:Microsoft.ReportingServices.Interfaces.IExtension> Interface</span></span>|<span data-ttu-id="1eb58-115">Stellt eine Erweiterung in [!INCLUDE[ssRSnoversion](../../../includes/ssrsnoversion-md.md)] dar.</span><span class="sxs-lookup"><span data-stu-id="1eb58-115">Represents an extension in [!INCLUDE[ssRSnoversion](../../../includes/ssrsnoversion-md.md)].</span></span>|  
+|<span data-ttu-id="1eb58-116"><xref:Microsoft.ReportingServices.Interfaces.IDeliveryExtension> -Schnittstelle</span><span class="sxs-lookup"><span data-stu-id="1eb58-116"><xref:Microsoft.ReportingServices.Interfaces.IDeliveryExtension> Interface</span></span>|<span data-ttu-id="1eb58-117">Stellt eine Übermittlungserweiterung in [!INCLUDE[ssRSnoversion](../../../includes/ssrsnoversion-md.md)] dar.</span><span class="sxs-lookup"><span data-stu-id="1eb58-117">Represents a delivery extension in [!INCLUDE[ssRSnoversion](../../../includes/ssrsnoversion-md.md)].</span></span>|  
+|<span data-ttu-id="1eb58-118"><xref:Microsoft.ReportingServices.Interfaces.IDeliveryReportServerInformation> -Schnittstelle</span><span class="sxs-lookup"><span data-stu-id="1eb58-118"><xref:Microsoft.ReportingServices.Interfaces.IDeliveryReportServerInformation> Interface</span></span>|<span data-ttu-id="1eb58-119">Enthält auch Informationen zum Berichtsserver, die von den Übermittlungserweiterungen benötigt werden (z. B. eine Liste der verfügbaren Renderingerweiterungen).</span><span class="sxs-lookup"><span data-stu-id="1eb58-119">Contains information about the report server that is required by delivery extensions (for example, a list of the available rendering extensions).</span></span>|  
+|<span data-ttu-id="1eb58-120"><xref:Microsoft.ReportingServices.Interfaces.Setting>-Klasse</span><span class="sxs-lookup"><span data-stu-id="1eb58-120"><xref:Microsoft.ReportingServices.Interfaces.Setting> Class</span></span>|<span data-ttu-id="1eb58-121">Stellt eine Einstellung für eine Erweiterung dar.</span><span class="sxs-lookup"><span data-stu-id="1eb58-121">Represents a setting for an extension.</span></span>|  
+|<span data-ttu-id="1eb58-122"><xref:Microsoft.ReportingServices.Interfaces.Notification>-Klasse</span><span class="sxs-lookup"><span data-stu-id="1eb58-122"><xref:Microsoft.ReportingServices.Interfaces.Notification> Class</span></span>|<span data-ttu-id="1eb58-123">Enthält Abonnementinformationen, mithilfe der die Übermittlungserweiterungen Berichte übermitteln.</span><span class="sxs-lookup"><span data-stu-id="1eb58-123">Contains subscription information that delivery extensions use to deliver reports.</span></span>|  
+|<span data-ttu-id="1eb58-124"><xref:Microsoft.ReportingServices.Interfaces.Report>-Klasse</span><span class="sxs-lookup"><span data-stu-id="1eb58-124"><xref:Microsoft.ReportingServices.Interfaces.Report> Class</span></span>|<span data-ttu-id="1eb58-125">Stellt berichtsspezifische Informationen und Methoden dar, anhand derer die Übermittlungserweiterungen Berichte an die Benutzer übermitteln können.</span><span class="sxs-lookup"><span data-stu-id="1eb58-125">Represents report-specific information and methods that enable delivery extensions to deliver reports to users.</span></span>|  
+|<span data-ttu-id="1eb58-126"><xref:Microsoft.ReportingServices.Interfaces.RenderedOutputFile>-Klasse</span><span class="sxs-lookup"><span data-stu-id="1eb58-126"><xref:Microsoft.ReportingServices.Interfaces.RenderedOutputFile> Class</span></span>|<span data-ttu-id="1eb58-127">Stellt die Ausgabe von einer Renderingerweiterung dar.</span><span class="sxs-lookup"><span data-stu-id="1eb58-127">Represents the output from a rendering extension.</span></span> <span data-ttu-id="1eb58-128">Ein <xref:Microsoft.ReportingServices.Interfaces.RenderedOutputFile>-Objekt enthält die dazugehörigen Informationen zu Dateiname und Dateityp, die von der Übermittlungserweiterung benötigt werden, um den von der Renderingerweiterung zurückgegebenen Datenstrom zu verarbeiten.</span><span class="sxs-lookup"><span data-stu-id="1eb58-128">A <xref:Microsoft.ReportingServices.Interfaces.RenderedOutputFile> object contains the associated file name and type information that is required by the delivery extension in order to process the stream returned by the rendering extension.</span></span>|  
+|<span data-ttu-id="1eb58-129"><xref:Microsoft.ReportingServices.Interfaces.ISubscriptionBaseUIUserControl> -Schnittstelle</span><span class="sxs-lookup"><span data-stu-id="1eb58-129"><xref:Microsoft.ReportingServices.Interfaces.ISubscriptionBaseUIUserControl> Interface</span></span>|<span data-ttu-id="1eb58-130">Ein Benutzersteuerelement, mit dem Abonnementinformationen, die für die Übermittlungserweiterung spezifisch sind, vom Benutzer im Berichts-Manager abgerufen werden können (z. B. eine E-Mail-Adresse oder der Pfad zu einer Dateifreigabe).</span><span class="sxs-lookup"><span data-stu-id="1eb58-130">A user control that represents the means to retrieve delivery extension-specific subscription information from the user in Report Manager (for example, an e-mail address or the path to a file share).</span></span>|  
+  
+## <a name="see-also"></a><span data-ttu-id="1eb58-131">Weitere Informationen</span><span class="sxs-lookup"><span data-stu-id="1eb58-131">See Also</span></span>  
+ <span data-ttu-id="1eb58-132">[Erweiterungen für Reporting Services](../reporting-services-extensions.md) </span><span class="sxs-lookup"><span data-stu-id="1eb58-132">[Reporting Services Extensions](../reporting-services-extensions.md) </span></span>  
+ <span data-ttu-id="1eb58-133">[Implementieren von Übermittlungserweiterungen](implementing-a-delivery-extension.md) </span><span class="sxs-lookup"><span data-stu-id="1eb58-133">[Implementing a Delivery Extension](implementing-a-delivery-extension.md) </span></span>  
+ [<span data-ttu-id="1eb58-134">Reporting Services Extension Library (Reporting Services-Erweiterungsbibliothek)</span><span class="sxs-lookup"><span data-stu-id="1eb58-134">Reporting Services Extension Library</span></span>](../reporting-services-extension-library.md)  
+  
+  
