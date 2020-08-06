@@ -21,7 +21,7 @@ ms.locfileid: "87609494"
   
 ## <a name="options"></a>Optionen  
   
-|Option|Beschreibung|  
+|Option|BESCHREIBUNG|  
 |------------|-----------------|  
 |**Business Intelligence hinzufügen**|Klicken Sie auf diese Option, um **Businesss Intelligence-Assistent** anzuzeigen und dem Cube Business Intelligence-Funktionen hinzuzufügen.|  
 |**Prozess**|Klicken Sie auf diese Option, um das Dialogfeld **Verarbeiten** anzuzeigen und den Cube zu verarbeiten.|  
