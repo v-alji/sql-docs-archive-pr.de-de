@@ -1,0 +1,40 @@
+---
+title: Neuigkeiten in der SQL Server-Installation | Microsoft-Dokumentation
+ms.custom: ''
+ms.date: 05/24/2017
+ms.prod: sql-server-2014
+ms.reviewer: ''
+ms.technology: install
+ms.topic: conceptual
+helpviewer_keywords:
+- installing SQL Server, what's new
+- SQL Server, what's new
+- SQL Server, installing
+ms.assetid: c8642a96-3a09-4ec7-a9c3-c539147e6330
+author: MashaMSFT
+ms.author: mathoma
+ms.openlocfilehash: d34085e320cd8ca0b82d382d6d49eaa303086114
+ms.sourcegitcommit: ad4d92dce894592a259721a1571b1d8736abacdb
+ms.translationtype: MT
+ms.contentlocale: de-DE
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87617388"
+---
+# <a name="what39s-new-in-sql-server-installation"></a><span data-ttu-id="e013e-102">Neuigkeiten in der SQL Server-Installation</span><span class="sxs-lookup"><span data-stu-id="e013e-102">What&#39;s New in SQL Server Installation</span></span>
+  <span data-ttu-id="e013e-103">Windows Vista wird nicht als Betriebssystem für [!INCLUDE[ssSQL14](../../includes/sssql14-md.md)] unterstützt.</span><span class="sxs-lookup"><span data-stu-id="e013e-103">Windows Vista is not a supported operating system for [!INCLUDE[ssSQL14](../../includes/sssql14-md.md)].</span></span> <span data-ttu-id="e013e-104">Service Pack 1 bleibt weiterhin Mindestanforderung für die Betriebssysteme [!INCLUDE[win7](../../includes/win7-md.md)] und [!INCLUDE[winserver2008r2](../../includes/winserver2008r2-md.md)].</span><span class="sxs-lookup"><span data-stu-id="e013e-104">Service Pack 1 remains as the minimum requirement for [!INCLUDE[win7](../../includes/win7-md.md)] and [!INCLUDE[winserver2008r2](../../includes/winserver2008r2-md.md)] operating systems.</span></span> <span data-ttu-id="e013e-105">Weitere Informationen zu den Betriebssystemanforderungen finden Sie unter [Hardware-und Software Anforderungen für die Installation von SQL Server 2014](hardware-and-software-requirements-for-installing-sql-server.md).</span><span class="sxs-lookup"><span data-stu-id="e013e-105">For more information on operating system requirements, see [Hardware and Software Requirements for Installing SQL Server 2014](hardware-and-software-requirements-for-installing-sql-server.md).</span></span>  
+  
+ <span data-ttu-id="e013e-106">Beim Installieren von [!INCLUDE[ssExpCurrent](../../includes/ssexpcurrent-md.md)] werden Sie aufgefordert, das Verzeichnis anzugeben, in dem das extrahierte Paket gespeichert werden soll.</span><span class="sxs-lookup"><span data-stu-id="e013e-106">Installation of [!INCLUDE[ssExpCurrent](../../includes/ssexpcurrent-md.md)] will prompt you to specify the directory to save the extracted package.</span></span> <span data-ttu-id="e013e-107">Wenn kein Speicherort angegeben wird, wird [!INCLUDE[ssSQL14](../../includes/sssql14-md.md)] standardmäßig auf dem Systemlaufwerk des Computers installiert.</span><span class="sxs-lookup"><span data-stu-id="e013e-107">If no location is entered, [!INCLUDE[ssSQL14](../../includes/sssql14-md.md)] will default to the computer's system drive.</span></span> <span data-ttu-id="e013e-108">Die extrahierten Dateien bleiben nach dem Abschluss der [!INCLUDE[ssExpCurrent](../../includes/ssexpcurrent-md.md)] -Installation erhalten.</span><span class="sxs-lookup"><span data-stu-id="e013e-108">The extracted files will remain after [!INCLUDE[ssExpCurrent](../../includes/ssexpcurrent-md.md)] installation is complete.</span></span>  
+  
+ <span data-ttu-id="e013e-109">In [!INCLUDE[ssSQL14](../../includes/sssql14-md.md)] wird SysPrep für alle [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)]-Installationen unterstützt.</span><span class="sxs-lookup"><span data-stu-id="e013e-109">In [!INCLUDE[ssSQL14](../../includes/sssql14-md.md)], SysPrep is supported for all installations of [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)].</span></span> <span data-ttu-id="e013e-110">SysPrep unterstützt jetzt Failoverclusterinstallationen.</span><span class="sxs-lookup"><span data-stu-id="e013e-110">SysPrep now supports failover cluster installations.</span></span> <span data-ttu-id="e013e-111">Weitere Informationen finden Sie unter [Überlegungen zum Installieren von SQL Server mithilfe von syationp](../../database-engine/install-windows/considerations-for-installing-sql-server-using-sysprep.md) und [Installieren von SQL Server 2014 mithilfe von syationp](../../database-engine/install-windows/install-sql-server-using-sysprep.md).</span><span class="sxs-lookup"><span data-stu-id="e013e-111">For more information, see [Considerations for Installing SQL Server Using SysPrep](../../database-engine/install-windows/considerations-for-installing-sql-server-using-sysprep.md) and [Install SQL Server 2014 Using SysPrep](../../database-engine/install-windows/install-sql-server-using-sysprep.md).</span></span>  
+  
+ <span data-ttu-id="e013e-112">Upgrades von [!INCLUDE[ssVersion2005](../../includes/ssversion2005-md.md)] werden unterstützt, die parallele Ausführung jedoch nicht.</span><span class="sxs-lookup"><span data-stu-id="e013e-112">Upgrade from [!INCLUDE[ssVersion2005](../../includes/ssversion2005-md.md)] is supported, but side-by-side is not supported.</span></span> <span data-ttu-id="e013e-113">Weitere Informationen zur Unterstützung von [!INCLUDE[ssVersion2005](../../includes/ssversion2005-md.md)] in [!INCLUDE[ssSQL14](../../includes/sssql14-md.md)]finden Sie unter [Unterstützte Versions- und Editionsupgrades](../../database-engine/install-windows/supported-version-and-edition-upgrades.md).</span><span class="sxs-lookup"><span data-stu-id="e013e-113">For more information about [!INCLUDE[ssVersion2005](../../includes/ssversion2005-md.md)] support in [!INCLUDE[ssSQL14](../../includes/sssql14-md.md)], see [Supported Version and Edition Upgrades](../../database-engine/install-windows/supported-version-and-edition-upgrades.md).</span></span>  
+  
+ <span data-ttu-id="e013e-114">Ab [!INCLUDE[ssSQL14](../../includes/sssql14-md.md)] verfügt die Datenbank-Engine in der Standard Edition über eine Speicherkapazität von 128 GB.</span><span class="sxs-lookup"><span data-stu-id="e013e-114">Beginning in [!INCLUDE[ssSQL14](../../includes/sssql14-md.md)], the database engine in the Standard edition has a memory capacity of 128 GB.</span></span> <span data-ttu-id="e013e-115">In [!INCLUDE[ssSQL11](../../includes/sssql11-md.md)] verfügte die Datenbank-Engine in der Standard Edition über eine Speicherkapazität von 64 GB.</span><span class="sxs-lookup"><span data-stu-id="e013e-115">In [!INCLUDE[ssSQL11](../../includes/sssql11-md.md)], the database engine in the Standard edition had a memory capacity of 64 GB.</span></span>  
+  
+## <a name="see-also"></a><span data-ttu-id="e013e-116">Weitere Informationen</span><span class="sxs-lookup"><span data-stu-id="e013e-116">See Also</span></span>  
+ <span data-ttu-id="e013e-117">[Neues in SQL Server 2014](../what-s-new-in-sql-server-2016.md) </span><span class="sxs-lookup"><span data-stu-id="e013e-117">[What's New in SQL Server 2014](../what-s-new-in-sql-server-2016.md) </span></span>  
+ <span data-ttu-id="e013e-118">[Produktspezifikationen für SQL Server 2014](../../../2014/getting-started/sql-server-2014-product-specifications.md) </span><span class="sxs-lookup"><span data-stu-id="e013e-118">[Product Specifications for SQL Server 2014](../../../2014/getting-started/sql-server-2014-product-specifications.md) </span></span>  
+ <span data-ttu-id="e013e-119">[Planen einer SQL Server-Installation](../../../2014/sql-server/install/planning-a-sql-server-installation.md) </span><span class="sxs-lookup"><span data-stu-id="e013e-119">[Planning a SQL Server Installation](../../../2014/sql-server/install/planning-a-sql-server-installation.md) </span></span>  
+ [<span data-ttu-id="e013e-120">Hardware- und Softwareanforderungen für die Installation von SQL Server 2014</span><span class="sxs-lookup"><span data-stu-id="e013e-120">Hardware and Software Requirements for Installing SQL Server 2014</span></span>](hardware-and-software-requirements-for-installing-sql-server.md)  
+  
+  
