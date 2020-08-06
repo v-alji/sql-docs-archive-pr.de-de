@@ -1,0 +1,73 @@
+---
+title: Debuggen des Datenflusses | Microsoft-Dokumentation
+ms.custom: ''
+ms.date: 03/06/2017
+ms.prod: sql-server-2014
+ms.reviewer: ''
+ms.technology: integration-services
+ms.topic: conceptual
+helpviewer_keywords:
+- progress reporting [Integration Services]
+- data viewers [Integration Services]
+- data flow [Integration Services], debugging
+- debugging [Integration Services], data flow
+- counting rows
+ms.assetid: 1c574f1b-54f7-4c05-8e42-8620e2c1df0f
+author: chugugrace
+ms.author: chugu
+ms.openlocfilehash: ed1d1b7ebb119d452ca3de92fdad47552d1cc36c
+ms.sourcegitcommit: ad4d92dce894592a259721a1571b1d8736abacdb
+ms.translationtype: MT
+ms.contentlocale: de-DE
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87718442"
+---
+# <a name="debugging-data-flow"></a><span data-ttu-id="f95e3-102">Debuggen des Datenflusses</span><span class="sxs-lookup"><span data-stu-id="f95e3-102">Debugging Data Flow</span></span>
+  [!INCLUDE[msCoName](../../includes/msconame-md.md)] <span data-ttu-id="f95e3-103">[!INCLUDE[ssISnoversion](../../includes/ssisnoversion-md.md)] und der [!INCLUDE[ssIS](../../includes/ssis-md.md)]-Designer enthalten Features und Tools, mit denen Sie Probleme in den Datenflüssen einem [!INCLUDE[ssISnoversion](../../includes/ssisnoversion-md.md)]-Paket behandeln können.</span><span class="sxs-lookup"><span data-stu-id="f95e3-103">[!INCLUDE[ssISnoversion](../../includes/ssisnoversion-md.md)] and the [!INCLUDE[ssIS](../../includes/ssis-md.md)] Designer include features and tools that you can use to troubleshoot the data flows in an [!INCLUDE[ssISnoversion](../../includes/ssisnoversion-md.md)] package.</span></span>  
+  
+-   [!INCLUDE[ssIS](../../includes/ssis-md.md)] <span data-ttu-id="f95e3-104">-Designer stellt Daten-Viewer bereit.</span><span class="sxs-lookup"><span data-stu-id="f95e3-104">Designer provides data viewers.</span></span>  
+  
+-   [!INCLUDE[ssIS](../../includes/ssis-md.md)] <span data-ttu-id="f95e3-105">-Designer und [!INCLUDE[ssISnoversion](../../includes/ssisnoversion-md.md)] -Transformationen stellen die Zeilenanzahl bereit.</span><span class="sxs-lookup"><span data-stu-id="f95e3-105">Designer and [!INCLUDE[ssISnoversion](../../includes/ssisnoversion-md.md)] transformations provide row counts.</span></span>  
+  
+-   [!INCLUDE[ssIS](../../includes/ssis-md.md)] <span data-ttu-id="f95e3-106">-Designer stellt zur Laufzeit Fortschrittsberichte bereit.</span><span class="sxs-lookup"><span data-stu-id="f95e3-106">Designer provides progress reporting at run time.</span></span>  
+  
+## <a name="data-viewers"></a><span data-ttu-id="f95e3-107">Daten-Viewer</span><span class="sxs-lookup"><span data-stu-id="f95e3-107">Data Viewers</span></span>  
+ <span data-ttu-id="f95e3-108">Daten-Viewer zeigen Daten zwischen zwei Komponenten in einem Datenfluss an.</span><span class="sxs-lookup"><span data-stu-id="f95e3-108">Data viewers display data between two components in a data flow.</span></span> <span data-ttu-id="f95e3-109">Mit Daten-Viewern können Daten angezeigt werden, wenn die Daten von einer Datenquelle extrahiert werden und an einen Datenfluss weitergegeben werden, vor und nach dem Update der Daten durch eine Transformation sowie vor dem Laden der Daten in das Ziel.</span><span class="sxs-lookup"><span data-stu-id="f95e3-109">Data viewers can display data when the data is extracted from a data source and first enters a data flow, before and after a transformation updates the data, and before the data is loaded into its destination.</span></span>  
+  
+ <span data-ttu-id="f95e3-110">Um die Daten anzuzeigen, fügen Sie dem Pfad, der zwei Datenflusskomponenten verbindet, Daten-Viewer hinzu.</span><span class="sxs-lookup"><span data-stu-id="f95e3-110">To view the data, you attach data viewers to the path that connects two data flow components.</span></span> <span data-ttu-id="f95e3-111">Durch die Möglichkeit, Daten zwischen Datenflusskomponenten anzuzeigen, können Sie auf einfache Weise unerwartete Datenwerte identifizieren, die Änderung von Spaltenwerten durch eine Transformation anzeigen sowie die Ursache für einen Fehler bei einer Transformation ermitteln.</span><span class="sxs-lookup"><span data-stu-id="f95e3-111">The ability to view data between data flow components makes it easier to identify unexpected data values, view the way a transformation changes column values, and discover the reason that a transformation fails.</span></span> <span data-ttu-id="f95e3-112">Beispielsweise kann es sein, dass bei einer Suche in einer Verweistabelle ein Fehler auftritt. Um dieses Problem zu beseitigen, können Sie eine Transformation hinzufügen, die Standarddaten für leere Spalten bereitstellt.</span><span class="sxs-lookup"><span data-stu-id="f95e3-112">For example, you may find that a lookup in a reference table fails, and to correct this you may want to add a transformation that provides default data for blank columns.</span></span>  
+  
+ <span data-ttu-id="f95e3-113">Ein Daten-Viewer kann Daten in einem Raster anzeigen.</span><span class="sxs-lookup"><span data-stu-id="f95e3-113">A data viewer can display data in a grid.</span></span> <span data-ttu-id="f95e3-114">Bei einem Raster wählen Sie die Spalten aus, die angezeigt werden sollen.</span><span class="sxs-lookup"><span data-stu-id="f95e3-114">Using a grid, you select the columns to display.</span></span> <span data-ttu-id="f95e3-115">Die Werte für die ausgewählten Spalten werden im Tabellenformat angezeigt.</span><span class="sxs-lookup"><span data-stu-id="f95e3-115">The values for the selected columns display in a tabular format.</span></span>  
+  
+ <span data-ttu-id="f95e3-116">Sie können auch mehrere Daten-Viewer in einen Pfad einschließen.</span><span class="sxs-lookup"><span data-stu-id="f95e3-116">You can also include multiple data viewers on a path.</span></span> <span data-ttu-id="f95e3-117">Daten können in unterschiedlichen Formaten angezeigt werden (erstellen Sie z.B. eine Diagrammansicht und eine Rasteransicht der Daten). Außerdem können Sie unterschiedliche Daten-Viewer für verschiedene Datenspalten erstellen.</span><span class="sxs-lookup"><span data-stu-id="f95e3-117">You can display the same data in different formats-for example, create a chart view and a grid view of the data-or create different data viewers for different columns of data.</span></span>  
+  
+ <span data-ttu-id="f95e3-118">Wenn Sie einem Pfad einen Daten-Viewer hinzufügen, fügt der [!INCLUDE[ssIS](../../includes/ssis-md.md)] -Designer der Entwurfsoberfläche der Registerkarte **Datenfluss** neben dem Pfad ein Daten-Viewer-Symbol hinzu.</span><span class="sxs-lookup"><span data-stu-id="f95e3-118">When you add a data viewer to a path, [!INCLUDE[ssIS](../../includes/ssis-md.md)] Designer adds a data viewer icon to the design surface of the **Data Flow** tab, next to the path.</span></span> <span data-ttu-id="f95e3-119">Transformationen mit mehreren Ausgaben, wie z. B. die Transformation für bedingtes Teilen, können in jedem Pfad einen Daten-Viewer enthalten.</span><span class="sxs-lookup"><span data-stu-id="f95e3-119">Transformations that can have multiple outputs, such as the Conditional Split transformation, can include a data viewer on each path.</span></span>  
+  
+ <span data-ttu-id="f95e3-120">Zur Laufzeit wird ein **Daten-Viewer** -Fenster geöffnet, in dem die vom Daten-Viewer-Format definierten Informationen angezeigt werden.</span><span class="sxs-lookup"><span data-stu-id="f95e3-120">At run time, a **Data Viewer** window opens and displays the information specified by the data viewer format.</span></span> <span data-ttu-id="f95e3-121">Beispielsweise zeigt ein Daten-Viewer, der das Rasterformat verwendet, Daten für die ausgewählten Spalten, die Anzahl von an die Datenflusskomponente übergebenen Ausgabezeilen sowie die Anzahl dargestellter Zeilen an.</span><span class="sxs-lookup"><span data-stu-id="f95e3-121">For example, a data viewer that uses the grid format shows data for the selected columns, the number of output rows passed to the data flow component, and the number of rows displayed.</span></span> <span data-ttu-id="f95e3-122">Die Informationen werden pufferweise angezeigt und, ein Puffer kann, abhängig von der Zeilenbreite im Datenfluss, mehr oder weniger Zeilen enthalten.</span><span class="sxs-lookup"><span data-stu-id="f95e3-122">The information displays buffer by buffer and, depending on the width of the rows in the data flow, a buffer may contain more or fewer rows.</span></span>  
+  
+ <span data-ttu-id="f95e3-123">Im Dialogfeld **Daten-Viewer** können Sie die Daten in die Zwischenablage kopieren, alle Daten aus der Tabelle löschen, den Daten-Viewer neu konfigurieren, den Datenfluss fortsetzen und den Daten-Viewer anfügen oder trennen.</span><span class="sxs-lookup"><span data-stu-id="f95e3-123">In the **Data Viewer** dialog box, you can copy the data to the Clipboard, clear all data from the table, reconfigure the data viewer, resume the flow of data, and detach or attach the data viewer.</span></span>  
+  
+#### <a name="to-add-a-data-viewer"></a><span data-ttu-id="f95e3-124">So fügen Sie einen Daten-Viewer hinzu</span><span class="sxs-lookup"><span data-stu-id="f95e3-124">To add a data viewer</span></span>  
+  
+-   [<span data-ttu-id="f95e3-125">Hinzufügen eines Daten-Viewers zu einem Datenfluss</span><span class="sxs-lookup"><span data-stu-id="f95e3-125">Add a Data Viewer to a Data Flow</span></span>](../add-a-data-viewer-to-a-data-flow.md)  
+  
+## <a name="row-counts"></a><span data-ttu-id="f95e3-126">Zeilenanzahl</span><span class="sxs-lookup"><span data-stu-id="f95e3-126">Row Counts</span></span>  
+ <span data-ttu-id="f95e3-127">Die Anzahl von Zeilen, die über einen Pfad verschoben wurden, werden in der Entwurfsoberfläche der Registerkarte **Datenfluss** in [!INCLUDE[ssIS](../../includes/ssis-md.md)] neben dem Pfad angezeigt.</span><span class="sxs-lookup"><span data-stu-id="f95e3-127">The number of rows that have passed through a path is displayed on the design surface of the **Data Flow** tab in [!INCLUDE[ssIS](../../includes/ssis-md.md)] Designer next to the path.</span></span> <span data-ttu-id="f95e3-128">Dieser Wert wird regelmäßig aktualisiert, während die Daten über den Pfad verschoben werden.</span><span class="sxs-lookup"><span data-stu-id="f95e3-128">The number is updated periodically while the data moves through the path.</span></span>  
+  
+ <span data-ttu-id="f95e3-129">Sie können dem Datenfluss auch eine Transformation für Zeilenanzahl hinzufügen, um die endgültige Zeilenanzahl in einer Variablen aufzuzeichnen.</span><span class="sxs-lookup"><span data-stu-id="f95e3-129">You can also add a Row Count transformation to the data flow to capture the final row count in a variable.</span></span> <span data-ttu-id="f95e3-130">Weitere Informationen finden Sie unter [Row Count Transformation](../data-flow/transformations/row-count-transformation.md).</span><span class="sxs-lookup"><span data-stu-id="f95e3-130">For more information, see [Row Count Transformation](../data-flow/transformations/row-count-transformation.md).</span></span>  
+  
+## <a name="progress-reporting"></a><span data-ttu-id="f95e3-131">Fortschrittsberichte</span><span class="sxs-lookup"><span data-stu-id="f95e3-131">Progress Reporting</span></span>  
+ <span data-ttu-id="f95e3-132">Wenn Sie ein Paket ausführen, stellt der [!INCLUDE[ssIS](../../includes/ssis-md.md)] -Designer den Fortschritt in der Entwurfsoberfläche der Registerkarte **Datenfluss** dar, indem jede Datenflusskomponente in der entsprechenden Statusfarbe dargestellt wird.</span><span class="sxs-lookup"><span data-stu-id="f95e3-132">When you run a package, [!INCLUDE[ssIS](../../includes/ssis-md.md)] Designer depicts progress on the design surface of the **Data Flow** tab by displaying each data flow component in a color that indicates status.</span></span> <span data-ttu-id="f95e3-133">Wenn eine Komponente mit der Arbeit beginnt, wird die Farbe von keiner Farbe in gelb geändert. Wenn die Komponente erfolgreich abgeschlossen ist, wird sie in grün geändert.</span><span class="sxs-lookup"><span data-stu-id="f95e3-133">When each component starts to perform its work, it changes from no color to yellow, and when it finishes successfully, it changes to green.</span></span> <span data-ttu-id="f95e3-134">Rot bedeutet, dass bei der Komponente ein Fehler aufgetreten ist.</span><span class="sxs-lookup"><span data-stu-id="f95e3-134">A red color indicates that the component failed.</span></span>  
+  
+ <span data-ttu-id="f95e3-135">In der folgenden Tabelle wird die Farbcodierung beschrieben.</span><span class="sxs-lookup"><span data-stu-id="f95e3-135">The following table describes the color-coding.</span></span>  
+  
+|<span data-ttu-id="f95e3-136">Color</span><span class="sxs-lookup"><span data-stu-id="f95e3-136">Color</span></span>|<span data-ttu-id="f95e3-137">BESCHREIBUNG</span><span class="sxs-lookup"><span data-stu-id="f95e3-137">Description</span></span>|  
+|-----------|-----------------|  
+|<span data-ttu-id="f95e3-138">Keine Farbe</span><span class="sxs-lookup"><span data-stu-id="f95e3-138">No color</span></span>|<span data-ttu-id="f95e3-139">Wartet auf den Aufruf durch die Datenfluss-Engine.</span><span class="sxs-lookup"><span data-stu-id="f95e3-139">Waiting to be called by the data flow engine.</span></span>|  
+|<span data-ttu-id="f95e3-140">Gelb</span><span class="sxs-lookup"><span data-stu-id="f95e3-140">Yellow</span></span>|<span data-ttu-id="f95e3-141">Führt eine Transformation aus, extrahiert Daten oder lädt Daten.</span><span class="sxs-lookup"><span data-stu-id="f95e3-141">Performing a transformation, extracting data, or loading data.</span></span>|  
+|<span data-ttu-id="f95e3-142">Grün</span><span class="sxs-lookup"><span data-stu-id="f95e3-142">Green</span></span>|<span data-ttu-id="f95e3-143">Wurde erfolgreich ausgeführt.</span><span class="sxs-lookup"><span data-stu-id="f95e3-143">Ran successfully.</span></span>|  
+|<span data-ttu-id="f95e3-144">Rot</span><span class="sxs-lookup"><span data-stu-id="f95e3-144">red</span></span>|<span data-ttu-id="f95e3-145">Wurde mit Fehlern ausgeführt.</span><span class="sxs-lookup"><span data-stu-id="f95e3-145">Ran with errors.</span></span>|  
+  
+## <a name="see-also"></a><span data-ttu-id="f95e3-146">Weitere Informationen</span><span class="sxs-lookup"><span data-stu-id="f95e3-146">See Also</span></span>  
+ [<span data-ttu-id="f95e3-147">Tools zur Problembehandlung für die Paketentwicklung</span><span class="sxs-lookup"><span data-stu-id="f95e3-147">Troubleshooting Tools for Package Development</span></span>](troubleshooting-tools-for-package-development.md)  
+  
+  
