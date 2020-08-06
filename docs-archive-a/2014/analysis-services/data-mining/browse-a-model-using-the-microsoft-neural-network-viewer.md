@@ -1,0 +1,84 @@
+---
+title: Durchsuchen eines Modells mit dem Microsoft-Viewer für neuronale Netzwerke | Microsoft-Dokumentation
+ms.custom: ''
+ms.date: 06/13/2017
+ms.prod: sql-server-2014
+ms.reviewer: ''
+ms.technology: analysis-services
+ms.topic: conceptual
+helpviewer_keywords:
+- mining model content, viewing
+- classification mining model [Analysis Services]
+- Microsoft Neural Network Viewer
+- regression algorithms [Analysis Services]
+- Neural Network Viewer [Analysis Services]
+- neural network model [Analysis Services]
+ms.assetid: 2343d746-c4f4-499b-9d3c-17d63310a9a3
+author: minewiskan
+ms.author: owend
+ms.openlocfilehash: 77e08955d09b7995e34ac94b75f809a303ca0d2b
+ms.sourcegitcommit: ad4d92dce894592a259721a1571b1d8736abacdb
+ms.translationtype: MT
+ms.contentlocale: de-DE
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87630440"
+---
+# <a name="browse-a-model-using-the-microsoft-neural-network-viewer"></a><span data-ttu-id="6679c-102">Modell mit dem Microsoft-Viewer für neuronale Netzwerke durchsuchen</span><span class="sxs-lookup"><span data-stu-id="6679c-102">Browse a Model Using the Microsoft Neural Network Viewer</span></span>
+  <span data-ttu-id="6679c-103">Der- [!INCLUDE[msCoName](../../includes/msconame-md.md)] Viewer für neuronale Netzwerke in [!INCLUDE[msCoName](../../includes/msconame-md.md)] [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] [!INCLUDE[ssASnoversion](../../includes/ssasnoversion-md.md)] zeigt Mining Modelle an, die mit dem [!INCLUDE[msCoName](../../includes/msconame-md.md)] Neural Network-Algorithmus erstellt werden.</span><span class="sxs-lookup"><span data-stu-id="6679c-103">The [!INCLUDE[msCoName](../../includes/msconame-md.md)] Neural Network Viewer in [!INCLUDE[msCoName](../../includes/msconame-md.md)] [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] [!INCLUDE[ssASnoversion](../../includes/ssasnoversion-md.md)] displays mining models that are built with the [!INCLUDE[msCoName](../../includes/msconame-md.md)] Neural Network algorithm.</span></span> <span data-ttu-id="6679c-104">Der [!INCLUDE[msCoName](../../includes/msconame-md.md)] -Algorithmus für neuronale Netzwerke erstellt Klassifizierungs- und Regressionsminingmodelle, die mehrere Eingaben und Ausgaben analysieren können, und ist für unbegrenzte Analysen und Untersuchungen sehr nützlich.</span><span class="sxs-lookup"><span data-stu-id="6679c-104">The [!INCLUDE[msCoName](../../includes/msconame-md.md)] Neural Network algorithm creates classification and regression mining models that can analyze multiple inputs and outputs, and is very useful for open-ended analyses and exploration.</span></span> <span data-ttu-id="6679c-105">Weitere Informationen zu diesem Algorithmus finden Sie unter [Microsoft Neural Network Algorithm](microsoft-neural-network-algorithm.md).</span><span class="sxs-lookup"><span data-stu-id="6679c-105">For more information about this algorithm, see [Microsoft Neural Network Algorithm](microsoft-neural-network-algorithm.md).</span></span>  
+  
+ <span data-ttu-id="6679c-106">Wenn Sie mit dem [!INCLUDE[msCoName](../../includes/msconame-md.md)] -Viewer für neuronale Netzwerke ein Modell untersuchen, wählen Sie in der Regel ein Zielattribut und einen Status aus, und anschließend wird mit dem Viewer angezeigt, wie Eingabeattribute das Ergebnis beeinflussen.</span><span class="sxs-lookup"><span data-stu-id="6679c-106">When you explore a model using the [!INCLUDE[msCoName](../../includes/msconame-md.md)] Neural Network Viewer, you typically pick some target attribute and state, and then use the viewer to see how input attributes affect the outcome</span></span>  
+  
+ <span data-ttu-id="6679c-107">Beispiel: Angenommen, Ihnen sind die folgenden Fakten über eine Klasse von potenziellen Kunden bekannt:</span><span class="sxs-lookup"><span data-stu-id="6679c-107">For example, suppose you know these facts about a class of potential customers:</span></span>  
+  
+-   <span data-ttu-id="6679c-108">Mittleren Alters (40 bis 50 Jahre alt).</span><span class="sxs-lookup"><span data-stu-id="6679c-108">Middle aged (40 to 50 years old).</span></span>  
+  
+-   <span data-ttu-id="6679c-109">Eigenheimbesitzer.</span><span class="sxs-lookup"><span data-stu-id="6679c-109">Owns a home.</span></span>  
+  
+-   <span data-ttu-id="6679c-110">Hat zwei Kinder, die noch zu Hause wohnen.</span><span class="sxs-lookup"><span data-stu-id="6679c-110">Has two children who still live at home.</span></span>  
+  
+ <span data-ttu-id="6679c-111">Wie können Sie diese Daten mit der Wahrscheinlichkeit in Beziehung setzen, dass der Kunde einen Kauf tätigt?</span><span class="sxs-lookup"><span data-stu-id="6679c-111">How can you correlate these attributes with the likelihood that the customer will make a purchase?</span></span>  
+  
+ <span data-ttu-id="6679c-112">Durch Erstellen eines neuronalen Netzwerkmodells unter Berücksichtigung des Kaufverhaltens als Zielergebnis können Sie mehrere Kombinationen von Kundendaten untersuchen, z. B. hohes Einkommen, und feststellen, welche Kombination von Daten die größte Wahrscheinlichkeit einer Beeinflussung des Kaufverhaltens bietet.</span><span class="sxs-lookup"><span data-stu-id="6679c-112">By building a neural network model using purchasing behavior as the target outcome, you can explore multiple combinations on customer attributes, such as high income, and discover which combination of attributes is most likely to influence purchasing behavior.</span></span> <span data-ttu-id="6679c-113">Sie stellen zum Beispiel fest, dass der bestimmende Faktor die Entfernung zur Arbeitsstelle ist.</span><span class="sxs-lookup"><span data-stu-id="6679c-113">For example, you might discover that the determining factor is the distance that they commute to work.</span></span>  
+  
+ <span data-ttu-id="6679c-114">Wenn Sie ausführlichere Informationen benötigen, z. B. die Formeln, die jedes erkannte Muster darstellen, können Sie die Ansichten wechseln und den [!INCLUDE[msCoName](../../includes/msconame-md.md)] Generic Content Tree Viewer verwenden.</span><span class="sxs-lookup"><span data-stu-id="6679c-114">If you need to more view detailed information, such as the equations that represent each pattern that was discovered, you can switch views and use the [!INCLUDE[msCoName](../../includes/msconame-md.md)] Generic Content Tree viewer.</span></span> <span data-ttu-id="6679c-115">Weitere Informationen finden Sie unter [Durchsuchen eines Modells mit dem Microsoft Generic Content Tree Viewer](browse-a-model-using-the-microsoft-generic-content-tree-viewer.md) oder [Microsoft Generic Content Tree Viewer &#40;Data Mining&#41;](../microsoft-generic-content-tree-viewer-data-mining.md).</span><span class="sxs-lookup"><span data-stu-id="6679c-115">For more information, see [Browse a Model Using the Microsoft Generic Content Tree Viewer](browse-a-model-using-the-microsoft-generic-content-tree-viewer.md) or [Microsoft Generic Content Tree Viewer &#40;Data Mining&#41;](../microsoft-generic-content-tree-viewer-data-mining.md).</span></span>  
+  
+##  <a name="viewer-tabs"></a><a name="BKMK_ViewerTabs"></a><span data-ttu-id="6679c-116">Viewer-Registerkarten</span><span class="sxs-lookup"><span data-stu-id="6679c-116">Viewer Tabs</span></span>  
+ <span data-ttu-id="6679c-117">Wenn Sie ein Miningmodell in [!INCLUDE[ssASnoversion](../../includes/ssasnoversion-md.md)]durchsuchen, wird das Modell im Data Mining-Designer auf der Registerkarte **Miningmodell-Viewer** mit dem jeweils geeigneten Viewer für das Modell angezeigt.</span><span class="sxs-lookup"><span data-stu-id="6679c-117">When you browse a mining model in [!INCLUDE[ssASnoversion](../../includes/ssasnoversion-md.md)], the model is displayed on the **Mining Model Viewer** tab of Data Mining Designer in the appropriate viewer for the model.</span></span> <span data-ttu-id="6679c-118">Der [!INCLUDE[msCoName](../../includes/msconame-md.md)] -Viewer für neuronale Netzwerke stellt die folgenden Registerkarten zum Durchsuchen von Miningmodellen in neuronalen Netzwerken bereit:</span><span class="sxs-lookup"><span data-stu-id="6679c-118">The [!INCLUDE[msCoName](../../includes/msconame-md.md)] Neural Network Viewer provides the following tabs for use in exploring neural network mining models:</span></span>  
+  
+-   [<span data-ttu-id="6679c-119">Eingaben</span><span class="sxs-lookup"><span data-stu-id="6679c-119">Inputs</span></span>](#BKMK_Inputs)  
+  
+-   [<span data-ttu-id="6679c-120">Ausgaben</span><span class="sxs-lookup"><span data-stu-id="6679c-120">Outputs</span></span>](#BKMK_Outputs)  
+  
+-   [<span data-ttu-id="6679c-121">Variablen</span><span class="sxs-lookup"><span data-stu-id="6679c-121">Variables</span></span>](#BKMK_Characteristics)  
+  
+###  <a name="inputs"></a><a name="BKMK_Inputs"></a><span data-ttu-id="6679c-122">Ungs</span><span class="sxs-lookup"><span data-stu-id="6679c-122">Inputs</span></span>  
+ <span data-ttu-id="6679c-123">Wählen Sie auf der Registerkarte **Eingaben** die Attribute und Werte aus, die vom Modell als Eingaben verwendet wurden.</span><span class="sxs-lookup"><span data-stu-id="6679c-123">Use the **Inputs** tab to choose the attributes and values that the model used as inputs.</span></span> <span data-ttu-id="6679c-124">Standardmäßig wird der Viewer mit allen enthaltenen Daten bzw. Attributen geöffnet.</span><span class="sxs-lookup"><span data-stu-id="6679c-124">By default, the viewer opens with all attributes included.</span></span> <span data-ttu-id="6679c-125">In dieser Standardansicht wählt das Modell aus, welche Attributwerte beim Anzeigen Priorität besitzen.</span><span class="sxs-lookup"><span data-stu-id="6679c-125">In this default view, the model chooses which attribute values are the most important to display.</span></span>  
+  
+ <span data-ttu-id="6679c-126">Um ein Eingabeattribut auszuwählen, klicken Sie in der Spalte **Attribut** auf das Raster **Eingabe** , und wählen Sie aus der Dropdownliste ein Attribut aus.</span><span class="sxs-lookup"><span data-stu-id="6679c-126">To select an input attribute, click inside the **Attribute** column of the **Input** grid, and select an attribute from the drop-down list.</span></span> <span data-ttu-id="6679c-127">(Nur Attribute, die im Modell eingeschlossen sind, werden in die Liste aufgenommen.)</span><span class="sxs-lookup"><span data-stu-id="6679c-127">(Only attributes that are included in the model are included in the list.)</span></span>  
+  
+ <span data-ttu-id="6679c-128">Der erste unterschiedliche Werte wird unter der Spalte **Wert** angezeigt.</span><span class="sxs-lookup"><span data-stu-id="6679c-128">The first distinct value appears under the **Value** column.</span></span> <span data-ttu-id="6679c-129">Durch Anklicken des Standardwerts wird eine Liste angezeigt, die alle möglichen Status des verbundenen Attributs enthält.</span><span class="sxs-lookup"><span data-stu-id="6679c-129">Clicking the default value reveals a list that contains all the possible states of the associated attribute.</span></span> <span data-ttu-id="6679c-130">Sie können den Status auswählen, den Sie untersuchen möchten.</span><span class="sxs-lookup"><span data-stu-id="6679c-130">You can select the state that you want to investigate.</span></span> <span data-ttu-id="6679c-131">Sie können beliebig viele Attribute auswählen.</span><span class="sxs-lookup"><span data-stu-id="6679c-131">You can select as many attributes as you want.</span></span>  
+  
+ [<span data-ttu-id="6679c-132">Zurück zum Anfang</span><span class="sxs-lookup"><span data-stu-id="6679c-132">Back to Top</span></span>](#BKMK_ViewerTabs)  
+  
+###  <a name="outputs"></a><a name="BKMK_Outputs"></a><span data-ttu-id="6679c-133">Ausgaben</span><span class="sxs-lookup"><span data-stu-id="6679c-133">Outputs</span></span>  
+ <span data-ttu-id="6679c-134">Wählen Sie auf der Registerkarte **Ausgaben** das zu überprüfende Ergebnisattribut aus.</span><span class="sxs-lookup"><span data-stu-id="6679c-134">Use the **Outputs** tab to choose the outcome attribute to investigate.</span></span> <span data-ttu-id="6679c-135">Sie können zwei beliebige Ergebnisstatuswerte auswählen, die Sie vergleichen möchten, vorausgesetzt, dass die Spalten beim Erstellen des Modells als prognostizierbare Attribute definiert wurden.</span><span class="sxs-lookup"><span data-stu-id="6679c-135">You can choose any two outcome states to compare, assuming the columns were defined as predictable attributes when the model was created.</span></span>  
+  
+ <span data-ttu-id="6679c-136">Verwenden Sie die Liste **Ausgabeattribut** , um ein Attribut auszuwählen.</span><span class="sxs-lookup"><span data-stu-id="6679c-136">Use the **OutputAttribute** list to select an attribute.</span></span> <span data-ttu-id="6679c-137">Sie können zwei Status auswählen, die mit dem Attribut aus den Listen **Wert 1** und **Wert 2** verknüpft sind.</span><span class="sxs-lookup"><span data-stu-id="6679c-137">You can then select two states that are associated with the attribute from the **Value 1** and **Value 2** lists.</span></span> <span data-ttu-id="6679c-138">Diese beiden Status der Ausgabeattribute werden im Bereich **Variablen** verglichen.</span><span class="sxs-lookup"><span data-stu-id="6679c-138">These two states of the output attribute will be compared in the **Variables** pane.</span></span>  
+  
+ [<span data-ttu-id="6679c-139">Zurück zum Anfang</span><span class="sxs-lookup"><span data-stu-id="6679c-139">Back to Top</span></span>](#BKMK_ViewerTabs)  
+  
+###  <a name="variables"></a><a name="BKMK_Characteristics"></a><span data-ttu-id="6679c-140">Instan</span><span class="sxs-lookup"><span data-stu-id="6679c-140">Variables</span></span>  
+ <span data-ttu-id="6679c-141">Das Raster auf der Registerkarte **Variablen** enthält die folgenden Spalten: **Attribut**, **Wert**, **Begünstigt [value 1]** und **Begünstigt [value 2]**.</span><span class="sxs-lookup"><span data-stu-id="6679c-141">The grid in the **Variables** tab contains the following columns: **Attribute**, **Value**, **Favors [value 1]**, and **Favors [value 2]**.</span></span> <span data-ttu-id="6679c-142">Standardmäßig werden die Spalten nach der Stärke von **Begünstigt [value 1]** sortiert.</span><span class="sxs-lookup"><span data-stu-id="6679c-142">By default, the columns are sorted by the strength of **Favors [value 1]**.</span></span> <span data-ttu-id="6679c-143">Durch Klicken auf die Spaltenkopfzeilen wird die Reihenfolge der Inhalte der ausgewählten Spalte verändert.</span><span class="sxs-lookup"><span data-stu-id="6679c-143">Clicking a column heading changes the sort order to the selected column.</span></span>  
+  
+ <span data-ttu-id="6679c-144">Ein Balken rechts neben dem Attribut zeigt an, welchen Status des Ausgabeattributs der angegebene Eingabeattributstatus bevorzugt.</span><span class="sxs-lookup"><span data-stu-id="6679c-144">A bar to the right of the attribute shows which state of the output attribute the specified input attribute state favors.</span></span> <span data-ttu-id="6679c-145">Die Größe des Balkens zeigt an, wie stark der Ausgabestatus den Eingabestatus bevorzugt.</span><span class="sxs-lookup"><span data-stu-id="6679c-145">The size of the bar shows how strongly the output state favors the input state.</span></span>  
+  
+ [<span data-ttu-id="6679c-146">Zurück zum Anfang</span><span class="sxs-lookup"><span data-stu-id="6679c-146">Back to Top</span></span>](#BKMK_ViewerTabs)  
+  
+## <a name="see-also"></a><span data-ttu-id="6679c-147">Weitere Informationen</span><span class="sxs-lookup"><span data-stu-id="6679c-147">See Also</span></span>  
+ <span data-ttu-id="6679c-148">[Microsoft Neural Network-Algorithmus](microsoft-neural-network-algorithm.md) </span><span class="sxs-lookup"><span data-stu-id="6679c-148">[Microsoft Neural Network Algorithm](microsoft-neural-network-algorithm.md) </span></span>  
+ <span data-ttu-id="6679c-149">[Tasks und Anleitungen des Mining Modell-Viewers](mining-model-viewer-tasks-and-how-tos.md) </span><span class="sxs-lookup"><span data-stu-id="6679c-149">[Mining Model Viewer Tasks and How-tos](mining-model-viewer-tasks-and-how-tos.md) </span></span>  
+ <span data-ttu-id="6679c-150">[Tasks und Anleitungen des Mining Modell-Viewers](mining-model-viewer-tasks-and-how-tos.md) </span><span class="sxs-lookup"><span data-stu-id="6679c-150">[Mining Model Viewer Tasks and How-tos](mining-model-viewer-tasks-and-how-tos.md) </span></span>  
+ <span data-ttu-id="6679c-151">[Data Mining-Tools](data-mining-tools.md) </span><span class="sxs-lookup"><span data-stu-id="6679c-151">[Data Mining Tools](data-mining-tools.md) </span></span>  
+ [<span data-ttu-id="6679c-152">Data Mining-Modell-Viewer</span><span class="sxs-lookup"><span data-stu-id="6679c-152">Data Mining Model Viewers</span></span>](data-mining-model-viewers.md)  
+  
+  
