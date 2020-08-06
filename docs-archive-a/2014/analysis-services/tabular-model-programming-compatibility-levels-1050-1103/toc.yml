@@ -1,0 +1,29 @@
+- name: Programmierung von tabellarischen Modellen
+  href: tabular-model-programming-for-compatibility-levels-1050-through-1103.md
+- name: Grundlegendes zum tabellarischen Objektmodell
+  href: representation/understanding-tabular-object-model-at-levels-1050-through-1103.md
+  items:
+    - name: Datenbankdarstellung
+      href: representation/database-representation-tabular.md
+    - name: Verbindungsdarstellung
+      href: representation/connection-representation-tabular.md
+    - name: Tabellendarstellung
+      href: representation/tables-representation-tabular.md
+    - name: Darstellung einer berechneten Spalte
+      href: representation/tables-calculated-column-representation.md
+    - name: Darstellung eines berechneten Measures
+      href: representation/tables-calculated-measure-representation.md
+    - name: Hierarchiedarstellung
+      href: representation/tables-hierarchy-representation.md
+    - name: KPI (Key Performance Indicator)-Darstellung
+      href: representation/tables-key-performance-indicator-representation.md
+    - name: Partitionsdarstellung
+      href: representation/tables-partition-representation.md
+    - name: Beziehungsdarstellung
+      href: representation/relationship-representation-tabular.md
+    - name: Perspektivendarstellung
+      href: representation/perspective-representation-tabular.md
+    - name: Abfragen eines tabellarischen Modells
+      href: representation/querying-a-tabular-model.md
+- name: IMDEmbedded-Schnittstelle
+  href: imdembeddeddata-interface.md
