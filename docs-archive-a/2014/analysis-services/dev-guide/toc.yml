@@ -1,0 +1,164 @@
+- name: Entwicklerhandbuch (Analysis Services)
+  href: analysis-services-dev-guide.md
+- name: Data Mining-Programmierung
+  href: data-mining-programming.md
+  items:
+    - name: OLE DB für Data Mining
+      href: ole-db-for-data-mining.md
+- name: Mehrdimensionale Modellprogrammierung
+  href: ../multidimensional-models/multidimensional-model-programming.md
+  items:
+    - name: Grundlegendes zur Microsoft OLAP-Architektur
+      href: ../multidimensional-models/olap-physical/understanding-microsoft-olap-architecture.md
+    - name: Logische Architektur
+      href: ../multidimensional-models/olap-logical/understanding-microsoft-olap-logical-architecture.md
+      items:
+        - name: Übersicht über logische Architektur
+          href: ../multidimensional-models/olap-logical/logical-architecture-overview-analysis-services-multidimensional-data.md
+        - name: Serverobjekte
+          href: ../multidimensional-models/olap-logical/server-objects-analysis-services-multidimensional-data.md
+        - name: Datenbankobjekte
+          href: ../multidimensional-models/olap-logical/database-objects-analysis-services-multidimensional-data.md
+        - name: Dimensionsobjekte
+          href: ../multidimensional-models-olap-logical-dimension-objects/dimension-objects-analysis-services-multidimensional-data.md
+        - name: Dimensionen
+          href: ../multidimensional-models-olap-logical-dimension-objects/dimensions-analysis-services-multidimensional-data.md
+          items:
+            - name: Einführung in Dimensionen
+              href: ../multidimensional-models-olap-logical-dimension-objects/introduction-to-dimensions-analysis-services-multidimensional-data.md
+            - name: Speichern von Dimensionen
+              href: ../multidimensional-models-olap-logical-dimension-objects/dimensions-storage.md
+        - name: Attribute und Attributhierarchien
+          href: ../multidimensional-models-olap-logical-dimension-objects/attributes-and-attribute-hierarchies.md
+        - name: Attributbeziehungen
+          href: ../multidimensional-models-olap-logical-dimension-objects/attribute-relationships.md
+        - name: Benutzerhierarchien
+          href: ../multidimensional-models-olap-logical-dimension-objects/user-hierarchies.md
+          items:
+            - name: Eigenschaften der Benutzerhierarchie
+              href: ../multidimensional-models-olap-logical-dimension-objects/user-hierarchies-properties.md
+            - name: Ebeneneigenschaften
+              href: ../multidimensional-models-olap-logical-dimension-objects/user-hierarchies-level-properties.md
+        - name: Dimensionen mit aktiviertem Schreibzugriff
+          href: ../multidimensional-models-olap-logical-dimension-objects/write-enabled-dimensions.md
+        - name: Dimensionsübersetzungen
+          href: ../multidimensional-models-olap-logical-dimension-objects/dimension-translations.md
+        - name: Eigenschaften von Datenbankdimensionen
+          href: ../multidimensional-models-olap-logical-dimension-objects/database-dimension-properties.md
+          items:
+            - name: Dimensionstypen
+              href: ../multidimensional-models-olap-logical-dimension-objects/database-dimension-properties-types.md
+        - name: Proaktives Zwischenspeichern (Dimensionen)
+          href: ../multidimensional-models-olap-logical-dimension-objects/proactive-caching-dimensions.md
+        - name: Cubeobjekte
+          href: ../multidimensional-models-olap-logical-cube-objects/cube-objects-analysis-services-multidimensional-data.md
+        - name: Cubeeigenschaften
+          href: ../multidimensional-models-olap-logical-cube-objects/cube-properties-multidimensional-model-programming.md
+        - name: Dimensionsbeziehungen
+          href: ../multidimensional-models-olap-logical-cube-objects/dimension-relationships.md
+        - name: Berechnungen
+          href: ../multidimensional-models-olap-logical-cube-objects/calculations.md
+        - name: Partitionen
+          href: ../multidimensional-models-olap-logical-cube-objects/partitions-analysis-services-multidimensional-data.md
+          items:
+            - name: Speichermodi und Verarbeitung von Partitionen
+              href: ../multidimensional-models-olap-logical-cube-objects/partitions-partition-storage-modes-and-processing.md
+            - name: Proaktives Zwischenspeichern (Partitionen)
+              href: ../multidimensional-models-olap-logical-cube-objects/partitions-proactive-caching.md
+            - name: Remotepartitionen
+              href: ../multidimensional-models-olap-logical-cube-objects/partitions-remote-partitions.md
+            - name: Partitionen mit aktiviertem Schreibzugriff
+              href: ../multidimensional-models-olap-logical-cube-objects/partitions-write-enabled-partitions.md
+        - name: Perspektiven
+          href: ../multidimensional-models-olap-logical-cube-objects/perspectives.md
+        - name: Cubeübersetzungen
+          href: ../multidimensional-models-olap-logical-cube-objects/cube-translations.md
+        - name: Cubezellen
+          href: ../multidimensional-models-olap-logical-cube-objects/cube-cells-analysis-services-multidimensional-data.md
+        - name: Cubespeicherung
+          href: ../multidimensional-models-olap-logical-cube-objects/cube-storage-analysis-services-multidimensional-data.md
+        - name: Aggregations and Aggregation Designs
+          href: ../multidimensional-models-olap-logical-cube-objects/aggregations-and-aggregation-designs.md
+        - name: Sicherheitsrollen
+          href: ../multidimensional-models/olap-logical/security-roles-analysis-services-multidimensional-data.md
+    - name: Physische Architektur
+      href: ../multidimensional-models/olap-physical/understanding-microsoft-olap-physical-architecture.md
+      items:
+        - name: OLAP-Engine-Serverkomponenten
+          href: ../multidimensional-models/olap-physical/olap-engine-server-components.md
+        - name: Objektbenennungsregeln
+          href: ../multidimensional-models/olap-physical/object-naming-rules-analysis-services.md
+        - name: Spezifikationen der maximalen Kapazität
+          href: ../multidimensional-models/olap-physical/maximum-capacity-specifications-analysis-services.md
+        - name: Datentypen in Analysis Services
+          href: ../multidimensional-models/olap-physical/data-types-in-analysis-services.md
+        - name: Lokale Cubes
+          href: ../multidimensional-models/olap-physical/local-cubes-analysis-services-multidimensional-data.md
+        - name: Anforderungen an die Clientarchitektur
+          href: ../multidimensional-models/olap-physical/client-architecture-requirements-for-analysis-services-development.md
+    - name: Entwickeln mit Analysis Services Scripting Language (ASSL)
+      href: ../multidimensional-models/scripting-language-assl/developing-with-analysis-services-scripting-language-assl.md
+    - name: ASSL-Objekte und -Objekteigenschaften
+      href: ../multidimensional-models/scripting-language-assl/assl-objects-and-object-characteristics.md
+    - name: XML-Konventionen in ASSL
+      href: ../multidimensional-models/scripting-language-assl/assl-xml-conventions.md
+    - name: Konzepte von XMLA
+      href: ../multidimensional-models/scripting-language-assl/xmla-concepts.md
+    - name: Entwickeln mit XMLA in Analysis Services
+      href: ../multidimensional-models-scripting-language-assl-xmla/developing-with-xmla-in-analysis-services.md
+      items:
+        - name: Verwalten von Verbindungen und Sitzungen
+          href: ../multidimensional-models-scripting-language-assl-xmla/managing-connections-and-sessions-xmla.md
+        - name: Behandeln von Fehlern und Warnungen
+          href: ../multidimensional-models-scripting-language-assl-xmla/handling-errors-and-warnings-xmla.md
+        - name: Definieren und Identifizieren von Objekten
+          href: ../multidimensional-models-scripting-language-assl-xmla/defining-and-identifying-objects-xmla.md
+        - name: Verwalten von Transaktionen
+          href: ../multidimensional-models-scripting-language-assl-xmla/managing-transactions-xmla.md
+        - name: Abbrechen von Befehlen
+          href: ../multidimensional-models-scripting-language-assl-xmla/canceling-commands-xmla.md
+        - name: Ausführen von Batchvorgängen
+          href: ../multidimensional-models-scripting-language-assl-xmla/performing-batch-operations-xmla.md
+        - name: Erstellen und Ändern von Objekten
+          href: ../multidimensional-models-scripting-language-assl-xmla/creating-and-altering-objects-xmla.md
+        - name: Sperren und Entsperren von Datenbanken
+          href: ../multidimensional-models-scripting-language-assl-xmla/locking-and-unlocking-databases-xmla.md
+        - name: Verarbeiten von Objekten
+          href: ../multidimensional-models-scripting-language-assl-xmla/processing-objects-xmla.md
+        - name: Zusammenführen von Partitionen
+          href: ../multidimensional-models-scripting-language-assl-xmla/merging-partitions-xmla.md
+        - name: Entwerfen von Aggregationen
+          href: ../multidimensional-models-scripting-language-assl-xmla/designing-aggregations-xmla.md
+        - name: 'Sichern, Wiederherstellen und Synchronisieren von Datenbanken'
+          href: ../multidimensional-models-scripting-language-assl-xmla/backing-up-restoring-and-synchronizing-databases-xmla.md
+        - name: 'Einfügen, Aktualisieren und Löschen von Elementen'
+          href: ../multidimensional-models-scripting-language-assl-xmla/inserting-updating-and-dropping-members-xmla.md
+        - name: Aktualisieren von Zellen
+          href: ../multidimensional-models-scripting-language-assl-xmla/updating-cells-xmla.md
+        - name: Verwalten von Caches
+          href: ../multidimensional-models-scripting-language-assl-xmla/managing-caches-xmla.md
+        - name: Überwachen von Ablaufverfolgungen
+          href: ../multidimensional-models-scripting-language-assl-xmla/monitoring-traces-xmla.md
+    - name: Erweiterte von OLAP-Funktionalität
+      href: ../multidimensional-models/extending-olap/extending-olap-functionality.md
+    - name: Erweitern von OLAP durch Personalisierungen
+      href: ../multidimensional-models/extending-olap/extending-olap-through-personalizations.md
+    - name: Definieren von Personalisierungserweiterungen für Analysis Services
+      href: ../multidimensional-models/extending-olap/analysis-services-personalization-extensions.md
+    - name: Definieren von gespeicherten Prozeduren
+      href: ../multidimensional-models-extending-olap-stored-procedures/defining-stored-procedures.md
+      items:
+        - name: Entwerfen von gespeicherten Prozeduren
+          href: ../multidimensional-models-extending-olap-stored-procedures/designing-stored-procedures.md
+        - name: Erstellen gespeicherter Prozeduren
+          href: ../multidimensional-models-extending-olap-stored-procedures/creating-stored-procedures.md
+        - name: Aufrufen gespeicherter Prozeduren
+          href: ../multidimensional-models-extending-olap-stored-procedures/calling-stored-procedures.md
+        - name: Zugreifen auf den Abfragekontext in gespeicherten Prozeduren
+          href: ../multidimensional-models-extending-olap-stored-procedures/accessing-query-context-in-stored-procedures.md
+        - name: Festlegen der Sicherheit für gespeicherte Prozeduren
+          href: ../multidimensional-models-extending-olap-stored-procedures/setting-security-for-stored-procedures.md
+        - name: Debuggen gespeicherter Prozeduren
+          href: ../multidimensional-models-extending-olap-stored-procedures/debugging-stored-procedures.md
+    - name: Analysis Services OLE DB-Anbieter
+      href: analysis-services-ole-db-provider-analysis-services-multidimensional-data.md
