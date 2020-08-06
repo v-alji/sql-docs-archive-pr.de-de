@@ -1,0 +1,66 @@
+---
+title: MSSQLSERVER_14420 | Microsoft-Dokumentation
+ms.custom: ''
+ms.date: 03/06/2017
+ms.prod: sql-server-2014
+ms.reviewer: ''
+ms.technology: supportability
+ms.topic: conceptual
+helpviewer_keywords:
+- 14420 (Database Engine error)
+ms.assetid: 4a1d72b1-ab1b-4119-a11b-a8a05c6fdb45
+author: MashaMSFT
+ms.author: mathoma
+ms.openlocfilehash: 7a17ab1e2281530b06c9ad27ac2a31672de0681e
+ms.sourcegitcommit: ad4d92dce894592a259721a1571b1d8736abacdb
+ms.translationtype: MT
+ms.contentlocale: de-DE
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87616096"
+---
+# <a name="mssqlserver_14420"></a><span data-ttu-id="0d89a-102">MSSQLSERVER_14420</span><span class="sxs-lookup"><span data-stu-id="0d89a-102">MSSQLSERVER_14420</span></span>
+    
+## <a name="details"></a><span data-ttu-id="0d89a-103">Details</span><span class="sxs-lookup"><span data-stu-id="0d89a-103">Details</span></span>  
+  
+|||  
+|-|-|  
+|<span data-ttu-id="0d89a-104">Produktname</span><span class="sxs-lookup"><span data-stu-id="0d89a-104">Product Name</span></span>|<span data-ttu-id="0d89a-105">SQL Server</span><span class="sxs-lookup"><span data-stu-id="0d89a-105">SQL Server</span></span>|  
+|<span data-ttu-id="0d89a-106">Ereignis-ID</span><span class="sxs-lookup"><span data-stu-id="0d89a-106">Event ID</span></span>|<span data-ttu-id="0d89a-107">14420</span><span class="sxs-lookup"><span data-stu-id="0d89a-107">14420</span></span>|  
+|<span data-ttu-id="0d89a-108">Ereignisquelle</span><span class="sxs-lookup"><span data-stu-id="0d89a-108">Event Source</span></span>|<span data-ttu-id="0d89a-109">MSSQLSERVER</span><span class="sxs-lookup"><span data-stu-id="0d89a-109">MSSQLSERVER</span></span>|  
+|<span data-ttu-id="0d89a-110">Komponente</span><span class="sxs-lookup"><span data-stu-id="0d89a-110">Component</span></span>|<span data-ttu-id="0d89a-111">SQLEngine</span><span class="sxs-lookup"><span data-stu-id="0d89a-111">SQLEngine</span></span>|  
+|<span data-ttu-id="0d89a-112">Symbolischer Name</span><span class="sxs-lookup"><span data-stu-id="0d89a-112">Symbolic Name</span></span>|<span data-ttu-id="0d89a-113">SQLErrorNum14420</span><span class="sxs-lookup"><span data-stu-id="0d89a-113">SQLErrorNum14420</span></span>|  
+|<span data-ttu-id="0d89a-114">Meldungstext</span><span class="sxs-lookup"><span data-stu-id="0d89a-114">Message Text</span></span>|<span data-ttu-id="0d89a-115">Die primäre Datenbank für den Protokollversand, %s.%s, weist eine Sicherungsschwelle von %d Minuten auf und hat während %d Minuten keinen Vorgang zur Sicherung des Protokolls ausgeführt.</span><span class="sxs-lookup"><span data-stu-id="0d89a-115">The log shipping primary database %s.%s has backup threshold of %d minutes and has not performed a backup log operation for %d minutes.</span></span> <span data-ttu-id="0d89a-116">Überprüfen Sie das Agentprotokoll und die Informationen des Protokollversandmonitors.</span><span class="sxs-lookup"><span data-stu-id="0d89a-116">Check agent log and logshipping monitor information.</span></span>|  
+  
+## <a name="explanation"></a><span data-ttu-id="0d89a-117">Erklärung</span><span class="sxs-lookup"><span data-stu-id="0d89a-117">Explanation</span></span>  
+ <span data-ttu-id="0d89a-118">Der Protokollversand wird bei Überschreitung des Sicherungsschwellenwerts nicht mehr synchronisiert.</span><span class="sxs-lookup"><span data-stu-id="0d89a-118">Log shipping is out of synchronization beyond the backup threshold.</span></span> <span data-ttu-id="0d89a-119">Bei der Sicherungsschwelle handelt es sich um eine Zeit in Minuten, die zwischen den Sicherungsaufträgen für den Protokollversand vergehen kann, bevor eine Warnmeldung generiert wird.</span><span class="sxs-lookup"><span data-stu-id="0d89a-119">The backup threshold is the number of minutes that are allowed to elapse between log-shipping backup jobs before an alert is generated.</span></span> <span data-ttu-id="0d89a-120">Mit dieser Meldung wird nicht unbedingt ein Problem beim Protokollversand angegeben.</span><span class="sxs-lookup"><span data-stu-id="0d89a-120">This message does not necessarily indicate a problem with log shipping.</span></span> <span data-ttu-id="0d89a-121">Stattdessen wird mit dieser Meldung eines der folgenden Probleme angegeben:</span><span class="sxs-lookup"><span data-stu-id="0d89a-121">Instead, this message might indicate one of the following problems:</span></span>  
+  
+-   <span data-ttu-id="0d89a-122">Der Sicherungsauftrag wird nicht ausgeführt.</span><span class="sxs-lookup"><span data-stu-id="0d89a-122">The backup job is not running.</span></span> <span data-ttu-id="0d89a-123">Hierfür können folgende mögliche Ursachen vorliegen: Der SQL Server-Agent-Dienst in der primären Serverinstanz wird nicht ausgeführt, der Auftrag ist deaktiviert, oder der Zeitplan für diesen Auftrag wurde geändert.</span><span class="sxs-lookup"><span data-stu-id="0d89a-123">Possible causes for this include the following: the SQL Server Agent service on the primary server instance is not running, the job is disabled, or the job's schedule has been changed.</span></span>  
+  
+-   <span data-ttu-id="0d89a-124">Fehler beim Sicherungsauftrag.</span><span class="sxs-lookup"><span data-stu-id="0d89a-124">The backup job is failing.</span></span> <span data-ttu-id="0d89a-125">Hierfür können folgende mögliche Ursachen vorliegen: Der Pfad des Sicherungsordners ist nicht gültig, der Datenträger ist voll, oder es liegt ein anderer Grund vor, wonach ein Fehler bei der BACKUP-Anweisung auftritt.</span><span class="sxs-lookup"><span data-stu-id="0d89a-125">Possible causes for this include the following: the backup folder path is not valid, the disk is full, or any other reason that the BACKUP statement could fail.</span></span>  
+  
+## <a name="user-action"></a><span data-ttu-id="0d89a-126">Benutzeraktion</span><span class="sxs-lookup"><span data-stu-id="0d89a-126">User Action</span></span>  
+ <span data-ttu-id="0d89a-127">So beheben Sie das mit dieser Meldung angegebene Problem:</span><span class="sxs-lookup"><span data-stu-id="0d89a-127">To troubleshoot this message:</span></span>  
+  
+-   <span data-ttu-id="0d89a-128">Stellen Sie sicher, dass der SQL Server-Agent-Dienst in der primären Serverinstanz ausgeführt wird, dass der Sicherungsauftrag für diese primäre Datenbank aktiviert ist und dass er so geplant ist, dass er in der entsprechenden Häufigkeit ausgeführt wird.</span><span class="sxs-lookup"><span data-stu-id="0d89a-128">Make sure that the SQL Server Agent service is running for the primary server instance and that the backup job for this primary database is enabled and is scheduled to run at the appropriate frequency.</span></span>  
+  
+-   <span data-ttu-id="0d89a-129">Möglicherweise tritt beim Sicherungsauftrag auf dem primären Server ein Fehler auf.</span><span class="sxs-lookup"><span data-stu-id="0d89a-129">The backup job on the primary server might be failing.</span></span> <span data-ttu-id="0d89a-130">Überprüfen Sie in diesem Fall den Auftragsverlauf für den Sicherungsauftrag, und suchen Sie nach der Ursache.</span><span class="sxs-lookup"><span data-stu-id="0d89a-130">In this case, examine the job history for the backup job to look for the cause.</span></span>  
+  
+-   <span data-ttu-id="0d89a-131">Für den in der primären Serverinstanz ausgeführten Sicherungsauftrag des Protokollversands kann möglicherweise keine Verbindung mit der Überwachungsserverinstanz hergestellt werden, um die **log_shipping_monitor_primary**-Tabelle zu aktualisieren.</span><span class="sxs-lookup"><span data-stu-id="0d89a-131">The log shipping backup job, which runs on the primary server instance, might not be able to connect to the monitor server instance to update the **log_shipping_monitor_primary** table.</span></span> <span data-ttu-id="0d89a-132">Dies beruht möglicherweise auf einem Authentifizierungsproblem zwischen der Überwachungsserverinstanz und der primären Serverinstanz.</span><span class="sxs-lookup"><span data-stu-id="0d89a-132">This could be caused by an authentication problem between the monitor server instance and the primary server instance.</span></span>  
+  
+-   <span data-ttu-id="0d89a-133">Die Sicherungswarnschwelle weist möglicherweise einen falschen Wert auf.</span><span class="sxs-lookup"><span data-stu-id="0d89a-133">The backup alert threshold might have an incorrect value.</span></span> <span data-ttu-id="0d89a-134">Im Idealfall ist dieser Wert auf den dreifachen Wert der Häufigkeit festgelegt, mit der der Sicherungsauftrag ausgeführt wird.</span><span class="sxs-lookup"><span data-stu-id="0d89a-134">Ideally, this value is set to at least three times the frequency of the backup job.</span></span> <span data-ttu-id="0d89a-135">Wenn Sie die Häufigkeit für den Sicherungsauftrag ändern, nachdem der Protokollversand konfiguriert und ausgeführt wurde, müssen Sie den Wert für die Sicherungswarnschwelle entsprechend aktualisieren.</span><span class="sxs-lookup"><span data-stu-id="0d89a-135">If you change the frequency of the backup job after log shipping is configured and functional, you must update the value of the backup alert threshold accordingly.</span></span>  
+  
+-   <span data-ttu-id="0d89a-136">Wenn die Überwachungsserverinstanz offline geschaltet und anschließend wieder online geschaltet wird, wird die **log_shipping_monitor_primary**-Tabelle erst dann mit den aktuellen Werten aktualisiert, wenn der Warnmeldungsauftrag ausgeführt wurde.</span><span class="sxs-lookup"><span data-stu-id="0d89a-136">When the monitor server instance goes offline and then comes back online, the **log_shipping_monitor_primary** table is not updated with the current values before the alert message job runs.</span></span> <span data-ttu-id="0d89a-137">Wenn Sie die Überwachungstabellen mit den neuesten Daten für die primäre Datenbank aktualisieren möchten, führen Sie **sp_refresh_log_shipping_monitor** in der primären Serverinstanz aus.</span><span class="sxs-lookup"><span data-stu-id="0d89a-137">To update the monitor tables with the latest data for the primary database, run **sp_refresh_log_shipping_monitor** on the primary server instance.</span></span>  
+  
+-   <span data-ttu-id="0d89a-138">Das Datum oder die Uhrzeit in der primären Serverinstanz oder in der Überwachungsserverinstanz ist nicht richtig.</span><span class="sxs-lookup"><span data-stu-id="0d89a-138">On the primary or monitor server instance, the date or time is incorrect.</span></span> <span data-ttu-id="0d89a-139">Dadurch werden möglicherweise Warnmeldungen generiert.</span><span class="sxs-lookup"><span data-stu-id="0d89a-139">This may also generate alert messages.</span></span> <span data-ttu-id="0d89a-140">Möglicherweise wurde das Systemdatum oder die Systemuhrzeit für eine der Instanzen geändert.</span><span class="sxs-lookup"><span data-stu-id="0d89a-140">Possibly the system date or time was modified on the one of them.</span></span>  
+  
+    > [!NOTE]  
+    >  <span data-ttu-id="0d89a-141">Unterschiedliche Zeitzonen für die beiden Serverinstanzen sollten kein Problem darstellen.</span><span class="sxs-lookup"><span data-stu-id="0d89a-141">Different time zones for the two server instances should not cause a problem.</span></span>  
+  
+## <a name="see-also"></a><span data-ttu-id="0d89a-142">Weitere Informationen</span><span class="sxs-lookup"><span data-stu-id="0d89a-142">See Also</span></span>  
+ <span data-ttu-id="0d89a-143">[log_shipping_monitor_primary &#40;Transact-SQL-&#41;](/sql/relational-databases/system-tables/log-shipping-monitor-primary-transact-sql) </span><span class="sxs-lookup"><span data-stu-id="0d89a-143">[log_shipping_monitor_primary &#40;Transact-SQL&#41;](/sql/relational-databases/system-tables/log-shipping-monitor-primary-transact-sql) </span></span>  
+ <span data-ttu-id="0d89a-144">[Informationen zum Protokollversand &#40;SQL Server&#41;](../../database-engine/log-shipping/about-log-shipping-sql-server.md) </span><span class="sxs-lookup"><span data-stu-id="0d89a-144">[About Log Shipping &#40;SQL Server&#41;](../../database-engine/log-shipping/about-log-shipping-sql-server.md) </span></span>  
+ <span data-ttu-id="0d89a-145">[sp_help_log_shipping_monitor_primary &#40;Transact-SQL-&#41;](/sql/relational-databases/system-stored-procedures/sp-help-log-shipping-monitor-primary-transact-sql) </span><span class="sxs-lookup"><span data-stu-id="0d89a-145">[sp_help_log_shipping_monitor_primary &#40;Transact-SQL&#41;](/sql/relational-databases/system-stored-procedures/sp-help-log-shipping-monitor-primary-transact-sql) </span></span>  
+ <span data-ttu-id="0d89a-146">[sp_refresh_log_shipping_monitor &#40;Transact-SQL-&#41;](/sql/relational-databases/system-stored-procedures/sp-refresh-log-shipping-monitor-transact-sql) </span><span class="sxs-lookup"><span data-stu-id="0d89a-146">[sp_refresh_log_shipping_monitor &#40;Transact-SQL&#41;](/sql/relational-databases/system-stored-procedures/sp-refresh-log-shipping-monitor-transact-sql) </span></span>  
+ [<span data-ttu-id="0d89a-147">Informationen zum Protokollversand &#40;SQL Server&#41;</span><span class="sxs-lookup"><span data-stu-id="0d89a-147">About Log Shipping &#40;SQL Server&#41;</span></span>](../../database-engine/log-shipping/about-log-shipping-sql-server.md)  
+  
+  

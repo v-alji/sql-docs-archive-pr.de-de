@@ -1,0 +1,122 @@
+---
+title: Auswählen und Zuordnen von Eingabedaten für eine Vorhersage Abfrage | Microsoft-Dokumentation
+ms.custom: ''
+ms.date: 06/13/2017
+ms.prod: sql-server-2014
+ms.reviewer: ''
+ms.technology: analysis-services
+ms.topic: conceptual
+helpviewer_keywords:
+- tables [Analysis Services], prediction queries
+- Mining Model Prediction [Analysis Services], input tables
+ms.assetid: 00d330a0-879d-4da0-9f29-53c288116f4d
+author: minewiskan
+ms.author: owend
+ms.openlocfilehash: 54e11752d6278e01e50a379bf7bb57521ff9bb29
+ms.sourcegitcommit: ad4d92dce894592a259721a1571b1d8736abacdb
+ms.translationtype: MT
+ms.contentlocale: de-DE
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87616849"
+---
+# <a name="choose-and-map-input-data-for-a-prediction-query"></a><span data-ttu-id="6afaf-102">Auswählen und Zuordnen von Eingabedaten für eine Vorhersageabfrage</span><span class="sxs-lookup"><span data-stu-id="6afaf-102">Choose and Map Input Data for a Prediction Query</span></span>
+  <span data-ttu-id="6afaf-103">Wenn Prognosen aus einem Miningmodell erstellt werden, werden im Allgemeinen neue Daten in das Modell eingegeben.</span><span class="sxs-lookup"><span data-stu-id="6afaf-103">When you create predictions from a mining model, you generally do this by feeding new data into the model.</span></span> <span data-ttu-id="6afaf-104">(Eine Ausnahme bilden Zeitreihenmodelle, die nur Prognosen auf Grundlage von historischen Daten treffen können.) Um neue Daten für das Modell bereitstellen zu können, müssen die Daten als Teil einer Datenquellensicht verfügbar sein.</span><span class="sxs-lookup"><span data-stu-id="6afaf-104">(The exception is time series models, which can make predictions based on historical data only.) To provide the model with new data, you must make sure that the data is available as part of a data source view.</span></span> <span data-ttu-id="6afaf-105">Wenn Sie im Voraus wissen, welche Daten Sie für die Prognose verwenden möchten, können Sie sie in die Datenquellensicht einschließen, mit denen Sie das Modell erstellt haben.</span><span class="sxs-lookup"><span data-stu-id="6afaf-105">If you know in advance which data you will use for prediction, you can include it in the data source view that you used to create the model.</span></span> <span data-ttu-id="6afaf-106">Andernfalls müssen Sie ggf. eine neue Datenquellensicht erstellen.</span><span class="sxs-lookup"><span data-stu-id="6afaf-106">Otherwise, you might have to create a new data source view.</span></span> <span data-ttu-id="6afaf-107">Weitere Informationen finden Sie unter [Datenquellsichten in mehrdimensionalen Modellen](../multidimensional-models/data-source-views-in-multidimensional-models.md).</span><span class="sxs-lookup"><span data-stu-id="6afaf-107">For more information, see [Data Source Views in Multidimensional Models](../multidimensional-models/data-source-views-in-multidimensional-models.md).</span></span>  
+  
+ <span data-ttu-id="6afaf-108">Gelegentlich sind die benötigten Daten möglicherweise in mehr als einer Tabelle in einem 1:n-Join enthalten.</span><span class="sxs-lookup"><span data-stu-id="6afaf-108">Sometimes the data that you need might be contained within more than one table in a one-to-many join.</span></span> <span data-ttu-id="6afaf-109">Dies trifft auf Daten zu, die für Zuordnungsmodelle oder Sequenzclustermodelle verwendet werden, für die wiederum eine Falltabelle verwendet wird, die mit einer geschachtelten Tabelle verknüpft ist, die Produkt- oder Transaktionsdetails enthält.</span><span class="sxs-lookup"><span data-stu-id="6afaf-109">This is the case with data used for association models or sequence clustering models, which use a case table linked to a nested table that contains product or transaction details.</span></span> <span data-ttu-id="6afaf-110">Wenn das Modell eine für Fälle geschachtelte Tabellenstruktur verwendet, müssen die Daten, die für die Prognose verwendet werden, auch eine für Fälle geschachtelte Tabellenstruktur besitzen.</span><span class="sxs-lookup"><span data-stu-id="6afaf-110">If your model uses a case-nested table structure, the data that you use for prediction must also have a case-nested table structure.</span></span>  
+  
+> [!WARNING]  
+>  <span data-ttu-id="6afaf-111">Sie können keine neuen Spalten hinzufügen oder zuordnen, die sich in einer anderen Datenquellensicht befinden.</span><span class="sxs-lookup"><span data-stu-id="6afaf-111">You cannot add new columns or map columns that are in a different data source view.</span></span> <span data-ttu-id="6afaf-112">Die ausgewählte Datenquellensicht muss alle Spalten enthalten, die Sie für die Vorhersageabfrage benötigen.</span><span class="sxs-lookup"><span data-stu-id="6afaf-112">The data source view that you select must contain all the columns that you need for the prediction query.</span></span>  
+  
+ <span data-ttu-id="6afaf-113">Nachdem Sie die Tabellen ermittelt haben, die die Daten für die Prognose enthalten, müssen Sie die Spalten in den externen Daten den Spalten im Miningmodell zuordnen.</span><span class="sxs-lookup"><span data-stu-id="6afaf-113">After you have identified the tables that contain the data you will use for predictions, you must map the columns in the external data to the columns in the mining model.</span></span> <span data-ttu-id="6afaf-114">Wenn im Modell zum Beispiel eine Prognose des Kaufverhaltens von Kunden auf Grundlage demografischer Daten und Umfrageantworten dargestellt wird, sollten die Eingabedaten Informationen enthalten, die im Allgemeinen dem Inhalt des Modells entsprechen.</span><span class="sxs-lookup"><span data-stu-id="6afaf-114">For example, if your model predicts customer purchasing behavior based on demographics and survey responses, your input data should contains information that generally corresponds to what is in the model.</span></span> <span data-ttu-id="6afaf-115">Sie benötigen nicht für jede einzelne Spalte übereinstimmende Daten, doch eine möglichst große Zahl von Spalten mit übereinstimmenden Daten ist von Vorteil.</span><span class="sxs-lookup"><span data-stu-id="6afaf-115">You do not need to have matching data for every single column, but the more columns you can match, the better.</span></span> <span data-ttu-id="6afaf-116">Wenn Sie Spalten zuordnen möchten, die andere Datentypen enthalten, erhalten Sie möglicherweise einen Fehler.</span><span class="sxs-lookup"><span data-stu-id="6afaf-116">If you try to map columns that have different data types, you might get an error.</span></span> <span data-ttu-id="6afaf-117">In diesem Fall können Sie eine benannte Berechnung in der Datenquellensicht definieren, um die neuen Spaltendaten in den Datentyp umzuwandeln bzw. zu konvertieren, der für das Modell erforderlich ist.</span><span class="sxs-lookup"><span data-stu-id="6afaf-117">In that case, you could define a named calculation in the data source view to cast or convert the new column data to the data type required by the model.</span></span> <span data-ttu-id="6afaf-118">Weitere Informationen finden Sie unter [Definieren von benannten Berechnungen in einer Datenquellen Sicht &#40;Analysis Services&#41;](../multidimensional-models/define-named-calculations-in-a-data-source-view-analysis-services.md).</span><span class="sxs-lookup"><span data-stu-id="6afaf-118">For more information, see [Define Named Calculations in a Data Source View &#40;Analysis Services&#41;](../multidimensional-models/define-named-calculations-in-a-data-source-view-analysis-services.md).</span></span>  
+  
+ <span data-ttu-id="6afaf-119">Wenn Sie die Daten auswählen, die Sie für die Prognose verwenden möchten, werden einige Spalten in der ausgewählten Datenquelle möglicherweise automatisch den Miningmodellspalten zugeordnet. Dies geschieht auf Grundlage der Namensähnlichkeit und der übereinstimmenden Datentypen.</span><span class="sxs-lookup"><span data-stu-id="6afaf-119">When you choose the data to use for prediction, some columns in the selected data source might be automatically mapped to the mining model columns, based on name similarity and matching data type.</span></span> <span data-ttu-id="6afaf-120">Sie können im Dialogfeld **Zuordnung ändern** in der **Miningmodellvorhersage** die zugeordneten Spalten ändern, fehlerhafte Zuordnungen löschen oder neue Zuordnungen für vorhandene Spalten erstellen.</span><span class="sxs-lookup"><span data-stu-id="6afaf-120">You can use the **Modify Mapping** dialog box in the **Mining Model Prediction** to change the columns that are mapped, delete inappropriate mappings, or create new mappings for existing columns.</span></span> <span data-ttu-id="6afaf-121">Die Entwurfsoberfläche **Miningmodellvorhersage** unterstützt auch die Drag &amp; Drop-Bearbeitung von Verbindungen.</span><span class="sxs-lookup"><span data-stu-id="6afaf-121">The **Mining Model Prediction** design surface also supports drag-and-drop editing of connections.</span></span>  
+  
+-   <span data-ttu-id="6afaf-122">Wählen Sie eine Spalte in der Tabelle **Miningmodell** aus, und ziehen Sie sie in der Tabelle **Eingabetabelle(n) auswählen** in die entsprechende Spalte, um eine neue Verbindung zu erstellen.</span><span class="sxs-lookup"><span data-stu-id="6afaf-122">To create a new connection, just select a column in the **Mining Model** table and drag it to the corresponding column in the **SelectInput Table(s)** table.</span></span>  
+  
+-   <span data-ttu-id="6afaf-123">Zum Entfernen einer Verbindung wählen Sie die Verbindungslinie, und drücken Sie die ENTF-TASTE.</span><span class="sxs-lookup"><span data-stu-id="6afaf-123">To remove a connection, select the connection line and press the DELETE key.</span></span>  
+  
+ <span data-ttu-id="6afaf-124">Die folgende Prozedur beschreibt, wie Sie im Dialogfeld **Geschachtelten Join angeben** die Joins ändern können, die zwischen der Falltabelle und einer geschachtelten Tabelle erstellt wurden, die wiederum als Eingaben für Vorhersageabfragen verwendet werden.</span><span class="sxs-lookup"><span data-stu-id="6afaf-124">The following procedure describes how you can modify the joins that have been created between the case table and a nested table used as inputs to a prediction query, using the **Specify Nested Join** dialog box.</span></span>  
+  
+### <a name="select-an-input-table"></a><span data-ttu-id="6afaf-125">Auswählen einer Eingabetabelle</span><span class="sxs-lookup"><span data-stu-id="6afaf-125">Select an input table</span></span>  
+  
+1.  <span data-ttu-id="6afaf-126">Klicken Sie in der Tabelle **Eingabetabelle(n) auswählen** der Registerkarte **Mininggenauigkeitsdiagramm** im Data Mining-Designer von [!INCLUDE[ssBIDevStudioFull](../../includes/ssbidevstudiofull-md.md)]auf **Falltabelle auswählen**.</span><span class="sxs-lookup"><span data-stu-id="6afaf-126">On the **Select Input Table(s)** table of the **Mining Accuracy Chart** tab in Data Mining Designer in [!INCLUDE[ssBIDevStudioFull](../../includes/ssbidevstudiofull-md.md)], click **Select Case Table**.</span></span>  
+  
+     <span data-ttu-id="6afaf-127">Das **Tabelle auswählen** -Dialogfeld wird geöffnet. In diesem Dialogfeld können Sie die Tabelle auswählen, die die Daten enthält, auf denen Ihre Abfragen basieren sollen.</span><span class="sxs-lookup"><span data-stu-id="6afaf-127">The **Select Table** dialog box opens, in which you can select the table that contains the data on which to base your queries.</span></span>  
+  
+2.  <span data-ttu-id="6afaf-128">Wählen Sie im Dialogfeld **Tabelle auswählen** in der Liste **Datenquelle** eine Datenquelle aus.</span><span class="sxs-lookup"><span data-stu-id="6afaf-128">In the **Select Table** dialog box, select a data source from the **Data Source** list.</span></span>  
+  
+3.  <span data-ttu-id="6afaf-129">Wählen Sie unter **Tabellen-/Sichtname**die Tabelle aus, die die Daten enthält, die Sie zum Testen der Modelle verwenden möchten.</span><span class="sxs-lookup"><span data-stu-id="6afaf-129">Under **Table/View Name**, select the table that contains the data you want to use to test the models.</span></span>  
+  
+4.  <span data-ttu-id="6afaf-130">Klicken Sie auf **OK**.</span><span class="sxs-lookup"><span data-stu-id="6afaf-130">Click **OK**.</span></span>  
+  
+     <span data-ttu-id="6afaf-131">Die Spalten der Miningstruktur werden automatisch den gleichnamigen Spalten der Eingabetabelle zugeordnet.</span><span class="sxs-lookup"><span data-stu-id="6afaf-131">The columns in the mining structure are automatically mapped to the columns that have the same name in the input table.</span></span>  
+  
+### <a name="change-the-way-that-input-data-is-mapped-to-the-model"></a><span data-ttu-id="6afaf-132">Ändern der Methode für die Zuordnung von Eingabedaten zum Modell</span><span class="sxs-lookup"><span data-stu-id="6afaf-132">Change the way that input data is mapped to the model</span></span>  
+  
+1.  <span data-ttu-id="6afaf-133">Klicken Sie im Data Mining-Designer von [!INCLUDE[ssBIDevStudioFull](../../includes/ssbidevstudiofull-md.md)]auf die Registerkarte **Miningmodellvorhersage** .</span><span class="sxs-lookup"><span data-stu-id="6afaf-133">In Data Mining Designer in [!INCLUDE[ssBIDevStudioFull](../../includes/ssbidevstudiofull-md.md)], select the **Mining Model Prediction** tab.</span></span>  
+  
+2.  <span data-ttu-id="6afaf-134">Klicken Sie im Menü **Miningmodell** auf **Verbindungen ändern**.</span><span class="sxs-lookup"><span data-stu-id="6afaf-134">On the **Mining Model** menu, select **Modify Connections**.</span></span>  
+  
+     <span data-ttu-id="6afaf-135">Das Dialogfeld **Zuordnung bearbeiten** wird geöffnet.</span><span class="sxs-lookup"><span data-stu-id="6afaf-135">The **Modify Mapping** dialog box opens.</span></span> <span data-ttu-id="6afaf-136">In diesem Dialogfeld werden in der Spalte **Miningmodellspalte** die Spalten in der ausgewählten Miningstruktur aufgeführt.</span><span class="sxs-lookup"><span data-stu-id="6afaf-136">In this dialog box, the column **Mining Model Column** lists the columns in the selected mining structure.</span></span> <span data-ttu-id="6afaf-137">In der Spalte **Tabellenspalte** werden die Spalten in der externen Datenquelle aufgeführt, die Sie im Dialogfeld **Eingabetabelle(n) auswählen** ausgewählt haben.</span><span class="sxs-lookup"><span data-stu-id="6afaf-137">The column **Table Column** lists the columns in the external data source that you chose in the **SelectInput Table(s)** dialog box.</span></span> <span data-ttu-id="6afaf-138">Die Spalten in der externen Datenquelle werden den Spalten im Miningmodell zugeordnet.</span><span class="sxs-lookup"><span data-stu-id="6afaf-138">The columns in the external data source are mapped to columns in the mining model.</span></span>  
+  
+3.  <span data-ttu-id="6afaf-139">Wählen Sie unter **Tabellenspalte**die Zeile aus, die der Miningmodellspalte entspricht, für die die Zuordnung erfolgen soll.</span><span class="sxs-lookup"><span data-stu-id="6afaf-139">Under **Table Column**, select the row that corresponds to the mining model column that you want to map to.</span></span>  
+  
+4.  <span data-ttu-id="6afaf-140">Wählen Sie eine neue Spalte in der Liste der verfügbaren Spalten in der externen Datenquelle aus.</span><span class="sxs-lookup"><span data-stu-id="6afaf-140">Select a new column from the list of available columns in the external data source.</span></span> <span data-ttu-id="6afaf-141">Wählen Sie das leere Element in der Liste aus, um die Spaltenzuordnung zu löschen.</span><span class="sxs-lookup"><span data-stu-id="6afaf-141">Select the blank item in the list to delete the column mapping.</span></span>  
+  
+5.  <span data-ttu-id="6afaf-142">Klicken Sie auf **OK**.</span><span class="sxs-lookup"><span data-stu-id="6afaf-142">Click **OK**.</span></span>  
+  
+     <span data-ttu-id="6afaf-143">Die neuen Spaltenzuordnungen werden im Designer angezeigt.</span><span class="sxs-lookup"><span data-stu-id="6afaf-143">The new column mappings are displayed in the designer.</span></span>  
+  
+### <a name="remove-a-relationship-between-input-tables"></a><span data-ttu-id="6afaf-144">Entfernen einer Beziehung zwischen Eingabetabellen</span><span class="sxs-lookup"><span data-stu-id="6afaf-144">Remove a relationship between input tables</span></span>  
+  
+1.  <span data-ttu-id="6afaf-145">Klicken Sie in der Tabelle **Eingabetabelle(n) auswählen** der Registerkarte **Miningmodellvorhersage** im Data Mining-Designer von [!INCLUDE[ssBIDevStudioFull](../../includes/ssbidevstudiofull-md.md)]auf **Join ändern**.</span><span class="sxs-lookup"><span data-stu-id="6afaf-145">On the **Select Input Table(s)** table of the **Mining Model Prediction** tab in Data Mining Designer in [!INCLUDE[ssBIDevStudioFull](../../includes/ssbidevstudiofull-md.md)], click **Modify Join**.</span></span>  
+  
+     <span data-ttu-id="6afaf-146">Das Dialogfeld **Geschachtelten Join angeben** wird geöffnet.</span><span class="sxs-lookup"><span data-stu-id="6afaf-146">The **Specify Nested Join** dialog box opens.</span></span>  
+  
+2.  <span data-ttu-id="6afaf-147">Wählen Sie eine Beziehung aus.</span><span class="sxs-lookup"><span data-stu-id="6afaf-147">Select a relationship.</span></span>  
+  
+3.  <span data-ttu-id="6afaf-148">Klicken Sie auf **Beziehung entfernen**.</span><span class="sxs-lookup"><span data-stu-id="6afaf-148">Click **Remove Relationship**.</span></span>  
+  
+4.  <span data-ttu-id="6afaf-149">Klicken Sie auf **OK**.</span><span class="sxs-lookup"><span data-stu-id="6afaf-149">Click **OK**.</span></span>  
+  
+     <span data-ttu-id="6afaf-150">Die Beziehung zwischen der Falltabelle und der geschachtelten Tabelle wird entfernt.</span><span class="sxs-lookup"><span data-stu-id="6afaf-150">The relationship between the case table and the nested table has been removed.</span></span>  
+  
+### <a name="create-a-new-relationship-between-input-tables"></a><span data-ttu-id="6afaf-151">Erstellen einer neuen Beziehung zwischen Eingabetabellen</span><span class="sxs-lookup"><span data-stu-id="6afaf-151">Create a new relationship between input tables</span></span>  
+  
+1.  <span data-ttu-id="6afaf-152">Klicken Sie in der Tabelle **Eingabetabelle(n) auswählen** der Registerkarte **Miningmodellvorhersage** im Data Mining-Designer auf **Join ändern**.</span><span class="sxs-lookup"><span data-stu-id="6afaf-152">On the **Select Input Table(s)** table of the **Mining Model Prediction** tab in Data Mining Designer, click **Modify Join**.</span></span>  
+  
+     <span data-ttu-id="6afaf-153">Das Dialogfeld **Geschachtelten Join angeben** wird geöffnet.</span><span class="sxs-lookup"><span data-stu-id="6afaf-153">The **Specify Nested Join** dialog box opens.</span></span>  
+  
+2.  <span data-ttu-id="6afaf-154">Klicken Sie auf **Beziehung hinzufügen**.</span><span class="sxs-lookup"><span data-stu-id="6afaf-154">Click **Add Relationship**.</span></span>  
+  
+     <span data-ttu-id="6afaf-155">Das Dialogfeld **Beziehung erstellen** wird geöffnet.</span><span class="sxs-lookup"><span data-stu-id="6afaf-155">The **Create Relationship** dialog box opens.</span></span>  
+  
+3.  <span data-ttu-id="6afaf-156">Wählen Sie in **Quellspalten**den Schlüssel der geschachtelten Tabelle aus.</span><span class="sxs-lookup"><span data-stu-id="6afaf-156">Select the key of the nested table in **Source Columns**.</span></span>  
+  
+4.  <span data-ttu-id="6afaf-157">Wählen Sie in **Zielspalten**den Schlüssel der Falltabelle aus.</span><span class="sxs-lookup"><span data-stu-id="6afaf-157">Select the key of the case table in **Destination Columns**.</span></span>  
+  
+5.  <span data-ttu-id="6afaf-158">Klicken Sie im Dialogfeld **Beziehung erstellen** auf **OK** .</span><span class="sxs-lookup"><span data-stu-id="6afaf-158">Click **OK** in the **Create Relationship** dialog box.</span></span>  
+  
+6.  <span data-ttu-id="6afaf-159">Klicken Sie im Dialogfeld **Geschachtelten Join angeben** auf **OK** .</span><span class="sxs-lookup"><span data-stu-id="6afaf-159">Click **OK** in the **Specify Nested Join** dialog box.</span></span>  
+  
+     <span data-ttu-id="6afaf-160">Zwischen der Falltabelle und der geschachtelten Tabelle wird eine neue Beziehung erstellt.</span><span class="sxs-lookup"><span data-stu-id="6afaf-160">A new relationship has been created between the case table and the nested table.</span></span>  
+  
+### <a name="add-a-nested-table-to-the-input-tables-of-a-prediction-query"></a><span data-ttu-id="6afaf-161">Hinzufügen einer geschachtelten Tabelle zu den Eingabetabellen einer Vorhersageabfrage</span><span class="sxs-lookup"><span data-stu-id="6afaf-161">Add a nested table to the input tables of a prediction query</span></span>  
+  
+1.  <span data-ttu-id="6afaf-162">Klicken Sie auf der Registerkarte **Miningmodellvorhersage** im Data Mining-Designer auf **Falltabelle auswählen** , um das Dialogfeld **Tabelle auswählen** zu öffnen.</span><span class="sxs-lookup"><span data-stu-id="6afaf-162">On the **Mining Model Prediction** tab in Data Mining Designer, click **Select Case Table** to open the **Select Table** dialog box.</span></span>  
+  
+    > [!NOTE]  
+    >  <span data-ttu-id="6afaf-163">Sie können den Eingaben keine geschachtelte Tabelle hinzufügen, sofern Sie keine Falltabelle angegeben haben.</span><span class="sxs-lookup"><span data-stu-id="6afaf-163">You cannot add a nested table to the inputs unless you have specified a case table.</span></span> <span data-ttu-id="6afaf-164">Die Verwendung einer geschachtelten Tabelle erfordert, dass in dem Miningmodell, das Sie für Vorhersagen verwenden, ebenfalls eine geschachtelte Tabelle verwendet wird.</span><span class="sxs-lookup"><span data-stu-id="6afaf-164">Use of a nested table requires that the mining model you are using for prediction also uses a nested table.</span></span>  
+  
+2.  <span data-ttu-id="6afaf-165">Wählen Sie im Dialogfeld **Tabelle auswählen** in der Liste **Datenquelle** eine Datenquelle aus, und wählen Sie in der Datenquellensicht dann die Tabelle aus, die die Falldaten enthält.</span><span class="sxs-lookup"><span data-stu-id="6afaf-165">In the **Select Table** dialog box, select a data source from the **Data Source** list, and select the table in the data source view that contains the case data.</span></span> [!INCLUDE[clickOK](../../includes/clickok-md.md)]  
+  
+3.  <span data-ttu-id="6afaf-166">Klicken Sie auf **Geschachtelte Tabelle auswählen** , um das Dialogfeld **Tabelle auswählen** zu öffnen.</span><span class="sxs-lookup"><span data-stu-id="6afaf-166">Click **Select Nested Table** to open the **Select Table** dialog box.</span></span>  
+  
+4.  <span data-ttu-id="6afaf-167">Wählen Sie im Dialogfeld **Tabelle auswählen** in der Liste **Datenquelle** eine Datenquelle aus, und wählen Sie in der Datenquellensicht dann die Tabelle aus, welche die geschachtelten Daten enthält.</span><span class="sxs-lookup"><span data-stu-id="6afaf-167">In the **Select Table** dialog box, select a data source from the **Data Source** list, and select the table in the data source view that contains the nested data.</span></span> [!INCLUDE[clickOK](../../includes/clickok-md.md)]  
+  
+     <span data-ttu-id="6afaf-168">Falls bereits eine Beziehung besteht, werden die Spalten des Miningmodells automatisch den gleichnamigen Spalten der Eingabetabelle zugeordnet.</span><span class="sxs-lookup"><span data-stu-id="6afaf-168">If a relationship already exists, the columns in the mining model are automatically mapped to the columns that have the same name in the input table.</span></span> <span data-ttu-id="6afaf-169">Die Beziehung zwischen der geschachtelten Tabelle und der Falltabelle können Sie ändern, indem Sie auf **Join ändern**klicken und damit das Dialogfeld **Beziehung erstellen** öffnen.</span><span class="sxs-lookup"><span data-stu-id="6afaf-169">You can modify the relationship between the nested table and the case table by clicking **Modify Join**, which opens the **Create Relationship** dialog box.</span></span>  
+  
+## <a name="see-also"></a><span data-ttu-id="6afaf-170">Weitere Informationen</span><span class="sxs-lookup"><span data-stu-id="6afaf-170">See Also</span></span>  
+ [<span data-ttu-id="6afaf-171">Vorhersageabfragen &#40;Data Mining&#41;</span><span class="sxs-lookup"><span data-stu-id="6afaf-171">Prediction Queries &#40;Data Mining&#41;</span></span>](prediction-queries-data-mining.md)  
+  
+  

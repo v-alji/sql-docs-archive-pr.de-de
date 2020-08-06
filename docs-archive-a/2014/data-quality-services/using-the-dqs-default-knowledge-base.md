@@ -1,0 +1,52 @@
+---
+title: Verwenden der DQS-Standard-Wissensdatenbank | Microsoft-Dokumentation
+ms.custom: ''
+ms.date: 06/13/2017
+ms.prod: sql-server-2014
+ms.reviewer: ''
+ms.technology: data-quality-services
+ms.topic: conceptual
+ms.assetid: b36af13b-9fcc-4168-bb92-214d600b1c93
+author: lrtoyou1223
+ms.author: lle
+ms.openlocfilehash: 3261c7af28bb5710ede203d1fe27c6540286e9f5
+ms.sourcegitcommit: ad4d92dce894592a259721a1571b1d8736abacdb
+ms.translationtype: MT
+ms.contentlocale: de-DE
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87610047"
+---
+# <a name="using-the-dqs-default-knowledge-base"></a><span data-ttu-id="7f212-102">Verwenden der DQS-Standard-Wissensdatenbank</span><span class="sxs-lookup"><span data-stu-id="7f212-102">Using the DQS Default Knowledge Base</span></span>
+  <span data-ttu-id="7f212-103">In diesem Thema wird die Standard-Wissensdatenbank **DQS-Daten**beschrieben, die mit [!INCLUDE[ssDQSnoversion](../includes/ssdqsnoversion-md.md)] (DQS) installiert wird.</span><span class="sxs-lookup"><span data-stu-id="7f212-103">This topic describes the default knowledge base, **DQS Data**, which is installed with [!INCLUDE[ssDQSnoversion](../includes/ssdqsnoversion-md.md)] (DQS).</span></span> <span data-ttu-id="7f212-104">Dies ist eine vordefinierte Standardwissensdatenbank, die die folgenden Domänen enthält:</span><span class="sxs-lookup"><span data-stu-id="7f212-104">This is a pre-built default knowledge base that contains the following domains:</span></span>  
+  
+-   <span data-ttu-id="7f212-105">**Land/Region**: Enthält die konventionellen langen Namen (offizieller Name wie von Land/Region festgelegt) und Kurznamen (allgemeiner Name, der in Listen, auf Karten usw. verwendet wird), zweibuchstabige Abkürzung, dreibuchstabige Abkürzung und dreistelligen Code für jeden Standort.</span><span class="sxs-lookup"><span data-stu-id="7f212-105">**Country/Region**: Contains the conventional long (official name as designated by the country/region ) and short names (common name used in lists, on maps, etc. ), two-letter abbreviation, three-letter abbreviation and three-digit code for each location.</span></span>  <span data-ttu-id="7f212-106">Der führende Wert wird auf den langen Landnamen festgelegt.</span><span class="sxs-lookup"><span data-stu-id="7f212-106">Leading value is set to the long country name.</span></span>  
+  
+-   <span data-ttu-id="7f212-107">**Land/Region (dreibuchstabig führend)**: Enthält die konventionellen langen Namen (offizieller Name wie von Land/Region festgelegt) und Kurznamen (allgemeiner Name, der in Listen, auf Karten usw. verwendet wird), zweibuchstabige Abkürzung, dreibuchstabige Abkürzung und dreistelligen Code für jeden Standort.</span><span class="sxs-lookup"><span data-stu-id="7f212-107">**Country/Region (three-letter leading)**: Contains the conventional long (official name as designated by the country/region) and short names (common name used in lists, on maps, and so on), two-letter abbreviation, three-letter abbreviation and three-digit code for each location.</span></span>  <span data-ttu-id="7f212-108">Führende Werte ist auf die dreibuchstabige Abkürzung des Lands festgelegt.</span><span class="sxs-lookup"><span data-stu-id="7f212-108">Leading values is set to County three-letter abbreviation.</span></span>  
+  
+-   <span data-ttu-id="7f212-109">**Land/Region (zweibuchstabig führend)**: Enthält die konventionellen langen Namen (offizieller Name wie von Land/Region festgelegt) und Kurznamen (allgemeiner Name, der in Listen, auf Karten usw. verwendet wird), zweibuchstabige Abkürzung, dreibuchstabige Abkürzung und dreistelligen Code für jeden Standort.</span><span class="sxs-lookup"><span data-stu-id="7f212-109">**Country/Region (two-letter leading)**: Contains the conventional long (official name as designated by the country/region ) and short names (common name used in lists, on maps, etc. ), two-letter abbreviation, three-letter abbreviation and three-digit code for each location.</span></span>  <span data-ttu-id="7f212-110">Führender Wert ist auf die zweibuchstabige Abkürzung des Lands festgelegt.</span><span class="sxs-lookup"><span data-stu-id="7f212-110">Leading value is set to the Country two-letter abbreviation.</span></span>  
+  
+-   <span data-ttu-id="7f212-111">**US - Countys**: Enthält eine Liste von US-Countys.</span><span class="sxs-lookup"><span data-stu-id="7f212-111">**US - Counties**: Contains a list of US counties.</span></span>  
+  
+-   <span data-ttu-id="7f212-112">**US - Nachname**: Enthält eine Liste von Nachnamen, die in der Volkszählung 2000 mindestens 100 Mal vorkamen.</span><span class="sxs-lookup"><span data-stu-id="7f212-112">**US - Last Name**: Contains a list of last names (surnames) occurring 100 or more times in the Census 2000.</span></span>  
+  
+-   <span data-ttu-id="7f212-113">**US - Orte**: Enthält eine Liste von Orten für die 50 Staaten, das District of Columbia und Puerto Rico, die aus der Volkszählung 2010 stammen.</span><span class="sxs-lookup"><span data-stu-id="7f212-113">**US - Places**: Contains a list of places for the 50 states, the District of Columbia, and Puerto Rico extracted from the Census 2010.</span></span>  
+  
+-   <span data-ttu-id="7f212-114">**US - Bundesstaat**: Enthält den konventionellen langen (offiziellen) Namen und die zweibuchstabige Abkürzung für jeden Staat der USA.</span><span class="sxs-lookup"><span data-stu-id="7f212-114">**US - State**: Contains the conventional long (official) name and two-letter abbreviation for each state in US.</span></span> <span data-ttu-id="7f212-115">Führender Wert ist auf den konventionellen Staatennamen festgelegt.</span><span class="sxs-lookup"><span data-stu-id="7f212-115">Leading value is set to the conventional state name.</span></span>  
+  
+-   <span data-ttu-id="7f212-116">**US-Bundesstaat (zwei buchstabige Überschrift)**: enthält den konventionellen langen (offiziellen) Namen und die zwei buchstabige Abkürzung für jeden Staat in US.</span><span class="sxs-lookup"><span data-stu-id="7f212-116">**US - State (2-letter heading)**: Contains the conventional long (official) name and two-letter abbreviation for each state in US.</span></span> <span data-ttu-id="7f212-117">Führender Wert ist auf die zweibuchstabige Abkürzung des Bundesstaats festgelegt.</span><span class="sxs-lookup"><span data-stu-id="7f212-117">Leading value is set to the two-letter abbreviation state name.</span></span>  
+  
+## <a name="using-the-default-knowledge-base"></a><span data-ttu-id="7f212-118">Verwenden der Standard-Wissensdatenbank</span><span class="sxs-lookup"><span data-stu-id="7f212-118">Using the Default Knowledge Base</span></span>  
+ <span data-ttu-id="7f212-119">Sie können die DQS-Standardwissensdatenbank (DQS-Daten) auf folgende Weise verwenden:</span><span class="sxs-lookup"><span data-stu-id="7f212-119">You can use the default DQS knowledge base, DQS Data, in the following ways:</span></span>  
+  
+-   <span data-ttu-id="7f212-120">Schnelles Starten und Ausführen eines Data Quality-Bereinigungsprojekts mithilfe der Standardwissensdatenbank, ohne zuerst in DQS eine neue Wissensdatenbank erstellen zu müssen.</span><span class="sxs-lookup"><span data-stu-id="7f212-120">Quickly start and run a cleansing data quality project using the default knowledge base without first having to create a new knowledge base in DQS.</span></span>  
+  
+-   <span data-ttu-id="7f212-121">Ausführen der Aktivitäten Domänenverwaltung, Wissensermittlung oder Abgleichsrichtlinie für die Standardwissensdatenbank.</span><span class="sxs-lookup"><span data-stu-id="7f212-121">Run the Domain Management, Knowledge Discovery, or Matching Policy activities on the default knowledge base.</span></span> <span data-ttu-id="7f212-122">Klicken Sie hierzu auf dem **Data Quality Client Home Screen** auf [Wissensdatenbank öffnen](../../2014/data-quality-services/data-quality-client-home-screen.md), wählen Sie die Wissensdatenbank **DQS-Daten** auf dem Bildschirm **Wissensdatenbank öffnen** aus, und wählen Sie dann die erforderliche Aktivität im Bereich **Aktivität auswählen** aus.</span><span class="sxs-lookup"><span data-stu-id="7f212-122">To do so, click **Open Knowledge Base** in the [Data Quality Client Home Screen](../../2014/data-quality-services/data-quality-client-home-screen.md), select the **DQS Data** knowledge base in the **Open Knowledge Base** screen, and then select the required activity in the **Select Activity** area.</span></span> <span data-ttu-id="7f212-123">Klicken Sie zum Fortfahren auf **Weiter** .</span><span class="sxs-lookup"><span data-stu-id="7f212-123">Click **Next** to proceed.</span></span>  
+  
+-   <span data-ttu-id="7f212-124">Erstellen einer neuen Wissensdatenbank mithilfe der Standardwissensdatenbank.</span><span class="sxs-lookup"><span data-stu-id="7f212-124">Create a new knowledge base using the default knowledge base.</span></span> <span data-ttu-id="7f212-125">Informationen zum Erstellen einer Wissensdatenbank aus einer vorhandenen Wissensdatenbank finden Sie unter [Create a Knowledge Base](../../2014/data-quality-services/create-a-knowledge-base.md).</span><span class="sxs-lookup"><span data-stu-id="7f212-125">To create a knowledge base from an existing knowledge base, see [Create a Knowledge Base](../../2014/data-quality-services/create-a-knowledge-base.md).</span></span>  
+  
+-   <span data-ttu-id="7f212-126">Verwendung in der [Komponente zur DQS-Bereinigung in Integration Services](https://go.microsoft.com/fwlink/?LinkId=238830) und im [Master Data Services-Add-In für Excel](../master-data-services/microsoft-excel-add-in/data-quality-matching-in-the-mds-add-in-for-excel.md).</span><span class="sxs-lookup"><span data-stu-id="7f212-126">Use it in the [DQS Cleansing component in Integration Services](https://go.microsoft.com/fwlink/?LinkId=238830) and [Master Data Services Add-in for Excel](../master-data-services/microsoft-excel-add-in/data-quality-matching-in-the-mds-add-in-for-excel.md).</span></span>  
+  
+## <a name="see-also"></a><span data-ttu-id="7f212-127">Weitere Informationen</span><span class="sxs-lookup"><span data-stu-id="7f212-127">See Also</span></span>  
+ [<span data-ttu-id="7f212-128">DQS-Wissensdatenbanken und -Domänen</span><span class="sxs-lookup"><span data-stu-id="7f212-128">DQS Knowledge Bases and Domains</span></span>](../../2014/data-quality-services/dqs-knowledge-bases-and-domains.md)  
+  
+  

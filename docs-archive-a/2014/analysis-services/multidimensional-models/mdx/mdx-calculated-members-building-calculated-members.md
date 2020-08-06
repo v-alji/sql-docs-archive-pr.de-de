@@ -1,0 +1,44 @@
+---
+title: Entwickeln berechneter Elemente in MDX (MDX) | Microsoft-Dokumentation
+ms.custom: ''
+ms.date: 06/13/2017
+ms.prod: sql-server-2014
+ms.reviewer: ''
+ms.technology: analysis-services
+ms.topic: conceptual
+helpviewer_keywords:
+- MDX [Analysis Services], calculated members
+- calculated members [MDX]
+- Multidimensional Expressions [Analysis Services], calculated members
+- queries [MDX], calculated members
+ms.assetid: 9322e8b8-43e1-4e02-a7d1-e41a586a5bb8
+author: minewiskan
+ms.author: owend
+ms.openlocfilehash: 30dc6562ec394065cf2f177608d4e5679cbd7df3
+ms.sourcegitcommit: ad4d92dce894592a259721a1571b1d8736abacdb
+ms.translationtype: MT
+ms.contentlocale: de-DE
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87616734"
+---
+# <a name="building-calculated-members-in-mdx-mdx"></a><span data-ttu-id="b6ae0-102">Erstellen von berechneten Elementen in MDX (MDX)</span><span class="sxs-lookup"><span data-stu-id="b6ae0-102">Building Calculated Members in MDX (MDX)</span></span>
+  <span data-ttu-id="b6ae0-103">Ein berechnetes Element in MDX (Multidimensional Expressions) ist ein Element, das durch Berechnen eines MDX-Ausdrucks aufgelöst wird, um einen Wert zurückzugeben.</span><span class="sxs-lookup"><span data-stu-id="b6ae0-103">In Multidimensional Expressions (MDX), a calculated member is a member that is resolved by calculating an MDX expression to return a value.</span></span> <span data-ttu-id="b6ae0-104">Diese einfach klingende Definition hat immense Auswirkungen.</span><span class="sxs-lookup"><span data-stu-id="b6ae0-104">This innocuous definition covers an incredible amount of ground.</span></span> <span data-ttu-id="b6ae0-105">Die Erstellung und Verwendung von berechneten Elementen in einer MDX-Abfrage eröffnet umfassende Änderungsmöglichkeiten für mehrdimensionale Daten.</span><span class="sxs-lookup"><span data-stu-id="b6ae0-105">The ability to construct and use calculated members in an MDX query provides a great deal of manipulation capability for multidimensional data.</span></span>  
+  
+ <span data-ttu-id="b6ae0-106">Sie können berechnete Elemente an jedem beliebigen Punkt in einer Hierarchie erstellen.</span><span class="sxs-lookup"><span data-stu-id="b6ae0-106">You can create calculated members at any point within a hierarchy.</span></span> <span data-ttu-id="b6ae0-107">Sie können außerdem berechnete Elemente erstellen, die nicht nur von vorhandenen Elementen in einem Cube abhängen, sondern auch von anderen berechneten Elementen, die in demselben MDX-Ausdruck definiert sind.</span><span class="sxs-lookup"><span data-stu-id="b6ae0-107">You can also create calculated members that depend not only on existing members in a cube, but also on other calculated members defined in the same MDX expression.</span></span>  
+  
+ <span data-ttu-id="b6ae0-108">Sie können berechnete Elemente in einem der folgenden Kontexte definieren:</span><span class="sxs-lookup"><span data-stu-id="b6ae0-108">You can define a calculated member to have one of the following contexts:</span></span>  
+  
+-   <span data-ttu-id="b6ae0-109">**Im Bereich einer Abfrage** : Mit dem WITH-Schlüsselwort können Sie ein berechnetes Element erstellen, das als Teil einer MDX-Abfrage definiert ist und dessen Bereich somit auf die Abfrage beschränkt ist.</span><span class="sxs-lookup"><span data-stu-id="b6ae0-109">**Query-scoped** To create a calculated member that is defined as part of an MDX query, and therefore whose scope is limited to the query, you use the WITH keyword.</span></span> <span data-ttu-id="b6ae0-110">Anschließend können Sie das berechnete Element in einer SELECT-Anweisung von MDX verwenden.</span><span class="sxs-lookup"><span data-stu-id="b6ae0-110">You can then use the calculated member within an MDX SELECT statement.</span></span> <span data-ttu-id="b6ae0-111">Bei dieser Vorgehensweise kann das mit dem WITH-Schlüsselwort erstellte berechnete Element geändert werden, ohne dass die SELECT-Anweisung davon beeinflusst wird.</span><span class="sxs-lookup"><span data-stu-id="b6ae0-111">Using this approach, the calculated member created by using the WITH keyword can be changed without disturbing the SELECT statement.</span></span>  
+  
+     <span data-ttu-id="b6ae0-112">Weitere Informationen zum Erstellen berechneter Elemente mithilfe des WITH-Schlüsselworts finden Sie unter [Erstellen berechneter Elemente im Bereich einer Abfrage &#40;MDX&#41;](mdx-calculated-members-query-scoped-calculated-members.md).</span><span class="sxs-lookup"><span data-stu-id="b6ae0-112">For more information about how to use the WITH keyword to create calculated members, see [Creating Query-Scoped Calculated Members &#40;MDX&#41;](mdx-calculated-members-query-scoped-calculated-members.md).</span></span>  
+  
+-   <span data-ttu-id="b6ae0-113">**Im Bereich einer Sitzung** : Mit der CREATE MEMBER-Anweisung können Sie ein berechnetes Element erstellen, dessen Bereich umfangreicher als der Kontext der Abfrage ist, d.h. der Dauer der MDX-Sitzung entspricht.</span><span class="sxs-lookup"><span data-stu-id="b6ae0-113">**Session-scoped** To create a calculated member whose scope is wider than the context of the query, that is, whose scope is the lifetime of the MDX session, you use the CREATE MEMBER statement.</span></span> <span data-ttu-id="b6ae0-114">Ein mit der CREATE MEMBER-Anweisung definiertes berechnetes Element ist für alle MDX-Abfragen in dieser Sitzung verfügbar.</span><span class="sxs-lookup"><span data-stu-id="b6ae0-114">A calculated member defined by using the CREATE MEMBER statement is available to all MDX queries in that session.</span></span> <span data-ttu-id="b6ae0-115">Die CREATE MEMBER-Anweisung ist z. B. in einer Clientanwendung sinnvoll, die die gleiche Menge in unterschiedlichen Abfragen wiederverwendet.</span><span class="sxs-lookup"><span data-stu-id="b6ae0-115">The CREATE MEMBER statement makes sense, for example, in a client application that consistently reuses the same set in a variety of queries.</span></span>  
+  
+     <span data-ttu-id="b6ae0-116">Weitere Informationen zum Erstellen berechneter Elemente in einer Sitzung mithilfe der CREATE MEMBER-Anweisung finden Sie unter [Erstellen berechneter Elemente im Bereich einer Abfrage &#40;MDX&#41;](mdx-calculated-members-session-scoped-calculated-members.md).</span><span class="sxs-lookup"><span data-stu-id="b6ae0-116">For more information about how to use the CREATE MEMBER statement to create calculated members in a session, see [Creating Session-Scoped Calculated Members &#40;MDX&#41;](mdx-calculated-members-session-scoped-calculated-members.md).</span></span>  
+  
+## <a name="see-also"></a><span data-ttu-id="b6ae0-117">Weitere Informationen</span><span class="sxs-lookup"><span data-stu-id="b6ae0-117">See Also</span></span>  
+ <span data-ttu-id="b6ae0-118">[Create Member-Anweisung &#40;MDX-&#41;](/sql/mdx/mdx-data-definition-create-member) </span><span class="sxs-lookup"><span data-stu-id="b6ae0-118">[CREATE MEMBER Statement &#40;MDX&#41;](/sql/mdx/mdx-data-definition-create-member) </span></span>  
+ <span data-ttu-id="b6ae0-119">[MDX-Funktionsreferenz &#40;MDX-&#41;](/sql/mdx/mdx-function-reference-mdx) </span><span class="sxs-lookup"><span data-stu-id="b6ae0-119">[MDX Function Reference &#40;MDX&#41;](/sql/mdx/mdx-function-reference-mdx) </span></span>  
+ [<span data-ttu-id="b6ae0-120">SELECT-Anweisung &#40;MDX&#41;</span><span class="sxs-lookup"><span data-stu-id="b6ae0-120">SELECT Statement &#40;MDX&#41;</span></span>](/sql/mdx/mdx-data-manipulation-select)  
+  
+  
