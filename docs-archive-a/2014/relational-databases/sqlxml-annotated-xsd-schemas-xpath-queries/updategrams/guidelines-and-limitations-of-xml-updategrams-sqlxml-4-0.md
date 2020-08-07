@@ -1,0 +1,57 @@
+---
+title: Richtlinien und Einschränkungen von XML-Update grams (SQLXML 4,0) | Microsoft-Dokumentation
+ms.custom: ''
+ms.date: 03/06/2017
+ms.prod: sql-server-2014
+ms.reviewer: ''
+ms.technology: xml
+ms.topic: reference
+helpviewer_keywords:
+- updategrams [SQLXML], about updategrams
+ms.assetid: b5231859-14e2-4276-bc17-db2817b6f235
+author: rothja
+ms.author: jroth
+ms.openlocfilehash: 6e01e366edc2889691862de639f69220ac4bb439
+ms.sourcegitcommit: ad4d92dce894592a259721a1571b1d8736abacdb
+ms.translationtype: MT
+ms.contentlocale: de-DE
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87700874"
+---
+# <a name="guidelines-and-limitations-of-xml-updategrams-sqlxml-40"></a><span data-ttu-id="68c7e-102">Richtlinien und Einschränkungen von XML-Updategrams (SQLXML 4.0)</span><span class="sxs-lookup"><span data-stu-id="68c7e-102">Guidelines and Limitations of XML Updategrams (SQLXML 4.0)</span></span>
+  <span data-ttu-id="68c7e-103">Wenn Sie XML-Updategrams verwenden, sind folgende Überlegungen zu berücksichtigen:</span><span class="sxs-lookup"><span data-stu-id="68c7e-103">Remember the following when using XML updategrams:</span></span>  
+  
+-   <span data-ttu-id="68c7e-104">Wenn Sie ein Update Gram für einen Einfügevorgang mit nur einem Paar von **\<before>** -und- **\<after>** Blöcken verwenden, **\<before>** kann der-Block ausgelassen werden.</span><span class="sxs-lookup"><span data-stu-id="68c7e-104">If you are using an updategram for an insert operation with only a single pair of **\<before>** and **\<after>** blocks, the **\<before>** block can be omitted.</span></span> <span data-ttu-id="68c7e-105">Umgekehrt kann der-Block im Falle eines Löschvorgangs **\<after>** ausgelassen werden.</span><span class="sxs-lookup"><span data-stu-id="68c7e-105">Conversely, in case of a delete operation, the **\<after>** block can be omitted.</span></span>  
+  
+-   <span data-ttu-id="68c7e-106">Wenn Sie ein Update Gram mit mehreren **\<before>** -und- **\<after>** Blöcken im- **\<sync>** Tag verwenden, müssen sowohl-Blöcke als auch- **\<before>** **\<after>** Blöcke angegeben werden, um **\<before>** -und-Paare zu bilden **\<after>** .</span><span class="sxs-lookup"><span data-stu-id="68c7e-106">If you are using an updategram with multiple **\<before>** and **\<after>** blocks in the **\<sync>** tag, both **\<before>** blocks and **\<after>** blocks must be specified to form **\<before>** and **\<after>** pairs.</span></span>  
+  
+-   <span data-ttu-id="68c7e-107">Die Updates in einem Updategram werden auf die XML-Sicht angewendet, die vom XML-Schema bereitgestellt wird.</span><span class="sxs-lookup"><span data-stu-id="68c7e-107">The updates in an updategram are applied to the XML view that is provided by the XML schema.</span></span> <span data-ttu-id="68c7e-108">Daher müssen Sie für eine erfolgreiche Standardzuordnung den Schemadateinamen im Updategram angeben. Falls der Dateiname nicht bereitgestellt wird, müssen die Element- und Attributnamen mit den Tabellen- und Spaltennamen in der Datenbank übereinstimmen.</span><span class="sxs-lookup"><span data-stu-id="68c7e-108">Therefore, for the default mapping to succeed either you must specify the schema file name in the updategram or, if the file name is not provided, the element and attribute names must match the table and column names in the database.</span></span>  
+  
+-   <span data-ttu-id="68c7e-109">SQLXML 4.0 setzt voraus, dass alle Spaltenwerte in einem Updategram ausdrücklich im bereitgestellten Schema (XDR oder XSD) zugeordnet werden, um die XML-Sicht für die untergeordneten Elemente zu erstellen.</span><span class="sxs-lookup"><span data-stu-id="68c7e-109">SQLXML 4.0 requires that all column values in an updategram must be explicitly mapped in the schema (either XDR or XSD) provided to compose the XML view for its child elements.</span></span> <span data-ttu-id="68c7e-110">Dieses Verhalten unterscheidet sich von früheren Versionen von SQLXML, die es zuließen, dass ein Wert für eine Spalte nicht im Schema zugeordnet war, wenn er als Teil eines Fremdschlüssels in einer `sql:relationship`-Anmerkung impliziert wurde.</span><span class="sxs-lookup"><span data-stu-id="68c7e-110">This behavior differs from earlier versions of SQLXML, which allowed a value for a column not mapped in the schema if it was implied as part of the foreign Key in a `sql:relationship` annotation.</span></span> <span data-ttu-id="68c7e-111">(Beachten Sie, dass sich diese Änderung nicht auf die Propagierung von Primärschlüsselwerten an untergeordnete Elemente auswirkt, was immer noch für SQLXML 4.0 gilt, wenn für das untergeordnete Element kein Wert ausdrücklich angegeben wird.)</span><span class="sxs-lookup"><span data-stu-id="68c7e-111">(Note that this change does not affect propagation of primary key values to child elements, which still occurs for SQLXML 4.0 if no value is explicitly specified for the child element.</span></span>  
+  
+-   <span data-ttu-id="68c7e-112">Wenn Sie ein Update Gram zum Ändern von Daten in einer binären Spalte (z. b. dem [!INCLUDE[ssNoVersion](../../../includes/ssnoversion-md.md)] `image` Datentyp) verwenden, müssen Sie ein Zuordnungsschema bereitstellen, in dem der Datentyp (z. b. [!INCLUDE[ssNoVersion](../../../includes/ssnoversion-md.md)] `sql:datatype="image"` ) und der XML-Datentyp (z. b. `dt:type="binhex"` oder `dt:type="binbase64` ) angegeben werden müssen.</span><span class="sxs-lookup"><span data-stu-id="68c7e-112">If you are using an updategram to modify data in a binary column (such as the [!INCLUDE[ssNoVersion](../../../includes/ssnoversion-md.md)] `image` data type), you must provide a mapping schema in which the [!INCLUDE[ssNoVersion](../../../includes/ssnoversion-md.md)] data type (for example, `sql:datatype="image"`) and the XML data type (for example, `dt:type="binhex"` or `dt:type="binbase64`) must be specified.</span></span> <span data-ttu-id="68c7e-113">Die Daten für die binäre Spalte müssen im Updategram angegeben werden. Die `sql:url-encode`-Anmerkung, die im Zuordnungsschema angegeben wird, wird vom Updategram ignoriert.</span><span class="sxs-lookup"><span data-stu-id="68c7e-113">The data for the binary column must be specified in the updategram; the `sql:url-encode` annotation that is specified in the mapping schema is ignored by the updategram.</span></span>  
+  
+-   <span data-ttu-id="68c7e-114">Wenn Sie ein XSD-Schema erstellen und der Wert, den Sie für die `sql:relation`- oder die `sql:field`-Anmerkung erstellen ein Sonderzeichen enthält, wie zum Beispiel ein Leerzeichen (etwa im Tabellennamen "Details Bestellung"), muss dieser Wert in Klammern eingeschlossen werden (beispielsweise, "[Details Bestellung]").</span><span class="sxs-lookup"><span data-stu-id="68c7e-114">When you are writing an XSD schema, if the value you specify for the `sql:relation` or `sql:field` annotation includes a special character, such as a space character (for example, in the "Order Details" table name), this value must be enclosed in brackets (for example, "[Order Details]").</span></span>  
+  
+-   <span data-ttu-id="68c7e-115">Wenn sie Updategrams verwenden, werden Kettenbeziehungen nicht unterstützt.</span><span class="sxs-lookup"><span data-stu-id="68c7e-115">When using updategrams, chain relationships are not supported.</span></span> <span data-ttu-id="68c7e-116">Wenn beispielsweise die Tabellen A und C über eine Kettenbeziehung miteinander verknüpft sind, die Tabelle B verwendet, tritt der folgende Fehler auf, wenn Sie versuchen, das Updategram auszuführen:</span><span class="sxs-lookup"><span data-stu-id="68c7e-116">For example, if tables A and C are related through a chain relationship that uses table B, the following error will occur when attempting to run and execute the updategram:</span></span>  
+  
+    ```  
+    There is an inconsistency in the schema provided.  
+    ```  
+  
+     <span data-ttu-id="68c7e-117">Auch wenn Schema und Updategram ansonsten korrekt und gültig sind, tritt dieser Fehler auf, wenn eine Kettenbeziehung vorhanden ist.</span><span class="sxs-lookup"><span data-stu-id="68c7e-117">Even if both schema and updategram are otherwise correct and validly formed, this error will occur if a chain relationship is present.</span></span>  
+  
+-   <span data-ttu-id="68c7e-118">Updategrams erlauben nicht das Weitergeben von Daten vom Typ `image` als Parameter während eines Updates.</span><span class="sxs-lookup"><span data-stu-id="68c7e-118">Updategrams do not permit the passing of `image` type data as parameters during updates.</span></span>  
+  
+-   <span data-ttu-id="68c7e-119">BLOB-Typen (Binary Large Object) wie `text/ntext` und-Bilder sollten beim Arbeiten mit Update grams nicht im-Block verwendet werden, da diese in der Parallelitäts **\<before>** Steuerung enthalten sind.</span><span class="sxs-lookup"><span data-stu-id="68c7e-119">Binary large object (BLOB) types like `text/ntext` and images should not be used in the **\<before>** block in when working with updategrams, because this will include them for use in concurrency control.</span></span> <span data-ttu-id="68c7e-120">Dies kann wegen der Einschränkungen auf Vergleich für BLOB-Typen Probleme mit [!INCLUDE[ssNoVersion](../../../includes/ssnoversion-md.md)] verursachen.</span><span class="sxs-lookup"><span data-stu-id="68c7e-120">This can cause problems with [!INCLUDE[ssNoVersion](../../../includes/ssnoversion-md.md)] because of the limitations on comparison for BLOB types.</span></span> <span data-ttu-id="68c7e-121">Das gilt zum Beispiel für das LIKE-Schlüsselwort in der WHERE-Klausel zwischen Spalten des `text`-Datentyps. Vergleiche schlagen allerdings für BLOB-Typen fehl, deren Datengröße 8 K übersteigt.</span><span class="sxs-lookup"><span data-stu-id="68c7e-121">For example, the LIKE keyword is used in the WHERE clause for comparing between columns of the `text` data type; however, comparisons will fail in the case of BLOB types where the size of the data is greater than 8K.</span></span>  
+  
+-   <span data-ttu-id="68c7e-122">Sonderzeichen in `ntext`-Daten können aufgrund der Einschränkungen beim Vergleich von BLOB-Typen Probleme mit SQLXML 4.0 verursachen.</span><span class="sxs-lookup"><span data-stu-id="68c7e-122">Special characters in `ntext` data can cause problems with SQLXML 4.0 because of the limitations on comparison for BLOB types.</span></span> <span data-ttu-id="68c7e-123">Beispielsweise schlägt die Verwendung von "[serialisierbar]" im **\<before>** Block eines Update grams bei Verwendung bei der Parallelitäts Prüfung einer Spalte vom `ntext` Typ mit der folgenden SQLOLEDB-Fehlerbeschreibung fehl:</span><span class="sxs-lookup"><span data-stu-id="68c7e-123">For example, the use of "[Serializable]" in the **\<before>** block of an updategrams when used in concurrency checking of a column of `ntext` type will fail with the following SQLOLEDB error description:</span></span>  
+  
+    ```  
+    Empty update, no updatable rows found   Transaction aborted  
+    ```  
+  
+## <a name="see-also"></a><span data-ttu-id="68c7e-124">Weitere Informationen</span><span class="sxs-lookup"><span data-stu-id="68c7e-124">See Also</span></span>  
+ [<span data-ttu-id="68c7e-125">Sicherheitsüberlegungen zu Update grams &#40;SQLXML 4,0&#41;</span><span class="sxs-lookup"><span data-stu-id="68c7e-125">Updategram Security Considerations &#40;SQLXML 4.0&#41;</span></span>](../security/updategram-security-considerations-sqlxml-4-0.md)  
+  
+  
