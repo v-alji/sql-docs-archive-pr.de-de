@@ -1,0 +1,61 @@
+---
+title: Administratoren (Master Data Services) | Microsoft-Dokumentation
+ms.custom: ''
+ms.date: 03/06/2017
+ms.prod: sql-server-2014
+ms.reviewer: ''
+ms.technology: master-data-services
+ms.topic: conceptual
+helpviewer_keywords:
+- administrators [Master Data Services], about administrators
+- administrators [Master Data Services]
+- models [Master Data Services], administrators
+ms.assetid: d330aa4e-6ade-4b09-b376-1b15d6c78f7d
+author: lrtoyou1223
+ms.author: lle
+ms.openlocfilehash: 52e16d4e77acc0a6b50b87e00184918cb9ce64b1
+ms.sourcegitcommit: ad4d92dce894592a259721a1571b1d8736abacdb
+ms.translationtype: MT
+ms.contentlocale: de-DE
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87718397"
+---
+# <a name="administrators-master-data-services"></a><span data-ttu-id="bb102-102">Administratoren (Master Data Services)</span><span class="sxs-lookup"><span data-stu-id="bb102-102">Administrators (Master Data Services)</span></span>
+  <span data-ttu-id="bb102-103">In [!INCLUDE[ssMDSshort](../includes/ssmdsshort-md.md)] gibt es zwei Arten von Administratoren: Modelladministratoren und den [!INCLUDE[ssMDSshort](../includes/ssmdsshort-md.md)]-Systemadministrator.</span><span class="sxs-lookup"><span data-stu-id="bb102-103">In [!INCLUDE[ssMDSshort](../includes/ssmdsshort-md.md)], there are two types of administrators: model administrators, and the [!INCLUDE[ssMDSshort](../includes/ssmdsshort-md.md)] system administrator.</span></span>  
+  
+## <a name="model-administrators"></a><span data-ttu-id="bb102-104">Modelladministratoren</span><span class="sxs-lookup"><span data-stu-id="bb102-104">Model Administrators</span></span>  
+ <span data-ttu-id="bb102-105">In [!INCLUDE[ssMDSshort](../includes/ssmdsshort-md.md)] ist ein Modell Administrator ein Benutzer, dem die Berechtigung **Aktualisieren** für das Modell Objekt der obersten Ebene auf der Registerkarte **Modell Objekte** und keine anderen zugewiesenen Berechtigungen zugewiesen ist.</span><span class="sxs-lookup"><span data-stu-id="bb102-105">In [!INCLUDE[ssMDSshort](../includes/ssmdsshort-md.md)], a model administrator is a user who has **Update** permission assigned to the top-level model object on the **Model Objects** tab and no other assigned permissions.</span></span>  
+  
+-   <span data-ttu-id="bb102-106">Wenn der Benutzer Zugriff auf den Funktionsbereich **Explorer** hat, kann er alle Masterdaten in diesem Bereich hinzufügen, löschen und aktualisieren.</span><span class="sxs-lookup"><span data-stu-id="bb102-106">If the user has access to the **Explorer** functional area, the user can add, delete, and update all master data in this area.</span></span>  
+  
+-   <span data-ttu-id="bb102-107">Wenn der Benutzer Zugriff auf andere Funktionsbereiche hat, kann der Benutzer alle im Funktionsbereich verfügbaren administrativen Tasks ausführen.</span><span class="sxs-lookup"><span data-stu-id="bb102-107">If the user has access to other functional areas, the user can perform all administrative tasks available in the functional area.</span></span>  
+  
+ <span data-ttu-id="bb102-108">Jedes Modell kann mehrere Administratoren aufweisen.</span><span class="sxs-lookup"><span data-stu-id="bb102-108">Each model can have multiple administrators.</span></span> <span data-ttu-id="bb102-109">Ein Benutzer kann als Modelladministrator für ein Modell, mehrere oder alle Modelle in der [!INCLUDE[ssMDSshort](../includes/ssmdsshort-md.md)] -Bereitstellung definiert sein.</span><span class="sxs-lookup"><span data-stu-id="bb102-109">Each user can be a model administrator for one, several, or all models in the [!INCLUDE[ssMDSshort](../includes/ssmdsshort-md.md)] deployment.</span></span>  
+  
+ <span data-ttu-id="bb102-110">Er wird entweder in [!INCLUDE[ssMDSmdm](../includes/ssmdsmdm-md.md)] oder programmgesteuert als Modelladministrator festgelegt.</span><span class="sxs-lookup"><span data-stu-id="bb102-110">A user can be configured as a model administrator either in [!INCLUDE[ssMDSmdm](../includes/ssmdsmdm-md.md)] or programmatically.</span></span> <span data-ttu-id="bb102-111">Weitere Informationen finden Sie unter [Erstellen eines Modelladministrators &#40;Master Data Services&#41;](create-a-model-administrator-master-data-services.md).</span><span class="sxs-lookup"><span data-stu-id="bb102-111">For more information, see [Create a Model Administrator &#40;Master Data Services&#41;](create-a-model-administrator-master-data-services.md).</span></span>  
+  
+## <a name="master-data-services-system-administrator"></a><span data-ttu-id="bb102-112">Master Data Services-Systemadministrator</span><span class="sxs-lookup"><span data-stu-id="bb102-112">Master Data Services System Administrator</span></span>  
+ <span data-ttu-id="bb102-113">Es gibt nur einen [!INCLUDE[ssMDSshort](../includes/ssmdsshort-md.md)]-Systemadministrator.</span><span class="sxs-lookup"><span data-stu-id="bb102-113">There is only one [!INCLUDE[ssMDSshort](../includes/ssmdsshort-md.md)] system administrator.</span></span> <span data-ttu-id="bb102-114">Der Systemadministrator ist der Benutzer, der beim Erstellen der Datenbank für das **Administrator Konto** angegeben wurde [!INCLUDE[ssMDSshort](../includes/ssmdsshort-md.md)] .</span><span class="sxs-lookup"><span data-stu-id="bb102-114">The system administrator is the user specified for the **Administrator Account** when you create the [!INCLUDE[ssMDSshort](../includes/ssmdsshort-md.md)] database.</span></span>  
+  
+ <span data-ttu-id="bb102-115">Der [!INCLUDE[ssMDSshort](../includes/ssmdsshort-md.md)]-Systemadministrator:</span><span class="sxs-lookup"><span data-stu-id="bb102-115">The [!INCLUDE[ssMDSshort](../includes/ssmdsshort-md.md)] system administrator:</span></span>  
+  
+-   <span data-ttu-id="bb102-116">Verfügt automatisch über Zugriff auf alle Funktionsbereiche.</span><span class="sxs-lookup"><span data-stu-id="bb102-116">Automatically has access to all functional areas.</span></span>  
+  
+-   <span data-ttu-id="bb102-117">Können alle Master Daten für alle Modelle im Funktionsbereich **Explorer** hinzufügen, löschen und aktualisieren.</span><span class="sxs-lookup"><span data-stu-id="bb102-117">Can add, delete, and update all master data for all models in the **Explorer** functional area.</span></span>  
+  
+ <span data-ttu-id="bb102-118">Sie können den Benutzer ändern, der als Systemadministrator festgelegt ist.</span><span class="sxs-lookup"><span data-stu-id="bb102-118">You can change the user who is assigned as the system administrator.</span></span> <span data-ttu-id="bb102-119">Weitere Informationen finden Sie unter [Ändern des System Administrator Kontos &#40;Master Data Services&#41;](../../2014/master-data-services/change-the-system-administrator-account-master-data-services.md).</span><span class="sxs-lookup"><span data-stu-id="bb102-119">For more information, see [Change the System Administrator Account &#40;Master Data Services&#41;](../../2014/master-data-services/change-the-system-administrator-account-master-data-services.md).</span></span>  
+  
+## <a name="comparing-administrator-types"></a><span data-ttu-id="bb102-120">Vergleichen von Administratortypen</span><span class="sxs-lookup"><span data-stu-id="bb102-120">Comparing Administrator Types</span></span>  
+  
+|<span data-ttu-id="bb102-121">Administratortyp</span><span class="sxs-lookup"><span data-stu-id="bb102-121">Administrator Type</span></span>|<span data-ttu-id="bb102-122">BESCHREIBUNG</span><span class="sxs-lookup"><span data-stu-id="bb102-122">Description</span></span>|  
+|------------------------|-----------------|  
+|[!INCLUDE[ssMDSshort](../includes/ssmdsshort-md.md)]<span data-ttu-id="bb102-123">-Systemadministrator</span><span class="sxs-lookup"><span data-stu-id="bb102-123">system administrator</span></span>|<span data-ttu-id="bb102-124">Im [!INCLUDE[ssMDSmdm](../includes/ssmdsmdm-md.md)] zugewiesene Berechtigungen wirken sich nicht auf den Zugriff des Administrators aus.</span><span class="sxs-lookup"><span data-stu-id="bb102-124">Permissions assigned in [!INCLUDE[ssMDSmdm](../includes/ssmdsmdm-md.md)] have no effect on the administrator's access.</span></span><br /><br /> <span data-ttu-id="bb102-125">Verfügt automatisch über die Berechtigung **Aktualisieren** für alle Modelle.</span><span class="sxs-lookup"><span data-stu-id="bb102-125">Automatically has **Update** permission to all models.</span></span><br /><br /> <span data-ttu-id="bb102-126">Verfügt automatisch über Zugriff auf alle Funktionsbereiche.</span><span class="sxs-lookup"><span data-stu-id="bb102-126">Automatically has access to all functional areas.</span></span><br /><br /> <span data-ttu-id="bb102-127">In MDM. tbluser lautet der Wert in der **ID** -Spalte **1**.</span><span class="sxs-lookup"><span data-stu-id="bb102-127">In mdm.tblUser, the value in the **ID** column is **1**.</span></span>|  
+|<span data-ttu-id="bb102-128">Modelladministrator</span><span class="sxs-lookup"><span data-stu-id="bb102-128">Model administrator</span></span>|<span data-ttu-id="bb102-129">In [!INCLUDE[ssMDSmdm](../includes/ssmdsmdm-md.md)] zugewiesene Berechtigungen bestimmen, ob der Benutzer Modelladministrator ist.</span><span class="sxs-lookup"><span data-stu-id="bb102-129">Permissions assigned in [!INCLUDE[ssMDSmdm](../includes/ssmdsmdm-md.md)] determine whether or not the user is a model administrator.</span></span><br /><br /> <span data-ttu-id="bb102-130">Kann je nach den Berechtigungen, die explizit zugewiesen oder von einer Gruppe geerbt wurden, Modelladministrator sein.</span><span class="sxs-lookup"><span data-stu-id="bb102-130">Can be a model administrator based on permissions assigned explicitly or permissions inherited from a group.</span></span><br /><br /> <span data-ttu-id="bb102-131">Ist nur ein Administrator für Modelle, die über die Berechtigung **Aktualisieren** für das Modell Objekt der obersten Ebene verfügen, und keine weiteren Berechtigungen.</span><span class="sxs-lookup"><span data-stu-id="bb102-131">Is an administrator only for models that have **Update** permission assigned to top-level model object, and no other permissions.</span></span><br /><br /> <span data-ttu-id="bb102-132">Verfügt nur über Zugriff auf Funktionsbereiche, für die ihm eine Berechtigung gewährt wurde.</span><span class="sxs-lookup"><span data-stu-id="bb102-132">Has access only to functional areas that access is granted to.</span></span><br /><br /> <span data-ttu-id="bb102-133">In MDM. tbluser lautet der Wert in der **ID** -Spalte nicht **1**.</span><span class="sxs-lookup"><span data-stu-id="bb102-133">In mdm.tblUser, the value in the **ID** column is not **1**.</span></span>|  
+  
+## <a name="see-also"></a><span data-ttu-id="bb102-134">Weitere Informationen</span><span class="sxs-lookup"><span data-stu-id="bb102-134">See Also</span></span>  
+ <span data-ttu-id="bb102-135">[Erstellen Sie einen Modell Administrator &#40;Master Data Services&#41;](create-a-model-administrator-master-data-services.md) </span><span class="sxs-lookup"><span data-stu-id="bb102-135">[Create a Model Administrator &#40;Master Data Services&#41;](create-a-model-administrator-master-data-services.md) </span></span>  
+ <span data-ttu-id="bb102-136">[Ändern Sie das System Administrator Konto &#40;Master Data Services&#41;](../../2014/master-data-services/change-the-system-administrator-account-master-data-services.md) </span><span class="sxs-lookup"><span data-stu-id="bb102-136">[Change the System Administrator Account &#40;Master Data Services&#41;](../../2014/master-data-services/change-the-system-administrator-account-master-data-services.md) </span></span>  
+ <span data-ttu-id="bb102-137">[Erstellen einer Master Data Services Datenbank](install-windows/create-a-master-data-services-database.md) </span><span class="sxs-lookup"><span data-stu-id="bb102-137">[Create a Master Data Services Database](install-windows/create-a-master-data-services-database.md) </span></span>  
+ [<span data-ttu-id="bb102-138">Benachrichtigungen &#40;Master Data Services&#41;</span><span class="sxs-lookup"><span data-stu-id="bb102-138">Notifications &#40;Master Data Services&#41;</span></span>](../../2014/master-data-services/notifications-master-data-services.md)  
+  
+  
